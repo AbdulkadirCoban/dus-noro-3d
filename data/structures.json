@@ -1,0 +1,5903 @@
+{
+ "cats": [
+  {
+   "id": "bones",
+   "name": "Kafa kemikleri"
+  },
+  {
+   "id": "foramina",
+   "name": "Kafa tabanı delikleri ve boşluklar"
+  },
+  {
+   "id": "cn",
+   "name": "Kraniyal sinirler (CN I–XII)"
+  },
+  {
+   "id": "vbr",
+   "name": "Trigeminal dalları (V1, V2, V3)"
+  },
+  {
+   "id": "cn2",
+   "name": "VII, IX ve X dalları"
+  },
+  {
+   "id": "ganglia",
+   "name": "Gangliyonlar"
+  },
+  {
+   "id": "ica",
+   "name": "ICA ve Willis poligonu"
+  },
+  {
+   "id": "vb",
+   "name": "Vertebrobaziler sistem"
+  },
+  {
+   "id": "eca",
+   "name": "A. carotis externa ve dalları"
+  },
+  {
+   "id": "max",
+   "name": "A. maxillaris dalları"
+  },
+  {
+   "id": "sin",
+   "name": "Dural sinüsler ve venler"
+  },
+  {
+   "id": "blocks",
+   "name": "DUS: diş blokları"
+  },
+  {
+   "id": "teeth",
+   "name": "Dişler (FDI)"
+  },
+  {
+   "id": "mastication",
+   "name": "Çiğneme kasları"
+  },
+  {
+   "id": "oralfloor",
+   "name": "Ağız tabanı ve dil kasları"
+  },
+  {
+   "id": "perioral",
+   "name": "Perioral kaslar"
+  },
+  {
+   "id": "tmj",
+   "name": "Temporomandibular eklem"
+  },
+  {
+   "id": "attach",
+   "name": "Kas yapışmaları (origo ve insersiyo)"
+  },
+  {
+   "id": "ctx",
+   "name": "Dura ve beyin sapı"
+  }
+ ],
+ "items": [
+  {
+   "id": "b_sphenoid",
+   "name": "Os sphenoidale",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Kafa tabanının ortasında, os frontale, ethmoidale, temporale ve occipitale arasında kama gibi durur.",
+    "Corpus (sella turcica, sinus sphenoidalis), ala minor, ala major ve processus pterygoideus bölümlerinden oluşur."
+   ],
+   "through": [
+    "f_optic",
+    "f_sof",
+    "f_rotundum",
+    "f_ovale",
+    "f_spinosum",
+    "f_pterygoid"
+   ],
+   "spot": [
+    "DUS kuralı: rotundum, ovale ve spinosum ala major üzerindedir; canalis opticus ala minordadır.",
+    "Sıralama önden arkaya ve içten dışa: rotundum → ovale → spinosum."
+   ],
+   "clinic": [
+    "Sella turcica hipofizi taşır; hipofiz adenomu chiasma opticum basısıyla bitemporal hemianopsi yapar.",
+    "Sinus sphenoidalis transsfenoidal hipofiz cerrahisinin yoludur."
+   ],
+   "rel": [
+    "f_ovale",
+    "f_rotundum",
+    "v_cavernous"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_temporal",
+   "name": "Os temporale (pars petrosa dahil)",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Pars squamosa, tympanica, mastoidea ve pars petrosa bölümlerinden oluşur.",
+    "Pars petrosa, fossa cranii media ile posterior arasında piramit biçiminde uzanır."
+   ],
+   "through": [
+    "f_carotid",
+    "f_iac",
+    "f_stylomastoid",
+    "n_vii",
+    "a_ica"
+   ],
+   "spot": [
+    "Pars petrosa içinde canalis caroticus, meatus acusticus internus ve canalis facialis bulunur.",
+    "Hiatus canalis facialis n. petrosus major için, ön yüzeydeki küçük yarık n. petrosus minor içindir."
+   ],
+   "clinic": [
+    "Petröz kemik kırığında fasiyal paralizi ve sensörinöral işitme kaybı görülebilir.",
+    "Gradenigo sendromu: petröz apeks enfeksiyonunda CN VI felci, retroorbital ağrı ve otore."
+   ],
+   "rel": [
+    "f_iac",
+    "f_carotid",
+    "n_vii"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_occipital",
+   "name": "Os occipitale",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Fossa cranii posteriorun arka ve alt duvarını yapar; foramen magnum bu kemiktedir.",
+    "Pars basilaris (clivus), partes laterales (condylus occipitalis) ve squama occipitalis bölümleri vardır."
+   ],
+   "through": [
+    "f_magnum",
+    "f_hypoglossal",
+    "f_jugular"
+   ],
+   "spot": [
+    "Canalis hypoglossi condylus occipitalisin üzerindedir.",
+    "Foramen jugulare os temporale ile os occipitale arasında kalır."
+   ],
+   "clinic": [
+    "Tonsiller herniasyonda serebellar tonsiller foramen magnuma sıkışır ve medullayı basar."
+   ],
+   "rel": [
+    "f_magnum",
+    "f_hypoglossal",
+    "v_sigmoid"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_frontal",
+   "name": "Os frontale",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Alın, orbita tavanı ve fossa cranii anteriorun büyük bölümünü yapar."
+   ],
+   "through": [
+    "n_frontal"
+   ],
+   "spot": [
+    "Foramen/incisura supraorbitalis n. supraorbitalis geçer."
+   ],
+   "clinic": [
+    "Sinus frontalis enfeksiyonu Pott puffy tümörüne yol açabilir."
+   ],
+   "rel": [
+    "b_ethmoid",
+    "n_frontal"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_ethmoid",
+   "name": "Os ethmoidale",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Fossa cranii anteriorun ortasında yer alır; lamina cribrosa, crista galli, lamina perpendicularis ve labyrinthus ethmoidalis içerir."
+   ],
+   "through": [
+    "f_cribriform",
+    "n_i"
+   ],
+   "spot": [
+    "Lamina cribrosa delikleri fila olfactoria geçirir."
+   ],
+   "clinic": [
+    "Lamina cribrosa kırığı anosmi ve BOS rinoresi yapar."
+   ],
+   "rel": [
+    "f_cribriform",
+    "n_i",
+    "b_frontal"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_parietal",
+   "name": "Os parietale",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Kalvaryanın üst ve yan duvarını yapar."
+   ],
+   "spot": [
+    "İç yüzünde a. meningea media olukları bulunur."
+   ],
+   "clinic": [
+    "Pterion bölgesi kırığı epidural hematom açısından önemlidir."
+   ],
+   "rel": [
+    "a_mma",
+    "v_sss"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_maxilla",
+   "name": "Maxilla",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Üst çene, sert damağın ön bölümü, orbita tabanı ve burun lateral duvarına katılır."
+   ],
+   "through": [
+    "f_infraorbital",
+    "f_incisive",
+    "n_infraorbital"
+   ],
+   "spot": [
+    "Tuber maxillae arkasındaki foramina alveolaria posteriora PSA dallarını geçirir.",
+    "Foramen infraorbitale, margo infraorbitalisin yaklaşık 1 cm altında ve pupilla hizasına yakındır."
+   ],
+   "clinic": [
+    "Le Fort kırıklarında orta yüz yapıları ve infraorbital sinir etkilenebilir."
+   ],
+   "rel": [
+    "f_infraorbital",
+    "n_psa",
+    "f_incisive"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_palatine",
+   "name": "Os palatinum",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Sert damağın arka bölümünü ve burun lateral duvarının arka kısmını yapar."
+   ],
+   "through": [
+    "f_gpf",
+    "f_lpf",
+    "f_sphenopalatine"
+   ],
+   "spot": [
+    "Foramen palatinum majus, genellikle üçüncü molar hizasında sert damağın arka-yan köşesindedir."
+   ],
+   "clinic": [
+    "Greater palatine blok hedefi bu bölgedir."
+   ],
+   "rel": [
+    "f_gpf",
+    "f_lpf",
+    "n_gpn"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_mandible",
+   "name": "Mandibula",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Corpus ve ramustan oluşur; ramus medial yüzünde lingula ve foramen mandibulae bulunur.",
+    "Canalis mandibulae foramen mandibulaeden foramen mentaleye uzanır."
+   ],
+   "through": [
+    "f_mandibular",
+    "f_mental",
+    "n_ian"
+   ],
+   "spot": [
+    "Lingula, lig. sphenomandibulare tutunma yeridir ve IANB için ana kemik işaretidir.",
+    "Foramen mentale genellikle premolarların apeksi hizasındadır."
+   ],
+   "clinic": [
+    "Mandibula korpus kırığında IAN etkilenince alt dudak ve çene ucunda his kaybı olur."
+   ],
+   "rel": [
+    "f_mandibular",
+    "f_mental",
+    "n_ian"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_zygomatic",
+   "name": "Os zygomaticum",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Elmacık çıkıntısı ve orbitanın lateral duvarına katılır."
+   ],
+   "spot": [
+    "N. zygomaticus dalları bu kemikten yüze çıkar."
+   ],
+   "clinic": [
+    "Zigoma kırığı infraorbital sinir hipoestezisi yapabilir."
+   ],
+   "rel": [
+    "b_maxilla",
+    "f_iof"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_nasal",
+   "name": "Os nasale",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Burun kökünü yapan çift kemik."
+   ],
+   "spot": [
+    "Burun sırtının kemik kısmını oluşturur."
+   ],
+   "clinic": [
+    "Yüz kemikleri arasında en sık kırılan kemiktir."
+   ],
+   "rel": [
+    "b_maxilla",
+    "b_frontal"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_lacrimal",
+   "name": "Os lacrimale",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Orbitanın medial duvarındaki ince kemik; fossa sacci lacrimalisi yapar."
+   ],
+   "spot": [
+    "Orbitanın en küçük kemiklerindendir."
+   ],
+   "clinic": [
+    "Dakriyosistorinostomi bu bölgede yapılır."
+   ],
+   "rel": [
+    "b_ethmoid",
+    "b_maxilla"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_concha",
+   "name": "Concha nasalis inferior",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Burun lateral duvarına tutunan bağımsız kemik."
+   ],
+   "spot": [
+    "Meatus nasi inferior ductus nasolacrimalisin açıldığı yerdir."
+   ],
+   "clinic": [
+    "Konka hipertrofisi burun tıkanıklığı yapar."
+   ],
+   "rel": [
+    "b_maxilla",
+    "b_palatine"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_vomer",
+   "name": "Vomer",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Burun septumunun arka-alt kemik bölümünü yapar."
+   ],
+   "spot": [
+    "N. nasopalatinus septum üzerinde vomer boyunca öne iner."
+   ],
+   "clinic": [
+    "Septum deviasyonunda vomer de etkilenebilir."
+   ],
+   "rel": [
+    "n_nasopalatine",
+    "b_ethmoid"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_atlas",
+   "name": "Atlas (C1)",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Corpusu olmayan birinci servikal omurdur; kafa tabanını taşır."
+   ],
+   "through": [
+    "a_vertebral"
+   ],
+   "spot": [
+    "A. vertebralis atlasın arka arkının üstündeki olukta seyreder ve foramen magnuma girer."
+   ],
+   "clinic": [
+    "Jefferson kırığı C1 halkasının patlama kırığıdır."
+   ],
+   "rel": [
+    "a_vertebral",
+    "f_magnum"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_axis",
+   "name": "Axis (C2)",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Dens axis atlasın ön arkına eklem yapar."
+   ],
+   "spot": [
+    "Baş dönme hareketinin büyük bölümü atlantoaksiyel eklemdedir."
+   ],
+   "clinic": [
+    "Hangman kırığı C2 pars interarticularis kırığıdır."
+   ],
+   "rel": [
+    "b_atlas"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "b_hyoid",
+   "name": "Os hyoideum",
+   "cat": "bones",
+   "layer": "bone",
+   "route": [
+    "Boyunda C3 hizasında asılı durur; başka kemikle eklem yapmaz."
+   ],
+   "spot": [
+    "A. lingualis cornu majus hizasında çıkar; ACE dallarına yol göstericidir."
+   ],
+   "clinic": [
+    "Boğulma olgularında kırılabilir."
+   ],
+   "rel": [
+    "a_lingual",
+    "n_xii"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_cribriform",
+   "name": "Lamina cribrosa",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa cranii anterior → cavitas nasi.",
+    "Os ethmoidale üzerinde crista gallinin iki yanındadır."
+   ],
+   "through": [
+    "n_i",
+    "N. ethmoidalis anterior"
+   ],
+   "spot": [
+    "Fila olfactoria burada geçer; bulbus olfactorius lamina üzerindedir."
+   ],
+   "clinic": [
+    "Kırıkta anosmi ve BOS rinoresi görülür."
+   ],
+   "rel": [
+    "n_i",
+    "b_ethmoid"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_optic",
+   "name": "Canalis opticus",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa cranii media → orbita apeksi.",
+    "Ala minor iki kökü arasında yer alır."
+   ],
+   "through": [
+    "n_ii",
+    "a_ophthalmic"
+   ],
+   "spot": [
+    "Delikten sinir ve arter birlikte geçer; a. ophthalmica sinirin altında ve lateralindedir."
+   ],
+   "clinic": [
+    "Kırıkta görme kaybı olur; orbita apeks sendromunda CN II de tutulur."
+   ],
+   "rel": [
+    "n_ii",
+    "a_ophthalmic",
+    "f_sof"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_sof",
+   "name": "Fissura orbitalis superior",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa cranii media → orbita.",
+    "Ala minor ve ala major arasındadır."
+   ],
+   "through": [
+    "n_iii",
+    "n_iv",
+    "n_vi",
+    "n_frontal",
+    "n_lacrimal",
+    "n_nasociliary",
+    "v_sov"
+   ],
+   "spot": [
+    "Anulus tendineus dışından: n. lacrimalis, n. frontalis, n. trochlearis geçer.",
+    "Anulus içinden: CN III üst ve alt dalı, n. nasociliaris, CN VI geçer."
+   ],
+   "clinic": [
+    "Fissura orbitalis superior sendromu: oftalmopleji, ptozis, alın ve kornea hissinde azalma. Görme korunur.",
+    "Görme de etkilenirse orbita apeks sendromu düşünülür."
+   ],
+   "rel": [
+    "n_iii",
+    "n_vi",
+    "v_sov"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_iof",
+   "name": "Fissura orbitalis inferior",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Orbita tabanı ile lateral duvar arasında; arkada fossa pterygopalatina ve infratemporal fossa ile bağlantılıdır."
+   ],
+   "through": [
+    "n_infraorbital",
+    "a_infraorbital",
+    "N. zygomaticus",
+    "v_iov"
+   ],
+   "spot": [
+    "N. maxillaris orbitaya bu yarıktan girince n. infraorbitalis adını alır."
+   ],
+   "clinic": [
+    "Orbita tabanı kırıklarında n. infraorbitalis etkilenebilir."
+   ],
+   "rel": [
+    "n_infraorbital",
+    "f_ppf",
+    "v_iov"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_rotundum",
+   "name": "Foramen rotundum",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa cranii media → fossa pterygopalatina.",
+    "Ala major kökünde, önden arkaya uzanan kısa bir kanaldır."
+   ],
+   "through": [
+    "n_v2"
+   ],
+   "spot": [
+    "Tek önemli içeriği V2’dir.",
+    "Üç “ala major deliği” içinde en öndeki ve en mediyaldeki rotundumdur."
+   ],
+   "clinic": [
+    "Kafa tabanı tümör yayılımında V2 alanında his kaybı yapabilir."
+   ],
+   "rel": [
+    "n_v2",
+    "f_ppf",
+    "f_ovale"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_ovale",
+   "name": "Foramen ovale",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa cranii media → fossa infratemporalis.",
+    "Ala major üzerinde, rotundumun arka-yanında durur."
+   ],
+   "through": [
+    "n_v3",
+    "a_accmeningeal",
+    "n_lsp",
+    "Emissary ven"
+   ],
+   "spot": [
+    "Hatırlatma OVALE: Otik ganglion (hemen altında), V3, Accessory meningeal, Lesser petrosal, Emissary ven.",
+    "V3’ün hem motor hem duyu kökü buradan geçer."
+   ],
+   "clinic": [
+    "Trigeminal nevraljide perkütan girişim bu delikten yapılır.",
+    "V3 lezyonunda çene lezyon tarafına kayar."
+   ],
+   "rel": [
+    "n_v3",
+    "g_otic",
+    "f_spinosum"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_spinosum",
+   "name": "Foramen spinosum",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa infratemporalis → fossa cranii media.",
+    "Ovalenin arka-yanındadır, spina ossis sphenoidalis yakınında bulunur."
+   ],
+   "through": [
+    "a_mma",
+    "V. meningea media",
+    "N. spinosus (V3 meningeal dalı)"
+   ],
+   "spot": [
+    "A. meningea media buradan girer; bu klasik DUS eşleştirmesidir.",
+    "Bu modelin indirgenmiş kemiğinde delik mesh olarak açık görünmeyebilir; işaretçi arterin geçtiği yerdedir."
+   ],
+   "clinic": [
+    "A. meningea media yırtığında epidural hematom oluşur; biyokonveks görünüm ve lusid aralık beklenir."
+   ],
+   "rel": [
+    "a_mma",
+    "f_ovale",
+    "b_temporal"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_lacerum",
+   "name": "Foramen lacerum",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Sfenoid, petröz apeks ve oksipitalin birleştiği bölgede.",
+    "Canlıda alt ağzı fibrokartilajla kapalıdır."
+   ],
+   "through": [
+    "a_ica (içinden değil, üzerinden geçer)",
+    "n_gsp",
+    "N. petrosus profundus"
+   ],
+   "spot": [
+    "Tuzak: ICA foramen lacerumdan geçmez; canalis caroticustan çıkıp üzerinden seyreder.",
+    "N. petrosus major + n. petrosus profundus burada birleşip n. canalis pterygoidei olur."
+   ],
+   "clinic": [
+    "Nazofarenks kanseri bu bölgeden kafa içine yayılabilir."
+   ],
+   "rel": [
+    "a_ica",
+    "n_gsp",
+    "n_vidian"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_carotid",
+   "name": "Canalis caroticus",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Pars petrosa alt yüzünde başlar, ön-içe döner ve petröz apekste açılır."
+   ],
+   "through": [
+    "a_ica",
+    "Sempatik pleksus"
+   ],
+   "spot": [
+    "ICA’nın petröz segmenti bu kanaldadır; sempatik lifler arteri sararak kafa içine girer."
+   ],
+   "clinic": [
+    "Karotis diseksiyonunda parsiyel Horner tablosu görülebilir."
+   ],
+   "rel": [
+    "a_ica",
+    "f_lacerum",
+    "f_jugular"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_iac",
+   "name": "Meatus acusticus internus",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa cranii posterior → pars petrosa içi."
+   ],
+   "through": [
+    "n_vii",
+    "n_viii",
+    "a_labyrinthi"
+   ],
+   "spot": [
+    "CN VII, CN VIII ve a. labyrinthi birlikte geçer.",
+    "CN VII kanal içinde ön-üst kadrandadır."
+   ],
+   "clinic": [
+    "Vestibüler schwannomda (serebellopontin köşe) işitme kaybı, tinnitus ve denge bozukluğu erken; fasiyal tutulum geç olur."
+   ],
+   "rel": [
+    "n_vii",
+    "n_viii",
+    "a_labyrinthi"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_jugular",
+   "name": "Foramen jugulare",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa cranii posterior → boyun.",
+    "Os temporale ve os occipitale arasındadır."
+   ],
+   "through": [
+    "n_ix",
+    "n_x",
+    "n_xi",
+    "v_ijv",
+    "v_ips",
+    "v_sigmoid"
+   ],
+   "spot": [
+    "Sinus sigmoideus burada v. jugularis internaya dönüşür; sinus petrosus inferior da buraya drene olur.",
+    "CN XII bu delikten geçmez; canalis hypoglossiden geçer."
+   ],
+   "clinic": [
+    "Vernet sendromu: IX, X ve XI tutulumu (disfaji, ses kısıklığı, damak düşüklüğü, omuz güçsüzlüğü).",
+    "Glomus jugulare bu bölgenin tipik tümörüdür."
+   ],
+   "rel": [
+    "n_ix",
+    "n_x",
+    "v_ijv"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_hypoglossal",
+   "name": "Canalis hypoglossi",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa cranii posterior → boyun; condylus occipitalisin üzerinde."
+   ],
+   "through": [
+    "n_xii"
+   ],
+   "spot": [
+    "Tek önemli içeriği CN XII’dir."
+   ],
+   "clinic": [
+    "Lezyonda dil çıkarılırken lezyon tarafına sapar ve aynı tarafta atrofi olur."
+   ],
+   "rel": [
+    "n_xii",
+    "f_magnum",
+    "b_occipital"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_magnum",
+   "name": "Foramen magnum",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa cranii posterior → canalis vertebralis."
+   ],
+   "through": [
+    "c_medulla",
+    "a_vertebral",
+    "a_antspinal",
+    "n_xi (spinal kök)"
+   ],
+   "spot": [
+    "CN XI spinal kökü foramen magnumdan yukarı çıkar, foramen jugulareden kafatasını terk eder.",
+    "A. vertebralis içeri girer, CN XII buradan geçmez."
+   ],
+   "clinic": [
+    "Tonsiller herniasyonda solunum merkezi basısı ölümcül olabilir."
+   ],
+   "rel": [
+    "a_vertebral",
+    "n_xi",
+    "c_medulla"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_stylomastoid",
+   "name": "Foramen stylomastoideum",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Canalis facialis sonu; proc. styloideus ile proc. mastoideus arasında."
+   ],
+   "through": [
+    "n_vii",
+    "A. stylomastoidea"
+   ],
+   "spot": [
+    "CN VII’nin motor lifleri buradan çıkar, parotis içinde pes anserinus yapar."
+   ],
+   "clinic": [
+    "Bu seviyedeki lezyonda (ör. Bell felci, parotis tümörü) yalnız mimik kas felci olur; tat ve gözyaşı korunur."
+   ],
+   "rel": [
+    "n_vii",
+    "b_temporal",
+    "n_chorda"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_pterygoid",
+   "name": "Canalis pterygoideus (Vidian)",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Foramen lacerum bölgesi → fossa pterygopalatina; proc. pterygoideus kökünde."
+   ],
+   "through": [
+    "n_vidian"
+   ],
+   "spot": [
+    "N. canalis pterygoidei = n. petrosus major (parasempatik) + n. petrosus profundus (sempatik)."
+   ],
+   "clinic": [
+    "Vidian nörektomi inatçı vazomotor rinitte uygulanmıştır."
+   ],
+   "rel": [
+    "n_vidian",
+    "f_ppf",
+    "f_lacerum"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_sphenopalatine",
+   "name": "Foramen sphenopalatinum",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Fossa pterygopalatina → cavitas nasi; konka media arkasına yakın."
+   ],
+   "through": [
+    "a_sphenopalatine",
+    "n_nasopalatine"
+   ],
+   "spot": [
+    "Arka epistaksisin ana damarı buradan girer."
+   ],
+   "clinic": [
+    "Dirençli arka burun kanamasında a. sphenopalatina ligasyonu yapılabilir."
+   ],
+   "rel": [
+    "a_sphenopalatine",
+    "n_nasopalatine",
+    "f_ppf"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_ppf",
+   "name": "Fossa pterygopalatina",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Maxilla arkası, proc. pterygoideus önü ve os palatinum lateralinde küçük piramidal boşluk."
+   ],
+   "through": [
+    "n_v2",
+    "g_pterygopalatine",
+    "a_maxillary",
+    "a_sphenopalatine",
+    "a_descpalatine"
+   ],
+   "spot": [
+    "Bağlantıları: foramen rotundum (kafa içi), canalis pterygoideus, foramen sphenopalatinum (burun), fissura orbitalis inferior (orbita), fissura pterygomaxillaris (infratemporal fossa), canalis palatinus major (ağız), canalis palatovaginalis (farenks).",
+    "İçeriği: V2, ganglion pterygopalatinum ve a. maxillarisin 3. bölümü."
+   ],
+   "clinic": [
+    "Maksiller sinir bloğu bu boşluğa yapılır; nazofarenks anjiyofibromu tipik olarak buraya yayılır."
+   ],
+   "rel": [
+    "g_pterygopalatine",
+    "n_v2",
+    "a_maxillary"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_incisive",
+   "name": "Foramen incisivum",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Sert damakta orta hatta, papilla incisiva altında; santral kesicilerin arkasında."
+   ],
+   "through": [
+    "n_nasopalatine",
+    "Septal a. dalları"
+   ],
+   "spot": [
+    "Nazopalatin blok hedefidir."
+   ],
+   "clinic": [
+    "Nazopalatin kanal kisti en sık gelişimsel odontojenik olmayan kisttir; orta hatta kalp biçiminde radyolüsens yapar."
+   ],
+   "rel": [
+    "n_nasopalatine",
+    "blk_nasopalatine",
+    "b_maxilla"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_gpf",
+   "name": "Foramen palatinum majus",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Sert damağın arka-yan köşesinde, genellikle üçüncü molar hizasında."
+   ],
+   "through": [
+    "n_gpn",
+    "a_descpalatine"
+   ],
+   "spot": [
+    "N. palatinus major ve a. palatina major sert damağa buradan çıkar."
+   ],
+   "clinic": [
+    "Damak flebi ve greft alımında a. palatina major yaralanabilir."
+   ],
+   "rel": [
+    "n_gpn",
+    "f_lpf",
+    "a_descpalatine"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_lpf",
+   "name": "Foramen palatinum minus",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Foramen palatinum majusun arkasında, os palatinum proc. pyramidalisinde."
+   ],
+   "through": [
+    "N. palatinus minor",
+    "A. palatina minor"
+   ],
+   "spot": [
+    "Yumuşak damak mukozasının duyusunu sağlar."
+   ],
+   "clinic": [
+    "Yumuşak damak duyusu için önemlidir."
+   ],
+   "rel": [
+    "f_gpf",
+    "b_palatine"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_infraorbital",
+   "name": "Foramen infraorbitale",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Canalis infraorbitalisin yüze açıldığı yer; margo infraorbitalisin yaklaşık 1 cm altında."
+   ],
+   "through": [
+    "n_infraorbital",
+    "a_infraorbital"
+   ],
+   "spot": [
+    "Infraorbital blok hedefidir."
+   ],
+   "clinic": [
+    "Orbita tabanı kırığında yanak, alt göz kapağı, burun yanı ve üst dudakta uyuşma olur."
+   ],
+   "rel": [
+    "n_infraorbital",
+    "a_infraorbital",
+    "blk_infraorbital"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_mental",
+   "name": "Foramen mentale",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Mandibula korpusunun dış yüzünde, çoğunlukla premolar apeksleri hizasında."
+   ],
+   "through": [
+    "n_mental",
+    "A. mentalis"
+   ],
+   "spot": [
+    "Radyografide premolar apeksiyle karışabilir; periapikal lezyon sanılmamalıdır."
+   ],
+   "clinic": [
+    "Dişsiz atrofik mandibulada foramen krete yaklaşır; protez basısı ağrı yapabilir."
+   ],
+   "rel": [
+    "n_mental",
+    "n_ian",
+    "b_mandible"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "f_mandibular",
+   "name": "Foramen mandibulae",
+   "cat": "foramina",
+   "layer": "foramen",
+   "route": [
+    "Ramus medial yüzünde, lingula arkasında; canalis mandibulaenin başlangıcı."
+   ],
+   "through": [
+    "n_ian",
+    "a_ial",
+    "V. alveolaris inferior"
+   ],
+   "spot": [
+    "IANB’de anestezik lingula hemen üstüne bırakılır.",
+    "N. mylohyoideus deliğe girmeden hemen önce IAN’dan ayrılır."
+   ],
+   "clinic": [
+    "Anatomik varyasyon ve aksesuar innervasyon IANB başarısızlığı nedeni olabilir."
+   ],
+   "rel": [
+    "n_ian",
+    "n_mylohyoid",
+    "blk_ianb"
+   ],
+   "ref": "Moore Clinically Oriented Anatomy, Baş bölümü; Gray's Anatomy, Kafa tabanı; Netter Atlas, Baş-boyun."
+  },
+  {
+   "id": "n_i",
+   "name": "CN I – N. olfactorius",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Burun mukozası → lamina cribrosa → bulbus olfactorius → tractus olfactorius."
+   ],
+   "through": [
+    "f_cribriform"
+   ],
+   "spot": [
+    "Yalnız duyusaldır (koku); talamusa uğramadan kortekse ulaşan tek duyudur."
+   ],
+   "clinic": [
+    "Kafa travmasında lamina cribrosa etkilenirse anosmi olur.",
+    "Foster Kennedy: olfaktör oluk meningiomunda anosmi, ipsilateral optik atrofi, kontralateral papilödem."
+   ],
+   "rel": [
+    "f_cribriform",
+    "b_ethmoid",
+    "n_ii"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_ii",
+   "name": "CN II – N. opticus",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Retina → canalis opticus → chiasma opticum → tractus opticus."
+   ],
+   "through": [
+    "f_optic"
+   ],
+   "spot": [
+    "Yalnız duyusaldır (görme); merkezî sinir sistemi uzantısıdır, meninkslerle örtülüdür.",
+    "Işık refleksinin afferent koludur (efferent CN III)."
+   ],
+   "clinic": [
+    "Tek taraflı körlük: sinir lezyonu; RAPD (Marcus Gunn) görülür."
+   ],
+   "rel": [
+    "f_optic",
+    "a_ophthalmic",
+    "n_chiasm"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_chiasm",
+   "name": "Chiasma opticum",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "İki optik sinirin hipofiz sapı önünde birleştiği yer; nazal lifler çaprazlaşır."
+   ],
+   "through": [
+    "n_ii"
+   ],
+   "spot": [
+    "Nazal retina (temporal alan) lifleri çaprazlar."
+   ],
+   "clinic": [
+    "Hipofiz adenomu: bitemporal hemianopsi. AComA anevrizması da chiasmaya bası yapabilir."
+   ],
+   "rel": [
+    "n_ii",
+    "a_acom",
+    "a_ica"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_iii",
+   "name": "CN III – N. oculomotorius",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Mezensefalon (fossa interpeduncularis) → a. cerebri posterior ile a. cerebellaris superior arasından → sinus cavernosus lateral duvarı → fissura orbitalis superior (anulus içinden)."
+   ],
+   "through": [
+    "f_sof",
+    "v_cavernous"
+   ],
+   "branches": [
+    "Üst dal: m. rectus superior, m. levator palpebrae superioris",
+    "Alt dal: m. rectus medialis, m. rectus inferior, m. obliquus inferior",
+    "Parasempatik: g_ciliary → m. sphincter pupillae, m. ciliaris"
+   ],
+   "spot": [
+    "Parasempatik lifler sinirin yüzeyindedir, dıştan basıda önce pupilla etkilenir."
+   ],
+   "clinic": [
+    "Felçte göz “aşağı-dışarı”, ptozis ve midriyazis olur.",
+    "PComA anevrizması: pupilla tutan CN III felci. Diyabet: genellikle pupilla korunur.",
+    "Weber sendromu: ipsilateral CN III + kontralateral hemiparezi."
+   ],
+   "rel": [
+    "a_pcom",
+    "f_sof",
+    "g_ciliary"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_iv",
+   "name": "CN IV – N. trochlearis",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Mezensefalon arka yüzü (arkadan çıkan tek sinir) → beyin sapını dolanır → sinus cavernosus lateral duvarı → fissura orbitalis superior (anulus dışından)."
+   ],
+   "through": [
+    "f_sof",
+    "v_cavernous"
+   ],
+   "branches": [
+    "M. obliquus superior"
+   ],
+   "spot": [
+    "En ince ve en uzun intrakraniyal seyirli sinirdir; çekirdekten sonra tam çaprazlaşan tek sinirdir."
+   ],
+   "clinic": [
+    "Felçte merdiven inerken dikey diplopi olur; hasta başını sağlam tarafa eğer."
+   ],
+   "rel": [
+    "f_sof",
+    "n_iii",
+    "v_cavernous"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_v",
+   "name": "CN V – N. trigeminus (kök)",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Pons ön-yan yüzü → cavum trigeminale (Meckel) → g_trigeminal → V1, V2, V3."
+   ],
+   "through": [
+    "g_trigeminal"
+   ],
+   "branches": [
+    "n_v1",
+    "n_v2",
+    "n_v3"
+   ],
+   "spot": [
+    "Motor kök V3’e katılır; çiğneme kaslarını, m. mylohyoideus, m. digastricus venter anterior, m. tensor tympani ve tensor veli palatiniyi innerve eder.",
+    "Kornea refleksi afferenti V1, efferenti CN VII’dir."
+   ],
+   "clinic": [
+    "Trigeminal nevralji: genellikle V2–V3 alanında şimşek tarzı ağrı; a. cerebellaris superior basısı sık neden kabul edilir."
+   ],
+   "rel": [
+    "g_trigeminal",
+    "a_sca",
+    "n_v3"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "g_trigeminal",
+   "name": "Ganglion trigeminale (Gasser)",
+   "cat": "ganglia",
+   "layer": "ganglion",
+   "route": [
+    "Pars petrosa apeksinde, cavum trigeminale (Meckel mağarası) içinde."
+   ],
+   "branches": [
+    "n_v1",
+    "n_v2",
+    "n_v3"
+   ],
+   "pre": "Parasempatik değildir; duyusal gangliondur. Sinaps yapmaz.",
+   "post": "Merkeze giden lifler pons içindeki trigeminal çekirdeklere ulaşır.",
+   "path": "V1, V2 ve V3 duyu nöronlarının hücre gövdelerini taşır.",
+   "spot": [
+    "Spinal gangliyon eşdeğeridir.",
+    "Motor kök ganglionun altından geçer, onunla sinaps yapmaz."
+   ],
+   "clinic": [
+    "Herpes zoster burada latent kalabilir; V1 tutulumunda burun ucu lezyonu (Hutchinson) göz tutulumu için uyarıdır."
+   ],
+   "rel": [
+    "n_v",
+    "n_v1",
+    "v_cavernous"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_vi",
+   "name": "CN VI – N. abducens",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Ponto-medüller oluk → clivus boyunca Dorello kanalı → sinus cavernosus içinde ICA lateralinde → fissura orbitalis superior (anulus içinden)."
+   ],
+   "through": [
+    "f_sof",
+    "v_cavernous"
+   ],
+   "branches": [
+    "M. rectus lateralis"
+   ],
+   "spot": [
+    "Sinus cavernosusta dural duvarda değil, sinüs içinde serbest seyreder."
+   ],
+   "clinic": [
+    "Kavernöz sinüs trombozunda ve ICA anevrizmasında ilk etkilenen sinir olması beklenir.",
+    "KİBAS’ta yalancı lokalize bulgu olarak felç olabilir: göz içe kayar, horizontal diplopi."
+   ],
+   "rel": [
+    "v_cavernous",
+    "a_ica",
+    "f_sof"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_vii",
+   "name": "CN VII – N. facialis",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Ponto-medüller oluk → meatus acusticus internus → canalis facialis → g_geniculate → foramen stylomastoideum → parotis içinde dallar."
+   ],
+   "through": [
+    "f_iac",
+    "f_stylomastoid"
+   ],
+   "branches": [
+    "n_gsp",
+    "N. stapedius",
+    "n_chorda",
+    "N. auricularis posterior",
+    "Temporal, zigomatik, bukkal, marjinal mandibular ve servikal dallar"
+   ],
+   "spot": [
+    "Mimik kasları, m. stapedius, m. stylohyoideus ve m. digastricus venter posterior motorudur.",
+    "Sıra: GSP (genikulat) → stapedius → chorda tympani → stilomastoid.",
+    "Parasempatik: lakrimal, burun-damak, submandibular ve sublingual bezler. Parotis CN VII değil CN IX’tan parasempatik alır."
+   ],
+   "clinic": [
+    "Periferik felç (Bell): alın dahil tüm yarım yüz. Santral: alın korunur.",
+    "Lezyon yeri: GSP üstünde kuru göz, stapedius üstünde hiperakuzi, chorda üstünde tat kaybı.",
+    "Ramsay Hunt: geniculate ganglion zosteri."
+   ],
+   "rel": [
+    "f_iac",
+    "f_stylomastoid",
+    "n_chorda"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "g_geniculate",
+   "name": "Ganglion geniculi",
+   "cat": "ganglia",
+   "layer": "ganglion",
+   "route": [
+    "Canalis facialisin dizini; pars petrosa içinde."
+   ],
+   "branches": [
+    "n_gsp"
+   ],
+   "pre": "Parasempatik değildir; duyusal gangliondur.",
+   "post": "Ön 2/3 dil tadının nöron gövdeleri buradadır.",
+   "path": "Tat lifleri chorda tympani ile gelir, nervus intermedius ile tractus solitarius çekirdeğine gider.",
+   "spot": [
+    "N. petrosus major buradan çıkar ama burada sinaps yapmaz."
+   ],
+   "clinic": [
+    "Ramsay Hunt sendromu: kulakta vezikül, fasiyal felç, işitme ve denge bulguları."
+   ],
+   "rel": [
+    "n_vii",
+    "n_gsp",
+    "f_iac"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_viii",
+   "name": "CN VIII – N. vestibulocochlearis",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Ponto-medüller oluk → meatus acusticus internus → iç kulak."
+   ],
+   "through": [
+    "f_iac"
+   ],
+   "branches": [
+    "N. cochlearis",
+    "N. vestibularis"
+   ],
+   "spot": [
+    "Yalnız duyusaldır; işitme ve denge. CN VII’nin hemen altında ve arkasındadır."
+   ],
+   "clinic": [
+    "Vestibüler schwannom: sensörinöral işitme kaybı, tinnitus, vertigo; ileride kornea refleksi kaybı."
+   ],
+   "rel": [
+    "f_iac",
+    "n_vii",
+    "a_labyrinthi"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_ix",
+   "name": "CN IX – N. glossopharyngeus",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Medulla (olivanın arkası) → foramen jugulare → ICA ile IJV arasından iner → m. stylopharyngeus yanından dil köküne."
+   ],
+   "through": [
+    "f_jugular"
+   ],
+   "branches": [
+    "N. tympanicus (Jacobson) → n_lsp",
+    "Sinus caroticus dalı (Hering)",
+    "M. stylopharyngeus dalı",
+    "Dil arka 1/3 dalları"
+   ],
+   "spot": [
+    "Motor olarak yalnız m. stylopharyngeusu besler.",
+    "Dil arka 1/3 tat ve genel duyu; parotis parasempatiği; öğürme refleksi afferenti."
+   ],
+   "clinic": [
+    "Lezyonda ipsilateral öğürme refleksi kaybı ve dil arka 1/3 tat kaybı.",
+    "Glossofaringeal nevralji: boğaz-kulak ağrısı."
+   ],
+   "rel": [
+    "f_jugular",
+    "n_x",
+    "g_otic"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_x",
+   "name": "CN X – N. vagus",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Medulla → foramen jugulare → karotis kılıfı içinde (ICA/CCA ile IJV arasında, arkada) iner → toraks."
+   ],
+   "through": [
+    "f_jugular"
+   ],
+   "branches": [
+    "Faringeal dal",
+    "n_sln",
+    "n_rln",
+    "Kardiyak dallar",
+    "N. auricularis (Arnold)"
+   ],
+   "spot": [
+    "Yumuşak damak ve farenks kaslarının çoğu; larenks kaslarının tamamını innerve eder (m. tensor veli palatini ve m. stylopharyngeus hariç)."
+   ],
+   "clinic": [
+    "Lezyonda uvula sağlam tarafa sapar; yutma güçlüğü ve ses kısıklığı olur."
+   ],
+   "rel": [
+    "f_jugular",
+    "n_rln",
+    "a_cca"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_sln",
+   "name": "N. laryngeus superior",
+   "cat": "cn2",
+   "layer": "nerve",
+   "route": [
+    "CN X’tan boyunda ayrılır → ICA medialinden iner → iç ve dış dallara ayrılır."
+   ],
+   "branches": [
+    "İç dal: membrana thyrohyoidea → glottis üstü duyu",
+    "Dış dal: a. thyroidea superior ile → m. cricothyroideus"
+   ],
+   "spot": [
+    "İç dal + öksürük refleksi afferenti; dış dal m. cricothyroideusu besler."
+   ],
+   "clinic": [
+    "Dış dal hasarı tiroidektomide olur, tiz ses çıkarma güçlüğü yapar."
+   ],
+   "rel": [
+    "n_x",
+    "a_supthyroid",
+    "n_rln"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_rln",
+   "name": "N. laryngeus recurrens",
+   "cat": "cn2",
+   "layer": "nerve",
+   "route": [
+    "Sağda a. subclavianın altından, solda arcus aortanın altından döner → trakeoözofageal oluk → larenks."
+   ],
+   "branches": [
+    "M. cricothyroideus dışındaki tüm larenks kasları",
+    "Glottis altı duyu"
+   ],
+   "spot": [
+    "Solda arcus aorta (lig. arteriosum) seviyesinde daha uzun seyirlidir.",
+    "Sol RLN geometrisi şematiktir; toraks modele dahil değildir."
+   ],
+   "clinic": [
+    "Tiroid cerrahisinde a. thyroidea inferior yakınında hasarlanır; ses kısıklığı. Çift taraflı hasar havayolu tıkanıklığı yapabilir.",
+    "Ortner: sol atrium/aort genişlemesiyle sol RLN basısı."
+   ],
+   "rel": [
+    "n_x",
+    "a_subclavian",
+    "n_sln"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_xi",
+   "name": "CN XI – N. accessorius",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "C1–C5 spinal kökleri foramen magnumdan yukarı → foramen jugulare → m. sternocleidomastoideus ve m. trapezius."
+   ],
+   "through": [
+    "f_magnum",
+    "f_jugular"
+   ],
+   "branches": [
+    "M. sternocleidomastoideus",
+    "M. trapezius"
+   ],
+   "spot": [
+    "Kafatasına girip çıkan kraniyal sinirdir."
+   ],
+   "clinic": [
+    "Lezyonda başı karşıya çevirme zayıflığı ve omuz düşüklüğü. Boyun diseksiyonu ve lenf nodu biyopsisinde arka üçgende risk altındadır."
+   ],
+   "rel": [
+    "f_jugular",
+    "f_magnum",
+    "n_x"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_xii",
+   "name": "CN XII – N. hypoglossus",
+   "cat": "cn",
+   "layer": "nerve",
+   "route": [
+    "Medulla (pyramis-oliva arası) → canalis hypoglossi → ICA/IJV arasından iner → ACE dallarını çaprazlar → dil."
+   ],
+   "through": [
+    "f_hypoglossal"
+   ],
+   "branches": [
+    "Dilin iç kasları, m. genioglossus, m. hyoglossus, m. styloglossus (m. palatoglossus hariç)"
+   ],
+   "spot": [
+    "M. palatoglossus CN X’tan beslenir.",
+    "A. lingualis m. hyoglossusun derininden, CN XII yüzeyinden geçer."
+   ],
+   "clinic": [
+    "Dil lezyon tarafına sapar (m. genioglossus zayıf kaldığı için)."
+   ],
+   "rel": [
+    "f_hypoglossal",
+    "a_lingual",
+    "b_hyoid"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Kraniyal sinirler; Netter Atlas, Kraniyal sinirler."
+  },
+  {
+   "id": "n_v1",
+   "name": "V1 – N. ophthalmicus",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Ganglion trigeminale → sinus cavernosus lateral duvarı → fissura orbitalis superior → orbitada üç dal."
+   ],
+   "through": [
+    "v_cavernous",
+    "f_sof"
+   ],
+   "branches": [
+    "n_frontal",
+    "n_lacrimal",
+    "n_nasociliary"
+   ],
+   "spot": [
+    "Yalnız duyusaldır. Alın, üst göz kapağı, kornea, burun sırtı.",
+    "Kornea refleksi afferentidir."
+   ],
+   "clinic": [
+    "Zona oftalmikus; Hutchinson işareti (burun ucu) nazosiliyer tutulumu ve göz riskini gösterir."
+   ],
+   "rel": [
+    "n_nasociliary",
+    "n_frontal",
+    "f_sof"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_frontal",
+   "name": "N. frontalis",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Orbita tavanında m. levator palpebrae superiorisin üzerinde öne gider.",
+    "Anulus tendineus dışından geçer."
+   ],
+   "branches": [
+    "N. supraorbitalis",
+    "N. supratrochlearis"
+   ],
+   "spot": [
+    "V1’in en büyük dalıdır. Alın ve üst göz kapağı duyusu."
+   ],
+   "clinic": [
+    "Supraorbital sinir bloğu alın cerrahisinde kullanılır."
+   ],
+   "rel": [
+    "n_v1",
+    "f_sof",
+    "b_frontal"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_lacrimal",
+   "name": "N. lacrimalis",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Orbita lateralinde, m. rectus lateralis üst kenarı boyunca bezi yönelir; anulus dışından geçer."
+   ],
+   "branches": [
+    "Lakrimal bez ve üst göz kapağı lateral dalları"
+   ],
+   "spot": [
+    "Parasempatik gözyaşı lifleri n. zygomaticus üzerinden ona katılır (ganglion pterygopalatinum kaynaklı)."
+   ],
+   "clinic": [
+    "Gözyaşı azalmasında lezyon GSP seviyesindedir."
+   ],
+   "rel": [
+    "n_v1",
+    "g_pterygopalatine",
+    "f_sof"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_nasociliary",
+   "name": "N. nasociliaris",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Anulus içinden orbitaya girer → optik siniri çaprazlar → medial duvara gider."
+   ],
+   "branches": [
+    "Ramus communicans (ganglion ciliare)",
+    "Nn. ciliares longi",
+    "N. ethmoidalis posterior ve anterior",
+    "N. infratrochlearis"
+   ],
+   "spot": [
+    "Kornea duyusunun ana yoludur (nn. ciliares longi).",
+    "Ön etmoid dalı n. nasalis externus ile burun ucuna ulaşır."
+   ],
+   "clinic": [
+    "Hutchinson işareti: burun ucu zona lezyonu nazosiliyer tutulum gösterir."
+   ],
+   "rel": [
+    "n_v1",
+    "g_ciliary",
+    "n_ii"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_v2",
+   "name": "V2 – N. maxillaris",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Ganglion trigeminale → sinus cavernosus lateral duvarı → foramen rotundum → fossa pterygopalatina → fissura orbitalis inferior → n. infraorbitalis."
+   ],
+   "through": [
+    "f_rotundum",
+    "f_ppf",
+    "f_iof"
+   ],
+   "branches": [
+    "n_infraorbital",
+    "N. zygomaticus",
+    "n_psa",
+    "Ganglionik dallar (g_pterygopalatine)",
+    "n_gpn",
+    "n_nasopalatine"
+   ],
+   "spot": [
+    "Yalnız duyusaldır.",
+    "PSA fossa pterygopalatinada ayrılır; MSA ve ASA infraorbital kanal içinde ayrılır."
+   ],
+   "clinic": [
+    "Üst çene dişleri, sinüs ve orta yüz duyusu. Maksiller sinir bloğu tek taraflı tüm bu alanı uyuşturur."
+   ],
+   "rel": [
+    "f_rotundum",
+    "f_ppf",
+    "n_infraorbital"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_infraorbital",
+   "name": "N. infraorbitalis",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Fissura orbitalis inferior → sulcus ve canalis infraorbitalis → foramen infraorbitale → yüz."
+   ],
+   "through": [
+    "f_iof",
+    "f_infraorbital"
+   ],
+   "branches": [
+    "N. alveolaris superior medius (MSA, yaygın ama her zaman yok)",
+    "N. alveolaris superior anterior (ASA)",
+    "Palpebral, nazal ve labial dallar"
+   ],
+   "spot": [
+    "ASA kanini ve kesicileri, MSA premolarları ve çoğu kişide birinci molar mesiobukkal kökünü besler."
+   ],
+   "clinic": [
+    "Orbita tabanı kırığında yanak ve üst dudak uyuşur, ön üst dişlerde his azalabilir."
+   ],
+   "rel": [
+    "f_infraorbital",
+    "a_infraorbital",
+    "blk_infraorbital"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_psa",
+   "name": "N. alveolaris superior posterior (PSA)",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Fossa pterygopalatina → fissura pterygomaxillaris → tuber maxillae arkası → foramina alveolaria posteriora."
+   ],
+   "branches": [
+    "Üst molarlar (birinci molar MB kökü değişkendir)",
+    "Yanak dişeti dalı"
+   ],
+   "spot": [
+    "Sinir yolu modelde aynı adlı arterin yolu izlenerek çizilmiştir (şematik)."
+   ],
+   "clinic": [
+    "PSA bloğunda en sık komplikasyon pleksus pterygoideus yaralanmasına bağlı hematomdur."
+   ],
+   "rel": [
+    "a_psa",
+    "v_ptplexus",
+    "blk_psa"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_nasopalatine",
+   "name": "N. nasopalatinus",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Ganglion pterygopalatinum üzerinden → foramen sphenopalatinum → septum boyunca öne-aşağı → canalis incisivus → foramen incisivum."
+   ],
+   "through": [
+    "f_sphenopalatine",
+    "f_incisive"
+   ],
+   "branches": [
+    "Septum mukozası",
+    "Sert damak ön bölgesi (kanin–kanin palatali)"
+   ],
+   "spot": [
+    "N. palatinus major ile premolar bölgede anastomoz yapar.",
+    "Nazal bölümü Z-Anatomy eğrisi, uçları şematiktir."
+   ],
+   "clinic": [
+    "Nazopalatin blok en ağrılı intraoral bloklardandır."
+   ],
+   "rel": [
+    "f_incisive",
+    "f_sphenopalatine",
+    "blk_nasopalatine"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_gpn",
+   "name": "N. palatinus major",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Fossa pterygopalatina → canalis palatinus major → foramen palatinum majus → sert damak."
+   ],
+   "through": [
+    "f_gpf"
+   ],
+   "branches": [
+    "Molar ve premolar bölge palatal mukoza"
+   ],
+   "spot": [
+    "Yol şematiktir. Molar-premolar palatal dişeti ve sert damak mukozası duyusu."
+   ],
+   "clinic": [
+    "Damak bloklarında ve palatal greftte önemlidir."
+   ],
+   "rel": [
+    "f_gpf",
+    "a_descpalatine",
+    "n_nasopalatine"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_v3",
+   "name": "V3 – N. mandibularis",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "Ganglion trigeminale → foramen ovale → fossa infratemporalis → ön ve arka gövde."
+   ],
+   "through": [
+    "f_ovale"
+   ],
+   "branches": [
+    "N. spinosus, n. pterygoideus medialis (gövde)",
+    "Ön gövde: n_buccal, masseterik ve derin temporal dallar",
+    "Arka gövde: n_auriculotemporal, n_lingual, n_ian"
+   ],
+   "spot": [
+    "Trigeminalin tek karışık dalıdır (motor + duyu).",
+    "Ön gövde çoğunlukla motor (duyusal dal: bukkal); arka gövde çoğunlukla duyusal (motor dal: mylohyoid)."
+   ],
+   "clinic": [
+    "V3 lezyonunda çene ağız açarken lezyon tarafına kayar, çiğneme zayıflar."
+   ],
+   "rel": [
+    "f_ovale",
+    "g_otic",
+    "n_lingual"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_buccal",
+   "name": "N. buccalis",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "V3 ön gövdesi → m. pterygoideus lateralis iki başı arasından → m. buccinator yüzeyi."
+   ],
+   "branches": [
+    "Yanak derisi ve mukozası",
+    "Molar bölge bukkal dişeti"
+   ],
+   "spot": [
+    "Duyusaldır; m. buccinatoru motor olarak beslemez (motor CN VII)."
+   ],
+   "clinic": [
+    "IANB bukkal dişetini uyuşturmaz; alt molar çekimlerinde ayrı bukkal blok gerekir."
+   ],
+   "rel": [
+    "n_v3",
+    "a_buccal",
+    "blk_ianb"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_auriculotemporal",
+   "name": "N. auriculotemporalis",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "V3 arka gövdesi → iki kökü a. meningea mediayı sarar → mandibula boynunun arkasından → parotis içinden → şakak."
+   ],
+   "branches": [
+    "Kulak önü ve şakak derisi",
+    "TME eklem kapsülü",
+    "Parotis için postganglioner parasempatik lifler (g_otic)"
+   ],
+   "spot": [
+    "Otik ganglion lifleri bu sinirle parotise ulaşır.",
+    "Z-Anatomy’de bu yol “meningeal branch of maxillary nerve” adıyla tutuluyor; seyri nedeniyle n. auriculotemporalis olarak işaretlendi."
+   ],
+   "clinic": [
+    "Frey sendromu: parotis cerrahisi sonrası lif yanlış yenilenir, yemekte yanakta terleme ve kızarma olur."
+   ],
+   "rel": [
+    "a_mma",
+    "g_otic",
+    "a_sta"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_lingual",
+   "name": "N. lingualis",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "V3 arka gövdesi → m. pterygoideus lateralis altında chorda tympani katılır → m. pterygoideus medialis ile ramus arasından → üçüncü molar lingual kortikali yanından → ağız tabanı → dil."
+   ],
+   "branches": [
+    "Dil ön 2/3 genel duyu",
+    "Ağız tabanı ve lingual dişeti",
+    "Ganglion submandibulare bağlantısı"
+   ],
+   "spot": [
+    "Chorda tympani tat ve parasempatik liflerini taşır.",
+    "Üçüncü molar lingualinde kemiğe çok yakın seyreder."
+   ],
+   "clinic": [
+    "Üçüncü molar cerrahisinde yaralanırsa dil ön 2/3 uyuşur ve tat kaybı olur.",
+    "IANB sırasında iğne temasıyla elektrik çarpması hissi verebilir."
+   ],
+   "rel": [
+    "n_chorda",
+    "g_submandibular",
+    "n_ian"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_ian",
+   "name": "N. alveolaris inferior (IAN)",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "V3 arka gövdesi → m. pterygoideus lateralis altından → lig. sphenomandibulare ile ramus arasından → foramen mandibulae → canalis mandibulae."
+   ],
+   "through": [
+    "f_mandibular",
+    "f_mental"
+   ],
+   "branches": [
+    "n_mylohyoid",
+    "Alt dişler",
+    "n_mental",
+    "N. incisivus"
+   ],
+   "spot": [
+    "Foramen mentale hizasında n. mentalis ve n. incisivus olarak ikiye ayrılır."
+   ],
+   "clinic": [
+    "Üçüncü molar köklerine yakınlık ve kırık hasarında alt dudak-çene ucu uyuşur."
+   ],
+   "rel": [
+    "f_mandibular",
+    "n_lingual",
+    "blk_ianb"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_mental",
+   "name": "N. mentalis",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "IAN’ın terminal dalı → foramen mentale → çene ucu ve alt dudak."
+   ],
+   "through": [
+    "f_mental"
+   ],
+   "branches": [
+    "Çene ucu derisi",
+    "Alt dudak derisi ve mukozası",
+    "Premolar önü bukkal dişeti"
+   ],
+   "spot": [
+    "Mental blokla bu bölge ve (n. incisivus etkilenirse) ön dişler uyuşur."
+   ],
+   "clinic": [
+    "Numb chin sendromu metastaz yönünden uyarıcıdır."
+   ],
+   "rel": [
+    "f_mental",
+    "n_ian",
+    "b_mandible"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_mylohyoid",
+   "name": "N. mylohyoideus",
+   "cat": "vbr",
+   "layer": "nerve",
+   "route": [
+    "IAN’dan foramen mandibulae önünde ayrılır → sulcus mylohyoideus → m. mylohyoideus."
+   ],
+   "branches": [
+    "M. mylohyoideus",
+    "M. digastricus venter anterior"
+   ],
+   "spot": [
+    "V3 arka gövdesinin tek motor dalıdır.",
+    "Aksesuar duyusal lifler alt dişlere katılabilir, bu da IANB başarısızlığı açıklamalarından biridir."
+   ],
+   "clinic": [
+    "İnatçı alt molar ağrısında lingual ek infiltrasyon gerekebilir."
+   ],
+   "rel": [
+    "n_ian",
+    "f_mandibular",
+    "b_hyoid"
+   ],
+   "ref": "Moore COA, Trigeminal sinir ve infratemporal fossa; Netter Atlas, N. maxillaris/mandibularis."
+  },
+  {
+   "id": "n_gsp",
+   "name": "N. petrosus major (GSP)",
+   "cat": "cn2",
+   "layer": "nerve",
+   "route": [
+    "Ganglion geniculi → hiatus canalis facialis → pars petrosa ön yüzü → foramen lacerum → n. canalis pterygoidei."
+   ],
+   "branches": [
+    "n_vidian"
+   ],
+   "spot": [
+    "Preganglioner parasempatik liflerdir, sinaps ganglion pterygopalatinumdadır.",
+    "Gözyaşı, burun ve damak bezlerine gider. Modeldeki yol şematiktir."
+   ],
+   "clinic": [
+    "Geniculate ganglion üstü fasiyal lezyonda kuru göz olur."
+   ],
+   "rel": [
+    "g_geniculate",
+    "n_vidian",
+    "g_pterygopalatine"
+   ],
+   "ref": "Moore COA ve Gray's Anatomy, Baş-boyun otonom gangliyonları; Netter Atlas, Otonom sinirler."
+  },
+  {
+   "id": "n_vidian",
+   "name": "N. canalis pterygoidei (Vidian)",
+   "cat": "cn2",
+   "layer": "nerve",
+   "route": [
+    "Foramen lacerum üstü → canalis pterygoideus → ganglion pterygopalatinum."
+   ],
+   "through": [
+    "f_pterygoid"
+   ],
+   "branches": [
+    "Ganglion pterygopalatinuma lifler"
+   ],
+   "spot": [
+    "Parasempatik (GSP) ve sempatik (n. petrosus profundus) birliktedir; yalnız parasempatikler sinaps yapar.",
+    "Modeldeki yol şematiktir."
+   ],
+   "clinic": [
+    "Kesisi burun akıntısını ve gözyaşını azaltır."
+   ],
+   "rel": [
+    "n_gsp",
+    "f_pterygoid",
+    "g_pterygopalatine"
+   ],
+   "ref": "Moore COA ve Gray's Anatomy, Baş-boyun otonom gangliyonları; Netter Atlas, Otonom sinirler."
+  },
+  {
+   "id": "n_lsp",
+   "name": "N. petrosus minor",
+   "cat": "cn2",
+   "layer": "nerve",
+   "route": [
+    "CN IX → n. tympanicus → pleksus tympanicus → pars petrosa ön yüzü → foramen ovale (veya komşu küçük delik) → ganglion oticum."
+   ],
+   "through": [
+    "f_ovale"
+   ],
+   "branches": [
+    "g_otic"
+   ],
+   "spot": [
+    "Preganglioner lifler alt salivator çekirdekten gelir; parotis yolu CN IX üzerindendir.",
+    "Modeldeki yol şematiktir."
+   ],
+   "clinic": [
+    "Frey sendromu bu yolun postganglioner dönemiyle ilişkilidir."
+   ],
+   "rel": [
+    "n_ix",
+    "g_otic",
+    "f_ovale"
+   ],
+   "ref": "Moore COA ve Gray's Anatomy, Baş-boyun otonom gangliyonları; Netter Atlas, Otonom sinirler."
+  },
+  {
+   "id": "n_chorda",
+   "name": "Chorda tympani",
+   "cat": "cn2",
+   "layer": "nerve",
+   "route": [
+    "CN VII stilomastoid delikten hemen önce ayrılır → orta kulakta manubrium mallei ile incus arasından geçer → fissura petrotympanica → n. lingualis."
+   ],
+   "branches": [
+    "Dil ön 2/3 tat",
+    "Submandibular ve sublingual bez parasempatiği"
+   ],
+   "spot": [
+    "Orta kulak boşluğundan geçen sinir olarak klasik sorudur.",
+    "Ganglion submandibularede sinaps yapar.",
+    "Ara bölümü şematik birleştirilmiştir."
+   ],
+   "clinic": [
+    "Otitis media ve orta kulak cerrahisinde etkilenebilir: tat bozukluğu ve ağız kuruluğu."
+   ],
+   "rel": [
+    "n_lingual",
+    "n_vii",
+    "g_submandibular"
+   ],
+   "ref": "Moore COA ve Gray's Anatomy, Baş-boyun otonom gangliyonları; Netter Atlas, Otonom sinirler."
+  },
+  {
+   "id": "g_ciliary",
+   "name": "Ganglion ciliare",
+   "cat": "ganglia",
+   "layer": "ganglion",
+   "route": [
+    "Orbita apeksinde, n. opticus ile m. rectus lateralis arasında."
+   ],
+   "pre": "Nucleus Edinger-Westphal → CN III alt dalı (m. obliquus inferior dalı).",
+   "post": "Nn. ciliares breves → m. sphincter pupillae ve m. ciliaris.",
+   "path": "CN III → ganglion (sinaps) → kısa siliyer sinirler → göz. Nazosiliyer duyu lifleri ve ICA sempatik lifleri sinaps yapmadan geçer.",
+   "spot": [
+    "Üç kökü: parasempatik (CN III), duyusal (nazosiliyer), sempatik (ICA pleksusu).",
+    "Pupilla daralması ve akomodasyondan sorumludur."
+   ],
+   "clinic": [
+    "Adie tonik pupillası bu gangliyon hasarına bağlanır."
+   ],
+   "rel": [
+    "n_iii",
+    "n_nasociliary",
+    "n_ii"
+   ],
+   "ref": "Moore COA ve Gray's Anatomy, Baş-boyun otonom gangliyonları; Netter Atlas, Otonom sinirler."
+  },
+  {
+   "id": "g_pterygopalatine",
+   "name": "Ganglion pterygopalatinum",
+   "cat": "ganglia",
+   "layer": "ganglion",
+   "route": [
+    "Fossa pterygopalatinada, V2’nin hemen altında, foramen sphenopalatinum lateralinde."
+   ],
+   "pre": "Nucleus salivatorius superior → CN VII (n. intermedius) → n. petrosus major → n. canalis pterygoidei.",
+   "post": "Lakrimal bez; burun, damak ve nazofarenks bezleri.",
+   "path": "Lakrimal yol: ganglion → n. zygomaticus (V2) → n. lacrimalis (V1) → bez. Burun-damak yolu: V2 palatin ve nazal dalları.",
+   "spot": [
+    "“Saman nezlesi gangliyonu” olarak da anılır.",
+    "Sinaps yapan yalnız parasempatik liflerdir."
+   ],
+   "clinic": [
+    "Sfenopalatin gangliyon bloğu küme baş ağrısında uygulanır. Timsah gözyaşında yanlış yenilenme olur."
+   ],
+   "rel": [
+    "n_gsp",
+    "n_v2",
+    "f_ppf"
+   ],
+   "ref": "Moore COA ve Gray's Anatomy, Baş-boyun otonom gangliyonları; Netter Atlas, Otonom sinirler."
+  },
+  {
+   "id": "g_otic",
+   "name": "Ganglion oticum",
+   "cat": "ganglia",
+   "layer": "ganglion",
+   "route": [
+    "Foramen ovalenin hemen altında, V3’ün medialinde; m. tensor veli palatini ile V3 arasında."
+   ],
+   "pre": "Nucleus salivatorius inferior → CN IX → n. tympanicus → pleksus tympanicus → n. petrosus minor.",
+   "post": "N. auriculotemporalis ile glandula parotidea.",
+   "path": "CN IX → foramen ovale çevresi → ganglion (sinaps) → n. auriculotemporalis → parotis.",
+   "spot": [
+    "Parotis parasempatiği CN IX’tur; CN VII parotis içinden geçer ama bezi innerve etmez."
+   ],
+   "clinic": [
+    "Frey sendromu: postganglioner liflerin ter bezlerine yanlış yenilenmesi."
+   ],
+   "rel": [
+    "n_lsp",
+    "n_auriculotemporal",
+    "f_ovale"
+   ],
+   "ref": "Moore COA ve Gray's Anatomy, Baş-boyun otonom gangliyonları; Netter Atlas, Otonom sinirler."
+  },
+  {
+   "id": "g_submandibular",
+   "name": "Ganglion submandibulare",
+   "cat": "ganglia",
+   "layer": "ganglion",
+   "route": [
+    "M. hyoglossus yüzeyinde, n. lingualise asılı biçimde, submandibular bezin derin bölümü üzerinde."
+   ],
+   "pre": "Nucleus salivatorius superior → CN VII → chorda tympani → n. lingualis.",
+   "post": "Glandula submandibularis ve glandula sublingualis; dil küçük bezleri.",
+   "path": "Chorda tympani → n. lingualis → ganglion (sinaps) → doğrudan bez dalları ve n. lingualis.",
+   "spot": [
+    "Tükürüğün büyük bölümünü sağlayan submandibular bez CN VII’den parasempatik alır."
+   ],
+   "clinic": [
+    "Chorda veya n. lingualis hasarında tükürük azalması ve tat kaybı birlikte olabilir."
+   ],
+   "rel": [
+    "n_chorda",
+    "n_lingual",
+    "n_xii"
+   ],
+   "ref": "Moore COA ve Gray's Anatomy, Baş-boyun otonom gangliyonları; Netter Atlas, Otonom sinirler."
+  },
+  {
+   "id": "a_cca",
+   "name": "A. carotis communis",
+   "cat": "ica",
+   "layer": "artery",
+   "route": [
+    "Sağda truncus brachiocephalicustan, solda arcus aortadan çıkar → karotis kılıfında yukarı → C3–C4 hizasında ICA ve ACE’ye ayrılır."
+   ],
+   "branches": [
+    "a_ica",
+    "a_eca"
+   ],
+   "spot": [
+    "Kılıfta CCA medial, IJV lateral, CN X ikisinin arkasındadır.",
+    "Bifürkasyon tiroid kıkırdak üst kenarı hizasındadır."
+   ],
+   "clinic": [
+    "Karotis sinüsü baroreseptörü bifürkasyondadır (CN IX)."
+   ],
+   "rel": [
+    "a_ica",
+    "a_eca",
+    "v_ijv"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_ica",
+   "name": "A. carotis interna (ICA)",
+   "cat": "ica",
+   "layer": "artery",
+   "route": [
+    "CCA → boyunda dalsız yükselir → canalis caroticus → foramen lacerum üstü → sinus cavernosus (sifon) → proc. clinoideus anterior medialinde → ACA ve MCA."
+   ],
+   "through": [
+    "f_carotid",
+    "v_cavernous"
+   ],
+   "branches": [
+    "a_ophthalmic",
+    "a_pcom",
+    "a_antchoroid",
+    "a_aca",
+    "a_mca"
+   ],
+   "spot": [
+    "Boyunda dal vermez; bu ACE’den ayırt ettirici özelliğidir.",
+    "Sinus cavernosus içinden geçen tek arterdir; yanında CN VI bulunur."
+   ],
+   "clinic": [
+    "Kavernöz-karotid fistülde pulsatil ekzoftalmi ve üfürüm olur.",
+    "Diseksiyonda parsiyel Horner."
+   ],
+   "rel": [
+    "v_cavernous",
+    "f_carotid",
+    "a_ophthalmic"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_ophthalmic",
+   "name": "A. ophthalmica",
+   "cat": "ica",
+   "layer": "artery",
+   "route": [
+    "ICA’nın sinüs çıkışı sonrası ilk büyük dalı → canalis opticus → orbita."
+   ],
+   "through": [
+    "f_optic"
+   ],
+   "branches": [
+    "A. centralis retinae",
+    "Lakrimal, supraorbital, etmoidal dallar"
+   ],
+   "spot": [
+    "Optik kanaldan n. opticus ile birlikte geçer."
+   ],
+   "clinic": [
+    "Amaurosis fugax: emboli ile geçici tek göz görme kaybı. A. centralis retinae tıkanmasında vişne çürüğü leke görülür."
+   ],
+   "rel": [
+    "f_optic",
+    "n_ii",
+    "a_ica"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_aca",
+   "name": "A. cerebri anterior (ACA)",
+   "cat": "ica",
+   "layer": "artery",
+   "route": [
+    "ICA terminali → chiasma üstünden → AComA → fissura longitudinalis içinde corpus callosum üzerinde."
+   ],
+   "branches": [
+    "a_acom",
+    "A. pericallosa",
+    "A. callosomarginalis",
+    "A. recurrens (Heubner)"
+   ],
+   "spot": [
+    "Hemisfer medial yüzünü besler; bacak motor-duyu alanı burada."
+   ],
+   "clinic": [
+    "Tıkanmada kontralateral bacakta belirgin felç ve duyu kaybı; abuli."
+   ],
+   "rel": [
+    "a_acom",
+    "a_ica",
+    "n_chiasm"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_acom",
+   "name": "A. communicans anterior (AComA)",
+   "cat": "ica",
+   "layer": "artery",
+   "route": [
+    "İki ACA’yı chiasma opticum önünde birleştirir."
+   ],
+   "branches": [
+    "Hipotalamik perforan dallar"
+   ],
+   "spot": [
+    "Sakküler (berry) anevrizmanın en sık görüldüğü yerdir."
+   ],
+   "clinic": [
+    "Rüptürde subaraknoid kanama; basıyla görme alanı defekti."
+   ],
+   "rel": [
+    "a_aca",
+    "n_chiasm",
+    "a_ica"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_mca",
+   "name": "A. cerebri media (MCA)",
+   "cat": "ica",
+   "layer": "artery",
+   "route": [
+    "ICA’nın devamı → sulcus lateralis → insula → hemisfer dış yüzü."
+   ],
+   "branches": [
+    "Lentikülostriat dallar",
+    "Üst ve alt terminal dallar"
+   ],
+   "spot": [
+    "Hemisfer dış yüzü, yüz-kol motor/duyu alanları ve dil merkezlerini besler."
+   ],
+   "clinic": [
+    "Kontralateral yüz ve kol belirgin hemiparezi; dominantta afazi, nondominantta ihmal.",
+    "Lentikülostriat tıkanmasında lakünü (kapsül interna)."
+   ],
+   "rel": [
+    "a_ica",
+    "a_antchoroid",
+    "a_aca"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_pcom",
+   "name": "A. communicans posterior (PComA)",
+   "cat": "ica",
+   "layer": "artery",
+   "route": [
+    "ICA ile PCA arasında, CN III’ün hemen üstünde."
+   ],
+   "branches": [
+    "Hipotalamik ve talamik perforan dallar"
+   ],
+   "spot": [
+    "Karotis ve vertebrobaziler sistemleri birleştirir."
+   ],
+   "clinic": [
+    "Anevrizma CN III’e basar: pupilla tutulumu olan okülomotor felç."
+   ],
+   "rel": [
+    "n_iii",
+    "a_pca",
+    "a_ica"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_antchoroid",
+   "name": "A. choroidea anterior",
+   "cat": "ica",
+   "layer": "artery",
+   "route": [
+    "ICA’dan PComA üzerinde çıkar → tractus opticus boyunca → lateral ventrikül temporal boynuzu."
+   ],
+   "branches": [
+    "Kapsül interna arka bacağı, tractus opticus, hipokampus dalları"
+   ],
+   "spot": [
+    "Tıkanma üçlüsü: hemiparezi, hemianestezi, hemianopsi."
+   ],
+   "clinic": [
+    "Kapsül interna arka bacak infarktı."
+   ],
+   "rel": [
+    "a_ica",
+    "a_mca",
+    "a_pcom"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_vertebral",
+   "name": "A. vertebralis",
+   "cat": "vb",
+   "layer": "artery",
+   "route": [
+    "A. subclavia → C6’dan C1’e foramen transversarium → atlas arkası → foramen magnum → pontomedüller bileşkede birleşir."
+   ],
+   "through": [
+    "f_magnum"
+   ],
+   "branches": [
+    "a_antspinal",
+    "a_pica",
+    "Arka meningeal dallar"
+   ],
+   "spot": [
+    "Çoğunlukla C6 foramen transversariumuna girer (C7’ye girmez)."
+   ],
+   "clinic": [
+    "Subclavian steal: proksimal subklavyen darlıkta vertebral akım tersine döner, kol egzersizi ile vertigo olur."
+   ],
+   "rel": [
+    "a_basilar",
+    "a_pica",
+    "f_magnum"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_basilar",
+   "name": "A. basilaris",
+   "cat": "vb",
+   "layer": "artery",
+   "route": [
+    "İki vertebral arterin birleşimi → clivus üzerinde sulcus basilaris → PCA’lara ayrılır."
+   ],
+   "branches": [
+    "a_aica",
+    "a_labyrinthi (çoğunlukla a_aica üzerinden)",
+    "Pontin dallar",
+    "a_sca",
+    "a_pca"
+   ],
+   "spot": [
+    "Pons ön yüzünde orta hatta seyreder."
+   ],
+   "clinic": [
+    "Basiller tıkanma: kilitli kalma (locked-in) sendromu; bilinç açık, dikey göz hareketleri korunur."
+   ],
+   "rel": [
+    "a_vertebral",
+    "a_sca",
+    "c_pons"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_antspinal",
+   "name": "A. spinalis anterior",
+   "cat": "vb",
+   "layer": "artery",
+   "route": [
+    "İki vertebral arterden birer dal → orta hatta birleşir → medulla ön yüzü → omurilik."
+   ],
+   "branches": [
+    "Omurilik ön 2/3 dalları"
+   ],
+   "spot": [
+    "Medial medulla sendromunda da sorumlu damardır."
+   ],
+   "clinic": [
+    "Medial medüller sendrom: kontralateral hemiparezi ve derin duyu kaybı, ipsilateral CN XII felci."
+   ],
+   "rel": [
+    "a_vertebral",
+    "c_medulla",
+    "n_xii"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_pica",
+   "name": "A. cerebelli inferior posterior (PICA)",
+   "cat": "vb",
+   "layer": "artery",
+   "route": [
+    "A. vertebralis → medulla çevresinde dolanır → serebellum alt yüzü."
+   ],
+   "branches": [
+    "Lateral medulla ve serebellum dalları"
+   ],
+   "spot": [
+    "Wallenberg sendromunun klasik damarıdır."
+   ],
+   "clinic": [
+    "Wallenberg: ipsilateral yüz, kontralateral vücut ağrı-ısı kaybı; disfaji, ses kısıklığı (n. ambiguus), Horner, ataksi."
+   ],
+   "rel": [
+    "a_vertebral",
+    "c_medulla",
+    "n_x"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_aica",
+   "name": "A. cerebelli inferior anterior (AICA)",
+   "cat": "vb",
+   "layer": "artery",
+   "route": [
+    "A. basilaris alt bölümü → pontoserebellar köşe → serebellum ön-alt yüzü."
+   ],
+   "branches": [
+    "a_labyrinthi",
+    "Lateral pons dalları"
+   ],
+   "spot": [
+    "A. labyrinthi çoğunlukla bu arterden çıkar."
+   ],
+   "clinic": [
+    "Lateral pontin sendrom: ipsilateral fasiyal felç, işitme kaybı, vertigo ve ataksi."
+   ],
+   "rel": [
+    "a_labyrinthi",
+    "a_basilar",
+    "f_iac"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_labyrinthi",
+   "name": "A. labyrinthi",
+   "cat": "vb",
+   "layer": "artery",
+   "route": [
+    "Çoğunlukla AICA (daha az basilaris) → meatus acusticus internus → iç kulak."
+   ],
+   "through": [
+    "f_iac"
+   ],
+   "branches": [
+    "Koklear ve vestibüler dallar"
+   ],
+   "spot": [
+    "Terminal arterdir. Yol modelde şematiktir."
+   ],
+   "clinic": [
+    "Tıkanmada ani tek taraflı sensörinöral işitme kaybı ve vertigo."
+   ],
+   "rel": [
+    "f_iac",
+    "n_viii",
+    "a_aica"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_sca",
+   "name": "A. cerebelli superior (SCA)",
+   "cat": "vb",
+   "layer": "artery",
+   "route": [
+    "A. basilaris üst ucundan → CN III altından → serebellum üst yüzü."
+   ],
+   "branches": [
+    "Serebellum üst dalları"
+   ],
+   "spot": [
+    "CN III, SCA ile PCA arasından geçer."
+   ],
+   "clinic": [
+    "Trigeminal nevraljide trigeminal köke bası yapan damar genellikle bu arterdir."
+   ],
+   "rel": [
+    "n_iii",
+    "a_pca",
+    "n_v"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_pca",
+   "name": "A. cerebri posterior (PCA)",
+   "cat": "vb",
+   "layer": "artery",
+   "route": [
+    "A. basilaris terminali → mezensefalonu dolanır → oksipital ve temporal alt yüz."
+   ],
+   "branches": [
+    "a_pcom ile bağlantı",
+    "Talamik dallar",
+    "Oksipital dallar"
+   ],
+   "spot": [
+    "Görme korteksinin ana arteridir."
+   ],
+   "clinic": [
+    "Kontralateral homonim hemianopsi, makula korunabilir. Dominant tarafta agrafisiz aleksi görülebilir."
+   ],
+   "rel": [
+    "a_basilar",
+    "a_pcom",
+    "n_iii"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_subclavian",
+   "name": "A. subclavia",
+   "cat": "vb",
+   "layer": "artery",
+   "route": [
+    "Sağda truncus brachiocephalicus, solda arcus aorta → m. scalenus anterior arkası → 1. kaburga."
+   ],
+   "branches": [
+    "a_vertebral",
+    "A. thoracica interna",
+    "Truncus thyrocervicalis",
+    "Truncus costocervicalis"
+   ],
+   "spot": [
+    "Sağ RLN bu arterin altından döner."
+   ],
+   "clinic": [
+    "Proksimal darlık subclavian steal yapar."
+   ],
+   "rel": [
+    "a_vertebral",
+    "n_rln",
+    "a_cca"
+   ],
+   "ref": "Moore COA, Beyin arterleri; Gray's Anatomy, Serebral dolaşım; Netter Atlas, Willis poligonu."
+  },
+  {
+   "id": "a_eca",
+   "name": "A. carotis externa (ACE)",
+   "cat": "eca",
+   "layer": "artery",
+   "route": [
+    "CCA bifürkasyonu → ICA’nın önünde başlar → parotis içine girer → mandibula boynu arkasında terminal dallara ayrılır."
+   ],
+   "branches": [
+    "a_supthyroid",
+    "a_ascpharyngeal",
+    "a_lingual",
+    "a_facial",
+    "a_occipital",
+    "a_postauricular",
+    "a_maxillary",
+    "a_sta"
+   ],
+   "spot": [
+    "8 dal: 3 ön (sup. tiroid, lingual, fasiyal), 2 arka (oksipital, post. aurikular), 1 medial (asc. faringeal), 2 terminal (maksiller, sup. temporal)."
+   ],
+   "clinic": [
+    "Boyun cerrahisinde ICA’dan ayırımı: ACE’nin boyunda dalı vardır.",
+    "Ağız ve burun kanamalarında selektif ligasyon yapılabilir."
+   ],
+   "rel": [
+    "a_cca",
+    "a_maxillary",
+    "a_sta"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_supthyroid",
+   "name": "A. thyroidea superior",
+   "cat": "eca",
+   "layer": "artery",
+   "route": [
+    "ACE’nin ilk ön dalı → aşağı-içe → tiroid üst kutbu."
+   ],
+   "branches": [
+    "A. laryngea superior",
+    "Tiroid dalları"
+   ],
+   "spot": [
+    "N. laryngeus superior dış dalı ile komşudur. Yol modelde şematiktir."
+   ],
+   "clinic": [
+    "Üst kutup bağlarken n. laryngeus superior dış dalı yaralanabilir."
+   ],
+   "rel": [
+    "a_eca",
+    "n_sln",
+    "b_hyoid"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_ascpharyngeal",
+   "name": "A. pharyngea ascendens",
+   "cat": "eca",
+   "layer": "artery",
+   "route": [
+    "ACE medialinden → farenks yan duvarı boyunca yukarı."
+   ],
+   "branches": [
+    "Farengeal, damak ve meningeal dallar"
+   ],
+   "spot": [
+    "ACE’nin en küçük dalı olarak bilinir."
+   ],
+   "clinic": [
+    "Tonsil yatağı beslenmesine katkı verir."
+   ],
+   "rel": [
+    "a_eca",
+    "f_jugular",
+    "a_ica"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_lingual",
+   "name": "A. lingualis",
+   "cat": "eca",
+   "layer": "artery",
+   "route": [
+    "Hyoid cornu majus hizasında ACE’den → m. hyoglossus derininden → dil."
+   ],
+   "branches": [
+    "A. sublingualis",
+    "A. profunda linguae",
+    "Dorsal dil dalları"
+   ],
+   "spot": [
+    "M. hyoglossusun derininden, CN XII yüzeyinden geçer. Yol modelde şematiktir."
+   ],
+   "clinic": [
+    "Ağız tabanı implant perforasyonunda sublingual dal kanaması havayolu tehdidi yaratabilir."
+   ],
+   "rel": [
+    "a_eca",
+    "n_xii",
+    "b_hyoid"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_facial",
+   "name": "A. facialis",
+   "cat": "eca",
+   "layer": "artery",
+   "route": [
+    "ACE → submandibular bez derininden → m. masseter ön kenarında mandibula alt kenarını çaprazlar → dudak yanı → burun yanı (a. angularis)."
+   ],
+   "branches": [
+    "A. palatina ascendens",
+    "Tonsiller dal",
+    "A. submentalis",
+    "A. labialis inferior ve superior",
+    "A. angularis"
+   ],
+   "spot": [
+    "Nabzı mandibula alt kenarında m. masseter önünde alınır.",
+    "Kıvrımlıdır, ağız hareketine uyum sağlar."
+   ],
+   "clinic": [
+    "Tonsillektomi kanamasının arteriyel kaynaklarındandır (tonsiller dal)."
+   ],
+   "rel": [
+    "a_eca",
+    "v_facial",
+    "b_mandible"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_occipital",
+   "name": "A. occipitalis",
+   "cat": "eca",
+   "layer": "artery",
+   "route": [
+    "ACE arkasından → m. digastricus venter posterior boyunca → proc. mastoideus medialinden → saçlı deri."
+   ],
+   "branches": [
+    "M. sternocleidomastoideus dalları",
+    "Saçlı deri dalları"
+   ],
+   "spot": [
+    "CN XII bu arterin başlangıcı çevresinde döner."
+   ],
+   "clinic": [
+    "Ense saçlı derisi yaralanmalarında kanamanın ana kaynağıdır."
+   ],
+   "rel": [
+    "a_eca",
+    "n_xii",
+    "a_postauricular"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_postauricular",
+   "name": "A. auricularis posterior",
+   "cat": "eca",
+   "layer": "artery",
+   "route": [
+    "ACE arkasından → kulak arkası."
+   ],
+   "branches": [
+    "A. stylomastoidea",
+    "Kulak dalları"
+   ],
+   "spot": [
+    "Stilomastoid dalı canalis facialise girer. Yol modelde şematiktir."
+   ],
+   "clinic": [
+    "Kulak kepçesi flep beslenmesinde önemlidir."
+   ],
+   "rel": [
+    "a_eca",
+    "f_stylomastoid",
+    "a_occipital"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_sta",
+   "name": "A. temporalis superficialis",
+   "cat": "eca",
+   "layer": "artery",
+   "route": [
+    "ACE terminali → parotis içi → kulak önünde zigomatik kemer üstü → frontal ve parietal dal."
+   ],
+   "branches": [
+    "a_transversefacial",
+    "Frontal ve parietal dal"
+   ],
+   "spot": [
+    "Nabzı tragus önünde alınır."
+   ],
+   "clinic": [
+    "Dev hücreli arterit: çene klodikasyosu, şakak hassasiyeti, görme kaybı riski."
+   ],
+   "rel": [
+    "a_eca",
+    "n_auriculotemporal",
+    "a_transversefacial"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_transversefacial",
+   "name": "A. transversa faciei",
+   "cat": "eca",
+   "layer": "artery",
+   "route": [
+    "STA → parotis içinden → zigomatik kemer altından yanak."
+   ],
+   "branches": [
+    "Masseter ve yanak dalları"
+   ],
+   "spot": [
+    "Ductus parotideus üzerinde ve ona paralel seyreder."
+   ],
+   "clinic": [
+    "Yanak yaralanmalarında duktus ile birlikte değerlendirilir."
+   ],
+   "rel": [
+    "a_sta",
+    "a_facial",
+    "n_vii"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_maxillary",
+   "name": "A. maxillaris",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "Mandibula boynu arkasında ACE terminal dalı → m. pterygoideus lateralis yüzeyi veya derini → fissura pterygomaxillaris → fossa pterygopalatina."
+   ],
+   "through": [
+    "f_ppf"
+   ],
+   "branches": [
+    "1. Mandibular bölüm: a_mma, a_accmeningeal, a_ial, derin aurikular, ön timpanik",
+    "2. Pterigoid bölüm: a_deeptemporal, a_buccal, pterigoid, masseterik",
+    "3. Pterigopalatin bölüm: a_psa, a_infraorbital, a_descpalatine, a_sphenopalatine, kanal dalı"
+   ],
+   "spot": [
+    "M. pterygoideus lateralis üç bölüme ayırır.",
+    "1. bölümün dalları kemik delik/kanal geçer; 2. bölüm kaslara gider."
+   ],
+   "clinic": [
+    "PSA bloğunda yaralanabilir; hızlı ve yaygın hematom oluşabilir.",
+    "Arka burun kanaması ve damak kanamalarında sorumlu damardır."
+   ],
+   "rel": [
+    "a_mma",
+    "a_ial",
+    "a_sphenopalatine"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_mma",
+   "name": "A. meningea media",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "A. maxillaris 1. bölüm → n. auriculotemporalis iki kökü arasından → foramen spinosum → kafa içinde ön ve arka dallar."
+   ],
+   "through": [
+    "f_spinosum"
+   ],
+   "branches": [
+    "Ön (frontal) dal: pterion altından",
+    "Arka (parietal) dal"
+   ],
+   "spot": [
+    "Dura ve kalvaryanın ana besleyicisidir, beyni beslemez.",
+    "Ön dalı pterionun iç yüzünden geçer; pterion en zayıf kafa noktasıdır.",
+    "Kafa içi dallarının çizimi şematiktir."
+   ],
+   "clinic": [
+    "Pterion travmasında epidural hematom: lusid aralık, BT’de biyokonveks; uncal herniasyonda ipsilateral midriyazis."
+   ],
+   "rel": [
+    "f_spinosum",
+    "n_auriculotemporal",
+    "b_parietal"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_accmeningeal",
+   "name": "A. meningea accessoria",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "A. maxillaris (veya MMA) → foramen ovale → kafa içi."
+   ],
+   "through": [
+    "f_ovale"
+   ],
+   "branches": [
+    "Trigeminal ganglion ve dura dalları"
+   ],
+   "spot": [
+    "Foramen ovale içeriğindeki “A” harfi budur."
+   ],
+   "clinic": [
+    "Ganglion ve dura besleyicisi olarak embolizasyonda dikkate alınır."
+   ],
+   "rel": [
+    "f_ovale",
+    "a_mma",
+    "n_v3"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_ial",
+   "name": "A. alveolaris inferior",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "A. maxillaris 1. bölüm → foramen mandibulae → canalis mandibulae → foramen mentale."
+   ],
+   "through": [
+    "f_mandibular",
+    "f_mental"
+   ],
+   "branches": [
+    "A. mylohyoidea",
+    "Dental dallar",
+    "A. mentalis",
+    "A. incisiva"
+   ],
+   "spot": [
+    "IAN ile aynı kanalda seyreder; ven-arter-sinir (VAN) birlikte."
+   ],
+   "clinic": [
+    "IANB’de intravasküler enjeksiyon ve hematom riski; aspirasyon şarttır."
+   ],
+   "rel": [
+    "n_ian",
+    "f_mandibular",
+    "blk_ianb"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_deeptemporal",
+   "name": "Aa. temporales profundae",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "A. maxillaris 2. bölüm → m. temporalis derininden yukarı."
+   ],
+   "branches": [
+    "Ön ve arka derin temporal arter"
+   ],
+   "spot": [
+    "M. temporalisi besler; çiğneme kaslarına giden 2. bölüm dallarıdır."
+   ],
+   "clinic": [
+    "Temporal flep beslenmesinde rol alır."
+   ],
+   "rel": [
+    "a_maxillary",
+    "a_buccal",
+    "b_temporal"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_buccal",
+   "name": "A. buccalis",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "A. maxillaris 2. bölüm → m. buccinator yüzeyinde n. buccalis ile."
+   ],
+   "branches": [
+    "Yanak dalları"
+   ],
+   "spot": [
+    "N. buccalis ile birlikte seyreder."
+   ],
+   "clinic": [
+    "Bukkal yağ yastığı flebi beslenmesine katkı verir."
+   ],
+   "rel": [
+    "n_buccal",
+    "a_maxillary",
+    "a_facial"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_psa",
+   "name": "A. alveolaris superior posterior",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "A. maxillaris 3. bölüm → tuber maxillae → foramina alveolaria."
+   ],
+   "branches": [
+    "Molar ve premolar dalları",
+    "Maksiller sinüs dalları"
+   ],
+   "spot": [
+    "Sinüs lifti lateral pencerede intraosseöz anastomoz riski taşır."
+   ],
+   "clinic": [
+    "PSA bloğunda hematom kaynaklarındandır."
+   ],
+   "rel": [
+    "n_psa",
+    "a_maxillary",
+    "v_ptplexus"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_infraorbital",
+   "name": "A. infraorbitalis",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "A. maxillaris 3. bölüm → fissura orbitalis inferior → canalis infraorbitalis → foramen infraorbitale."
+   ],
+   "through": [
+    "f_iof",
+    "f_infraorbital"
+   ],
+   "branches": [
+    "A. alveolaris superior anterior",
+    "Yüz dalları"
+   ],
+   "spot": [
+    "Aynı adlı sinirle aynı yolu izler."
+   ],
+   "clinic": [
+    "Orbita tabanı onarımı ve infraorbital blokta yaralanabilir."
+   ],
+   "rel": [
+    "n_infraorbital",
+    "f_infraorbital",
+    "a_maxillary"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_descpalatine",
+   "name": "A. palatina descendens / major",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "A. maxillaris 3. bölüm → canalis palatinus major → foramen palatinum majus → sert damakta öne → foramen incisivum."
+   ],
+   "through": [
+    "f_gpf"
+   ],
+   "branches": [
+    "A. palatina major",
+    "Aa. palatinae minores"
+   ],
+   "spot": [
+    "Sert damağın ana arteridir; foramen incisivumda septal dallarla birleşir."
+   ],
+   "clinic": [
+    "Palatal greft ve flep cerrahisinde yaralanabilir."
+   ],
+   "rel": [
+    "n_gpn",
+    "f_gpf",
+    "a_sphenopalatine"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "a_sphenopalatine",
+   "name": "A. sphenopalatina",
+   "cat": "max",
+   "layer": "artery",
+   "route": [
+    "A. maxillaris terminal dalı → foramen sphenopalatinum → burun lateral duvarı ve septum."
+   ],
+   "through": [
+    "f_sphenopalatine"
+   ],
+   "branches": [
+    "Arka lateral burun dalları",
+    "Arka septal dallar"
+   ],
+   "spot": [
+    "“Epistaksis arteri” olarak anılır; septal dalı Kiesselbach’a katılır.",
+    "Z-Anatomy adıyla “artery of pterygoid canal” eğrisi bu seyri izlediği için burada kullanıldı."
+   ],
+   "clinic": [
+    "Arka epistakside başlıca kaynaktır."
+   ],
+   "rel": [
+    "f_sphenopalatine",
+    "n_nasopalatine",
+    "a_maxillary"
+   ],
+   "ref": "Moore COA, Boyun ve infratemporal fossa; Gray's Anatomy, ACE ve dalları; Netter Atlas."
+  },
+  {
+   "id": "v_sss",
+   "name": "Sinus sagittalis superior",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Foramen cecum yakınından başlar → falx üst kenarı boyunca arkaya → confluens sinuum."
+   ],
+   "branches": [
+    "Üst serebral venler",
+    "Lakünler (araknoid granülasyonlar)"
+   ],
+   "spot": [
+    "Araknoid granülasyonlar burada BOS’u venöz sisteme verir."
+   ],
+   "clinic": [
+    "Tromboz: baş ağrısı, KİBAS, nöbet; BT’de boş delta işareti."
+   ],
+   "rel": [
+    "c_falx",
+    "v_straight",
+    "v_transverse"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_iss",
+   "name": "Sinus sagittalis inferior",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Falx alt serbest kenarı boyunca arkaya → v. cerebri magna ile birleşip sinus rectus olur."
+   ],
+   "branches": [
+    "Falx ve medial hemisfer venleri"
+   ],
+   "spot": [
+    "Galen veni ile birleşerek düz sinüsü yapar."
+   ],
+   "clinic": [
+    "Klinikte sinus rectus patolojileri ile birlikte değerlendirilir."
+   ],
+   "rel": [
+    "v_straight",
+    "c_falx",
+    "v_sss"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_straight",
+   "name": "Sinus rectus",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Falx ile tentorium birleşim yerinde → arkaya → confluens sinuum."
+   ],
+   "branches": [
+    "Sinus sagittalis inferior",
+    "V. cerebri magna (Galen)"
+   ],
+   "spot": [
+    "Derin venöz sistemin drenaj yoludur."
+   ],
+   "clinic": [
+    "Tromboz talamus tutulumuna yol açabilir."
+   ],
+   "rel": [
+    "v_iss",
+    "c_tentorium",
+    "v_transverse"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_transverse",
+   "name": "Sinus transversus",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Confluens sinuum → tentorium tutunma yeri boyunca lateral → sinus sigmoideus."
+   ],
+   "branches": [
+    "Sinus petrosus superior girer"
+   ],
+   "spot": [
+    "Sağ çoğunlukla SSS’den baskın akım alır."
+   ],
+   "clinic": [
+    "Mastoidit veya sinüs trombozunda etkilenebilir."
+   ],
+   "rel": [
+    "v_sigmoid",
+    "v_sss",
+    "c_tentorium"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_sigmoid",
+   "name": "Sinus sigmoideus",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Sinus transversus → os temporale iç yüzünde S kıvrımı → foramen jugulare → IJV."
+   ],
+   "through": [
+    "f_jugular"
+   ],
+   "branches": [
+    "Mastoid emisser venler"
+   ],
+   "spot": [
+    "Foramen jugularede v. jugularis interna adını alır."
+   ],
+   "clinic": [
+    "Otitis media/mastoidit komşuluğuyla sigmoid sinüs trombozu görülebilir."
+   ],
+   "rel": [
+    "f_jugular",
+    "v_ijv",
+    "v_transverse"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_occipital",
+   "name": "Sinus occipitalis",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Falx cerebelli kenarında foramen magnumdan confluensa doğru yukarı."
+   ],
+   "branches": [
+    "Marjinal sinüs bağlantıları"
+   ],
+   "spot": [
+    "En küçük dural sinüslerdendir."
+   ],
+   "clinic": [
+    "Foramen magnum cerrahisinde kanama kaynağı olabilir."
+   ],
+   "rel": [
+    "v_transverse",
+    "f_magnum",
+    "v_straight"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_cavernous",
+   "name": "Sinus cavernosus",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Sella turcica iki yanında dural boşluk; önde fissura orbitalis superiordan arkada pars petrosa apeksine kadar uzanır."
+   ],
+   "through": [
+    "a_ica",
+    "n_vi",
+    "n_iii",
+    "n_iv",
+    "n_v1",
+    "n_v2"
+   ],
+   "branches": [
+    "Girer: v_sov, v_iov, sinus sphenoparietalis",
+    "Çıkar: v_sps, v_ips",
+    "Bağlantı: emisser venlerle v_ptplexus"
+   ],
+   "spot": [
+    "Lateral duvarda yukarıdan aşağı: CN III, CN IV, V1, V2.",
+    "Sinüs içinde: ICA ve CN VI. V3 kavernöz sinüsten geçmez!"
+   ],
+   "clinic": [
+    "Tromboz: yüz tehlike üçgeni, sfenoid sinüzit veya diş enfeksiyonundan yayılır; ateş, proptozis, kemozis, oftalmopleji, V1–V2 his azalması.",
+    "Karotid-kavernöz fistül: pulsatil ekzoftalmi."
+   ],
+   "rel": [
+    "a_ica",
+    "n_vi",
+    "v_sov"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_intercav",
+   "name": "Sinus intercavernosi",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Hipofizin önü ve arkasından iki kavernöz sinüsü birleştirir."
+   ],
+   "branches": [
+    "Ön ve arka interkavernöz sinüs"
+   ],
+   "spot": [
+    "Hipofiz çevresinde venöz halka yapar."
+   ],
+   "clinic": [
+    "Transsfenoidal cerrahide kanama kaynağıdır."
+   ],
+   "rel": [
+    "v_cavernous",
+    "b_sphenoid",
+    "n_chiasm"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_sps",
+   "name": "Sinus petrosus superior",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Kavernöz sinüs → pars petrosa üst kenarı → sinus transversus/sigmoideus."
+   ],
+   "branches": [
+    "Serebellar ve temporal venler"
+   ],
+   "spot": [
+    "Tentorium tutunma kenarında bulunur."
+   ],
+   "clinic": [
+    "Trigeminal kök cerrahisinde komşudur."
+   ],
+   "rel": [
+    "v_cavernous",
+    "v_transverse",
+    "c_tentorium"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_ips",
+   "name": "Sinus petrosus inferior",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Kavernöz sinüs → pars petrosa-clivus oluğu → foramen jugulare → IJV."
+   ],
+   "through": [
+    "f_jugular"
+   ],
+   "branches": [
+    "Baziler pleksus bağlantıları"
+   ],
+   "spot": [
+    "Foramen jugularenin ön bölümünden geçer."
+   ],
+   "clinic": [
+    "Cushing hastalığı tanısında bu sinüsten bilateral örnekleme yapılır."
+   ],
+   "rel": [
+    "f_jugular",
+    "v_cavernous",
+    "v_ijv"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_basilarplexus",
+   "name": "Plexus basilaris",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Clivus üzerinde ven ağı; iki sinus petrosus inferioru ve vertebral venöz pleksusu birleştirir."
+   ],
+   "branches": [
+    "Vertebral pleksus bağlantıları"
+   ],
+   "spot": [
+    "Omurga venleriyle kafa içi arasında bağlantı kurar."
+   ],
+   "clinic": [
+    "Kafa içine metastaz yolu olarak anılır."
+   ],
+   "rel": [
+    "v_ips",
+    "v_cavernous",
+    "a_basilar"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_ijv",
+   "name": "V. jugularis interna (IJV)",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Foramen jugulare (bulbus superior) → karotis kılıfı lateralinde iner → v. subclavia ile v. brachiocephalica."
+   ],
+   "through": [
+    "f_jugular"
+   ],
+   "branches": [
+    "Sinus petrosus inferior",
+    "V. facialis",
+    "V. lingualis, v. thyroidea superior/media"
+   ],
+   "spot": [
+    "Kılıfta en lateral yapıdır; CCA medial, CN X arkada."
+   ],
+   "clinic": [
+    "Lemierre: orofarenks enfeksiyonu sonrası septik IJV tromboflebiti."
+   ],
+   "rel": [
+    "f_jugular",
+    "a_cca",
+    "n_x"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_sov",
+   "name": "V. ophthalmica superior",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "V. angularis/supraorbital bağlantı → orbita üst bölümü → fissura orbitalis superior → sinus cavernosus."
+   ],
+   "through": [
+    "f_sof"
+   ],
+   "branches": [
+    "Etmoid ve lakrimal venler"
+   ],
+   "spot": [
+    "Yüz ile kavernöz sinüs arasındaki ana köprüdür."
+   ],
+   "clinic": [
+    "Tehlike üçgeni enfeksiyonu buradan kavernöz sinüse ulaşır. Karotid-kavernöz fistülde genişler."
+   ],
+   "rel": [
+    "v_cavernous",
+    "v_facial",
+    "f_sof"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_iov",
+   "name": "V. ophthalmica inferior",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Orbita tabanı → sinus cavernosus; bir dalı fissura orbitalis inferiordan pleksus pterygoideusa."
+   ],
+   "through": [
+    "f_iof"
+   ],
+   "branches": [
+    "Kas ve lakrimal venler"
+   ],
+   "spot": [
+    "Pleksus pterygoideus ile kavernöz sinüs arasındaki bağlantılardan biridir."
+   ],
+   "clinic": [
+    "Üst molar enfeksiyonlarının orbita ve sinüse yayılma yollarındandır."
+   ],
+   "rel": [
+    "v_ptplexus",
+    "v_cavernous",
+    "f_iof"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_facial",
+   "name": "V. facialis / v. angularis",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Burun yanında v. angularis → arterin arkasında aşağı → IJV."
+   ],
+   "branches": [
+    "V. angularis",
+    "V. faciei profunda (pleksus pterygoideusa)",
+    "V. labialis superior ve inferior"
+   ],
+   "spot": [
+    "Klasik öğretide kapakçıksızdır, bu nedenle ters akım tehlike üçgeni kavramını açıklar."
+   ],
+   "clinic": [
+    "Üst dudak ve burun çevresi enfeksiyonu kavernöz sinüs trombozu yapabilir."
+   ],
+   "rel": [
+    "v_sov",
+    "a_facial",
+    "v_cavernous"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_retromandibular",
+   "name": "V. retromandibularis",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "V. temporalis superficialis + v. maxillaris → parotis içi → ön ve arka gövde."
+   ],
+   "branches": [
+    "Ön gövde: v. facialis ile",
+    "Arka gövde: v. auricularis posterior ile v. jugularis externa"
+   ],
+   "spot": [
+    "Parotis içinde CN VII’nin derininde kalır."
+   ],
+   "clinic": [
+    "Parotis cerrahisinde önemli işarettir."
+   ],
+   "rel": [
+    "v_facial",
+    "v_ptplexus",
+    "n_vii"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "v_ptplexus",
+   "name": "Plexus pterygoideus",
+   "cat": "sin",
+   "layer": "vein",
+   "route": [
+    "Infratemporal fossada m. pterygoideuslar çevresinde ven ağı."
+   ],
+   "branches": [
+    "V. maxillaris ile drene olur",
+    "V. faciei profunda bağlantısı",
+    "Emisser venlerle kavernöz sinüs"
+   ],
+   "spot": [
+    "Ağ şeklinde olduğu için gerçek mesh yok; işaretçi yaklaşık bölgeyi gösterir."
+   ],
+   "clinic": [
+    "PSA bloğunda hematomun başlıca kaynağıdır.",
+    "Enfeksiyonu emisser venlerle kavernöz sinüse taşıyabilir."
+   ],
+   "rel": [
+    "v_cavernous",
+    "blk_psa",
+    "a_maxillary"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "c_falx",
+   "name": "Falx cerebri",
+   "cat": "ctx",
+   "layer": "context",
+   "route": [
+    "Crista galliden protuberantia occipitalis internaya uzanan orak biçimli dura kıvrımı."
+   ],
+   "spot": [
+    "Üst kenarında SSS, alt kenarında sinus sagittalis inferior bulunur."
+   ],
+   "clinic": [
+    "Subfalsin herniasyonda ACA sıkışabilir."
+   ],
+   "rel": [
+    "v_sss",
+    "v_iss",
+    "c_tentorium"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "c_tentorium",
+   "name": "Tentorium cerebelli",
+   "cat": "ctx",
+   "layer": "context",
+   "route": [
+    "Serebellumu oksipital loblardan ayırır; ön kenarı incisura tentorii yapar."
+   ],
+   "spot": [
+    "CN IV bu kenar yakınından, CN III incisura yanından geçer."
+   ],
+   "clinic": [
+    "Uncal herniasyonda CN III basılır: ipsilateral midriyazis."
+   ],
+   "rel": [
+    "v_straight",
+    "v_transverse",
+    "n_iii"
+   ],
+   "ref": "Moore COA, Dural venöz sinüsler; Gray's Anatomy, Meninksler ve sinüsler; Netter Atlas."
+  },
+  {
+   "id": "c_midbrain",
+   "name": "Mesencephalon",
+   "cat": "ctx",
+   "layer": "context",
+   "route": [
+    "Beyin sapının üst bölümü."
+   ],
+   "through": [
+    "n_iii",
+    "n_iv"
+   ],
+   "spot": [
+    "CN III önden, CN IV arkadan çıkar."
+   ],
+   "clinic": [
+    "Weber sendromu: PCA dalı tıkanması."
+   ],
+   "rel": [
+    "n_iii",
+    "n_iv",
+    "a_pca"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Beyin sapı; Netter Atlas."
+  },
+  {
+   "id": "c_pons",
+   "name": "Pons",
+   "cat": "ctx",
+   "layer": "context",
+   "route": [
+    "Beyin sapının orta bölümü; önde a. basilaris seyreder."
+   ],
+   "through": [
+    "n_v",
+    "n_vi",
+    "n_vii",
+    "n_viii"
+   ],
+   "spot": [
+    "CN V ön-yan yüzden, VI–VIII ponto-medüller oluktan çıkar."
+   ],
+   "clinic": [
+    "Millard-Gubler: ipsilateral CN VI-VII + kontralateral hemiparezi."
+   ],
+   "rel": [
+    "a_basilar",
+    "n_v",
+    "n_vii"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Beyin sapı; Netter Atlas."
+  },
+  {
+   "id": "c_medulla",
+   "name": "Medulla oblongata",
+   "cat": "ctx",
+   "layer": "context",
+   "route": [
+    "Beyin sapının alt bölümü; foramen magnumda omuriliğe devam eder."
+   ],
+   "through": [
+    "n_ix",
+    "n_x",
+    "n_xi",
+    "n_xii"
+   ],
+   "spot": [
+    "CN XII pyramis-oliva arasından, IX–XI olivanın arkasından çıkar."
+   ],
+   "clinic": [
+    "Wallenberg (PICA) ve medial medüller sendrom (a. spinalis anterior)."
+   ],
+   "rel": [
+    "a_pica",
+    "a_antspinal",
+    "n_xii"
+   ],
+   "ref": "Moore COA, Kraniyal sinirler özeti; Gray's Anatomy, Beyin sapı; Netter Atlas."
+  },
+  {
+   "id": "blk_ianb",
+   "name": "IANB – İnferior alveolar sinir bloğu",
+   "cat": "blocks",
+   "layer": "block",
+   "focus": [
+    "n_ian",
+    "n_lingual",
+    "f_mandibular",
+    "b_mandible",
+    "a_ial",
+    "n_mylohyoid"
+   ],
+   "needle": "x_ianb",
+   "route": [
+    "Hedef: pterigomandibular aralıkta, lingula üstünde sinirin foramen mandibulaeye girmeden önceki kısmı.",
+    "İşaretler: incisura coronoidea, plica pterygomandibularis (raphe), posterior diş düzlemi.",
+    "Şırınga karşı taraf premolarları üzerinden gelir; giriş okluzal düzlemin yaklaşık 6–10 mm üstündedir.",
+    "İlerleme: kemiğe değene kadar yaklaşık 20–25 mm (uzun iğne); hafif geri çekip aspirasyon."
+   ],
+   "through": [
+    "Etkilenir: n_ian, n_lingual, n_mental, N. incisivus",
+    "Etkilenmez: n_buccal (ek blok)"
+   ],
+   "spot": [
+    "Uyuşan alan: o yarım çenedeki dişler (orta hatta kadar), mandibula gövdesi, premolar önü bukkal dişeti, alt dudak ve çene ucu, dil ön 2/3, ağız tabanı, lingual dişeti.",
+    "Başarısızlık %15–20 aralığında bildirilir; en çok başarısızlık yaşanan bloklardandır.",
+    "Aksesuar innervasyon adayları: n. mylohyoideus, karşı taraftan çapraz lifler, n. buccalis."
+   ],
+   "clinic": [
+    "Geçici fasiyal felç: iğne fazla arkaya gidip parotis içine yayılırsa.",
+    "Trismus: m. pterygoideus medialis travması. Hematom: a/v. alveolaris inferior.",
+    "Parestezi: n. lingualis > IAN.",
+    "İntravasküler enjeksiyon: aspirasyon yap."
+   ],
+   "rel": [
+    "n_ian",
+    "n_lingual",
+    "f_mandibular"
+   ],
+   "ref": "Malamed, Handbook of Local Anesthesia; StatPearls (Infraorbital ve Nasopalatine); PMC5722639 (PSA kadavra çalışması)."
+  },
+  {
+   "id": "blk_psa",
+   "name": "PSA – Posterior superior alveolar blok",
+   "cat": "blocks",
+   "layer": "block",
+   "focus": [
+    "n_psa",
+    "a_psa",
+    "v_ptplexus",
+    "b_maxilla",
+    "a_maxillary"
+   ],
+   "needle": "x_psa",
+   "route": [
+    "Hedef: tuber maxillae arkası, foramina alveolaria posteriora.",
+    "Giriş: üst ikinci molar üstünde mukobukkal katlantı.",
+    "Yön: yukarı, içe ve arkaya; kısa iğne ile yaklaşık 16 mm.",
+    "Mandibulayı aynı tarafa kaydırmak yolu açar."
+   ],
+   "through": [
+    "Etkilenir: n_psa",
+    "Değişken: üst birinci molar mesiobukkal kök"
+   ],
+   "spot": [
+    "Uyuşan alan: üst üçüncü, ikinci, birinci molar ve bukkal periodonsiyum.",
+    "Birinci molar MB kökü yaklaşık %28 olguda MSA’dan beslenir; ek infiltrasyon gerekebilir."
+   ],
+   "clinic": [
+    "Hematom: pleksus pterygoideus veya a. maxillaris yaralanması; hızlı yanak şişliği.",
+    "Geçici çift görme veya görme bulanıklığı bildirilmiştir.",
+    "Fazla ilerletme ve aspirasyon yapmama riskleri artırır."
+   ],
+   "rel": [
+    "n_psa",
+    "v_ptplexus",
+    "a_psa"
+   ],
+   "ref": "Malamed, Handbook of Local Anesthesia; StatPearls (Infraorbital ve Nasopalatine); PMC5722639 (PSA kadavra çalışması)."
+  },
+  {
+   "id": "blk_infraorbital",
+   "name": "İnfraorbital blok",
+   "cat": "blocks",
+   "layer": "block",
+   "focus": [
+    "n_infraorbital",
+    "f_infraorbital",
+    "a_infraorbital",
+    "b_maxilla"
+   ],
+   "needle": "x_infraorbital",
+   "route": [
+    "Hedef: foramen infraorbitale.",
+    "İşaret: margo infraorbitalisin altında, pupilla hizası yakınında palpe edilir.",
+    "İntraoral yol: birinci premolar hizasında mukobukkal katlantı, diş uzun eksenine paralel; foramen dışını parmakla tut."
+   ],
+   "through": [
+    "Etkilenir: n_infraorbital, ASA, MSA (varsa)"
+   ],
+   "spot": [
+    "Uyuşan alan: üst kesici, kanin, premolarlar ve çoğu kişide birinci molar MB kökü; bukkal periodonsiyum; alt göz kapağı, burun yanı, üst dudak."
+   ],
+   "clinic": [
+    "Hematom ve intravasküler enjeksiyon olasıdır.",
+    "İğne orbitaya fazla ilerlerse çift görme ve göz kapağı ödemi görülebilir; foramene zorla girilmez."
+   ],
+   "rel": [
+    "f_infraorbital",
+    "n_infraorbital",
+    "a_infraorbital"
+   ],
+   "ref": "Malamed, Handbook of Local Anesthesia; StatPearls (Infraorbital ve Nasopalatine); PMC5722639 (PSA kadavra çalışması)."
+  },
+  {
+   "id": "blk_nasopalatine",
+   "name": "Nazopalatin blok",
+   "cat": "blocks",
+   "layer": "block",
+   "focus": [
+    "n_nasopalatine",
+    "f_incisive",
+    "b_maxilla",
+    "n_gpn"
+   ],
+   "needle": "x_nasopalatine",
+   "route": [
+    "Hedef: foramen incisivum; santral kesicilerin arkasında papilla incisiva.",
+    "Giriş: papillanın yanından yaklaşık 45° ile; derinlik genellikle 5 mm’yi geçmez.",
+    "Basınç anestezisi ve çok yavaş enjeksiyon ağrıyı azaltır."
+   ],
+   "through": [
+    "Etkilenir: n_nasopalatine"
+   ],
+   "spot": [
+    "Uyuşan alan: sert damak ön bölümü, kanin–kanin (premolara uzanabilir) palatal mukoperiost.",
+    "Premolar bölgede n. palatinus major ile anastomoz vardır; innervasyon değişkendir."
+   ],
+   "clinic": [
+    "En ağrılı intraoral enjeksiyonlardandır.",
+    "Sıkı mukozaya fazla vazokonstriktör verilmesi iskemi ve doku nekrozu yapabilir."
+   ],
+   "rel": [
+    "f_incisive",
+    "n_nasopalatine",
+    "n_gpn"
+   ],
+   "ref": "Malamed, Handbook of Local Anesthesia; StatPearls (Infraorbital ve Nasopalatine); PMC5722639 (PSA kadavra çalışması)."
+  },
+  {
+   "id": "t_11",
+   "name": "11 – Üst sağ santral kesici",
+   "fdi": "11",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 11. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 7–8 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior anterior (n_infraorbital dalı)",
+    "Labial dişeti: n_infraorbital",
+    "Palatal: n_nasopalatine"
+   ],
+   "spot": [
+    "Üst kesiciler içinde meziodistal olarak en geniş olanıdır.",
+    "Yeni sürmüş dişte kesici kenarda mamelonlar görülebilir."
+   ],
+   "clinic": [
+    "Ön diş travmalarında en sık etkilenen dişlerdendir."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_12",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_12",
+   "name": "12 – Üst sağ lateral kesici",
+   "fdi": "12",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 12. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 8–9 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior anterior (n_infraorbital dalı)",
+    "Labial dişeti: n_infraorbital",
+    "Palatal: n_nasopalatine"
+   ],
+   "spot": [
+    "Palatinal radiküler oluk ve dens invaginatus en çok bu dişte görülür.",
+    "Çivi (peg) lateral biçim anomalisi bu dişin tipik varyasyonudur."
+   ],
+   "clinic": [
+    "Oluk bakteri birikimi ve lokalize periodontal cep yapabilir."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_11",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_13",
+   "name": "13 – Üst sağ kanin",
+   "fdi": "13",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 13. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 11–12 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior anterior (n_infraorbital dalı)",
+    "Labial dişeti: n_infraorbital",
+    "Palatal: n_nasopalatine"
+   ],
+   "spot": [
+    "Tüm dişler içinde en uzun kök genellikle üst kanindedir.",
+    "Kanin çıkıntısı labial kortikali yükseltir."
+   ],
+   "clinic": [
+    "Gömülü kaldığında palatal konum sık görülür, ortodontik sürdürme gerekebilir."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_12",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_14",
+   "name": "14 – Üst sağ birinci premolar",
+   "fdi": "14",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 14. Kök sayısı: Çoğunlukla 2 (bukkal, palatal).",
+    "Daimi diş sürme zamanı: 10–11 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior medius; yoksa anterior dalı",
+    "Bukkal dişeti: n_infraorbital",
+    "Palatal: n_gpn, n_nasopalatine ile örtüşebilir"
+   ],
+   "spot": [
+    "Mezial kök yüzeyinde belirgin çöküntü vardır; bu bölge periodontal temizlikte zordur.",
+    "İki kanallı olması beklenir."
+   ],
+   "clinic": [
+    "Çekimde iki ince kök kırılmaya yatkındır."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_13",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_15",
+   "name": "15 – Üst sağ ikinci premolar",
+   "fdi": "15",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 15. Kök sayısı: Çoğunlukla 1.",
+    "Daimi diş sürme zamanı: 10–12 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior medius; yoksa anterior dalı",
+    "Bukkal dişeti: n_infraorbital",
+    "Palatal: n_gpn, n_nasopalatine ile örtüşebilir"
+   ],
+   "spot": [
+    "Birinci premolardan farklı olarak genellikle tek köklüdür.",
+    "Kökü sinüs tabanına yakın olabilir."
+   ],
+   "clinic": [
+    "Enfeksiyon ve çekimde sinüs komşuluğu göz önünde tutulur."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_14",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_16",
+   "name": "16 – Üst sağ birinci molar",
+   "fdi": "16",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 16. Kök sayısı: 3 (MB, DB, palatal).",
+    "Daimi diş sürme zamanı: 6–7 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_psa; mezyobukkal kök bazı kişilerde N. alveolaris superior medius",
+    "Bukkal dişeti: n_psa",
+    "Palatal: n_gpn"
+   ],
+   "spot": [
+    "Oblik sırt ve meziopalatal tüberkül üzerindeki Carabelli tüberkülü bu dişin ayırt ettirici özelliğidir.",
+    "En kalın kök palatal köktür. MB kökünde ikinci kanal (MB2) sık aranır."
+   ],
+   "clinic": [
+    "Çekim sonrası oroantral iletişim riski taşıyan dişlerdendir.",
+    "Blokta MB kök için ek infiltrasyon gerekebilir (blk_psa)."
+   ],
+   "rel": [
+    "blk_psa",
+    "t_15",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_17",
+   "name": "17 – Üst sağ ikinci molar",
+   "fdi": "17",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 17. Kök sayısı: Çoğunlukla 3 (MB, DB, palatal).",
+    "Daimi diş sürme zamanı: 12–13 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_psa",
+    "Bukkal dişeti: n_psa",
+    "Palatal: n_gpn"
+   ],
+   "spot": [
+    "Kökleri birinci molara göre birbirine daha yakındır, kaynaşma görülebilir.",
+    "Kökleri maksiller sinüs tabanına yakındır."
+   ],
+   "clinic": [
+    "Çekim sonrası oroantral iletişim riski taşır. Blok hedefi tuber maxillae arkasıdır (blk_psa)."
+   ],
+   "rel": [
+    "blk_psa",
+    "t_16",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_21",
+   "name": "21 – Üst sol santral kesici",
+   "fdi": "21",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 21. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 7–8 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior anterior (n_infraorbital dalı)",
+    "Labial dişeti: n_infraorbital",
+    "Palatal: n_nasopalatine"
+   ],
+   "spot": [
+    "Üst kesiciler içinde meziodistal olarak en geniş olanıdır.",
+    "Yeni sürmüş dişte kesici kenarda mamelonlar görülebilir."
+   ],
+   "clinic": [
+    "Ön diş travmalarında en sık etkilenen dişlerdendir."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_22",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_22",
+   "name": "22 – Üst sol lateral kesici",
+   "fdi": "22",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 22. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 8–9 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior anterior (n_infraorbital dalı)",
+    "Labial dişeti: n_infraorbital",
+    "Palatal: n_nasopalatine"
+   ],
+   "spot": [
+    "Palatinal radiküler oluk ve dens invaginatus en çok bu dişte görülür.",
+    "Çivi (peg) lateral biçim anomalisi bu dişin tipik varyasyonudur."
+   ],
+   "clinic": [
+    "Oluk bakteri birikimi ve lokalize periodontal cep yapabilir."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_21",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_23",
+   "name": "23 – Üst sol kanin",
+   "fdi": "23",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 23. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 11–12 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior anterior (n_infraorbital dalı)",
+    "Labial dişeti: n_infraorbital",
+    "Palatal: n_nasopalatine"
+   ],
+   "spot": [
+    "Tüm dişler içinde en uzun kök genellikle üst kanindedir.",
+    "Kanin çıkıntısı labial kortikali yükseltir."
+   ],
+   "clinic": [
+    "Gömülü kaldığında palatal konum sık görülür, ortodontik sürdürme gerekebilir."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_22",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_24",
+   "name": "24 – Üst sol birinci premolar",
+   "fdi": "24",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 24. Kök sayısı: Çoğunlukla 2 (bukkal, palatal).",
+    "Daimi diş sürme zamanı: 10–11 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior medius; yoksa anterior dalı",
+    "Bukkal dişeti: n_infraorbital",
+    "Palatal: n_gpn, n_nasopalatine ile örtüşebilir"
+   ],
+   "spot": [
+    "Mezial kök yüzeyinde belirgin çöküntü vardır; bu bölge periodontal temizlikte zordur.",
+    "İki kanallı olması beklenir."
+   ],
+   "clinic": [
+    "Çekimde iki ince kök kırılmaya yatkındır."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_23",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_25",
+   "name": "25 – Üst sol ikinci premolar",
+   "fdi": "25",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 25. Kök sayısı: Çoğunlukla 1.",
+    "Daimi diş sürme zamanı: 10–12 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: N. alveolaris superior medius; yoksa anterior dalı",
+    "Bukkal dişeti: n_infraorbital",
+    "Palatal: n_gpn, n_nasopalatine ile örtüşebilir"
+   ],
+   "spot": [
+    "Birinci premolardan farklı olarak genellikle tek köklüdür.",
+    "Kökü sinüs tabanına yakın olabilir."
+   ],
+   "clinic": [
+    "Enfeksiyon ve çekimde sinüs komşuluğu göz önünde tutulur."
+   ],
+   "rel": [
+    "blk_infraorbital",
+    "t_24",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_26",
+   "name": "26 – Üst sol birinci molar",
+   "fdi": "26",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 26. Kök sayısı: 3 (MB, DB, palatal).",
+    "Daimi diş sürme zamanı: 6–7 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_psa; mezyobukkal kök bazı kişilerde N. alveolaris superior medius",
+    "Bukkal dişeti: n_psa",
+    "Palatal: n_gpn"
+   ],
+   "spot": [
+    "Oblik sırt ve meziopalatal tüberkül üzerindeki Carabelli tüberkülü bu dişin ayırt ettirici özelliğidir.",
+    "En kalın kök palatal köktür. MB kökünde ikinci kanal (MB2) sık aranır."
+   ],
+   "clinic": [
+    "Çekim sonrası oroantral iletişim riski taşıyan dişlerdendir.",
+    "Blokta MB kök için ek infiltrasyon gerekebilir (blk_psa)."
+   ],
+   "rel": [
+    "blk_psa",
+    "t_25",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_27",
+   "name": "27 – Üst sol ikinci molar",
+   "fdi": "27",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 27. Kök sayısı: Çoğunlukla 3 (MB, DB, palatal).",
+    "Daimi diş sürme zamanı: 12–13 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_psa",
+    "Bukkal dişeti: n_psa",
+    "Palatal: n_gpn"
+   ],
+   "spot": [
+    "Kökleri birinci molara göre birbirine daha yakındır, kaynaşma görülebilir.",
+    "Kökleri maksiller sinüs tabanına yakındır."
+   ],
+   "clinic": [
+    "Çekim sonrası oroantral iletişim riski taşır. Blok hedefi tuber maxillae arkasıdır (blk_psa)."
+   ],
+   "rel": [
+    "blk_psa",
+    "t_26",
+    "b_maxilla"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_31",
+   "name": "31 – Alt sol santral kesici",
+   "fdi": "31",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 31. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 6–7 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian (n. incisivus dalı)",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Ağızdaki en küçük daimi diştir ve iki yarısı simetriktir.",
+    "Çoğunlukla ilk sürer."
+   ],
+   "clinic": [
+    "İnce labial kemik nedeniyle periodontal yıkıma duyarlıdır."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_32",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_32",
+   "name": "32 – Alt sol lateral kesici",
+   "fdi": "32",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 32. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 7–8 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian (n. incisivus dalı)",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Santral kesiciden biraz daha geniştir; kesici kenarı distale doğru hafif döner."
+   ],
+   "clinic": [
+    "Anestezi için bazen karşı taraftan çapraz lif nedeniyle ek infiltrasyon gerekir."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_31",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_33",
+   "name": "33 – Alt sol kanin",
+   "fdi": "33",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 33. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 9–10 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian (n. incisivus dalı)",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Alt çenedeki en uzun kök genellikle bu dişindir."
+   ],
+   "clinic": [
+    "Kök uzunluğu nedeniyle çekimde kuvvetli destek sağlar."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_32",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_34",
+   "name": "34 – Alt sol birinci premolar",
+   "fdi": "34",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 34. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 10–12 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Lingual tüberkül küçük ve işlevsel olmayan niteliktedir.",
+    "Kök ucu foramen mentaleye yakın olabilir."
+   ],
+   "clinic": [
+    "Foramen mentale yakınlığı cerrahide sinir hasarı riski taşır."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_33",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_35",
+   "name": "35 – Alt sol ikinci premolar",
+   "fdi": "35",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 35. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 11–12 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Çiğneme yüzeyinde Y, U veya H oluk düzeni görülebilir.",
+    "Üçüncü molarlardan sonra en sık konjenital eksik diş gruplarındandır.",
+    "Foramen mentale çoğunlukla bu dişin apeks bölgesine yakındır."
+   ],
+   "clinic": [
+    "Radyografide foramen mentale periapikal lezyonla karışabilir (f_mental)."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_34",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_36",
+   "name": "36 – Alt sol birinci molar",
+   "fdi": "36",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 36. Kök sayısı: 2 (mezial, distal).",
+    "Daimi diş sürme zamanı: 6–7 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian",
+    "Bukkal dişeti: n_buccal",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Beş tüberküllü ve Y5 oluk düzenlidir; ilk sürdüğü için 6 yaş dişi olarak bilinir.",
+    "Mezial kökte genellikle iki kanal bulunur."
+   ],
+   "clinic": [
+    "Çekiminde n_buccal için ek blok gerekir.",
+    "Kökleri m_mylohyoid hattına göre apse yayılımı açısından değerlendirilir."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_35",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_37",
+   "name": "37 – Alt sol ikinci molar",
+   "fdi": "37",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 37. Kök sayısı: Çoğunlukla 2 (mezial, distal).",
+    "Daimi diş sürme zamanı: 11–13 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian",
+    "Bukkal dişeti: n_buccal",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Dört tüberküllü ve artı biçimli oluk düzeni tipiktir.",
+    "C biçimli kanal varyasyonu bu dişte tanınır."
+   ],
+   "clinic": [
+    "Apeksleri canalis mandibulaeye yakın olabilir (n_ian).",
+    "Apeksleri linea mylohyoidea altındaysa enfeksiyon submandibular boşluğa yayılabilir."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_36",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_41",
+   "name": "41 – Alt sağ santral kesici",
+   "fdi": "41",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 41. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 6–7 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian (n. incisivus dalı)",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Ağızdaki en küçük daimi diştir ve iki yarısı simetriktir.",
+    "Çoğunlukla ilk sürer."
+   ],
+   "clinic": [
+    "İnce labial kemik nedeniyle periodontal yıkıma duyarlıdır."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_42",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_42",
+   "name": "42 – Alt sağ lateral kesici",
+   "fdi": "42",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 42. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 7–8 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian (n. incisivus dalı)",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Santral kesiciden biraz daha geniştir; kesici kenarı distale doğru hafif döner."
+   ],
+   "clinic": [
+    "Anestezi için bazen karşı taraftan çapraz lif nedeniyle ek infiltrasyon gerekir."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_41",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_43",
+   "name": "43 – Alt sağ kanin",
+   "fdi": "43",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 43. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 9–10 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian (n. incisivus dalı)",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Alt çenedeki en uzun kök genellikle bu dişindir."
+   ],
+   "clinic": [
+    "Kök uzunluğu nedeniyle çekimde kuvvetli destek sağlar."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_42",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_44",
+   "name": "44 – Alt sağ birinci premolar",
+   "fdi": "44",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 44. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 10–12 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Lingual tüberkül küçük ve işlevsel olmayan niteliktedir.",
+    "Kök ucu foramen mentaleye yakın olabilir."
+   ],
+   "clinic": [
+    "Foramen mentale yakınlığı cerrahide sinir hasarı riski taşır."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_43",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_45",
+   "name": "45 – Alt sağ ikinci premolar",
+   "fdi": "45",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 45. Kök sayısı: 1.",
+    "Daimi diş sürme zamanı: 11–12 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian",
+    "Labial/bukkal dişeti: n_mental",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Çiğneme yüzeyinde Y, U veya H oluk düzeni görülebilir.",
+    "Üçüncü molarlardan sonra en sık konjenital eksik diş gruplarındandır.",
+    "Foramen mentale çoğunlukla bu dişin apeks bölgesine yakındır."
+   ],
+   "clinic": [
+    "Radyografide foramen mentale periapikal lezyonla karışabilir (f_mental)."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_44",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_46",
+   "name": "46 – Alt sağ birinci molar",
+   "fdi": "46",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 46. Kök sayısı: 2 (mezial, distal).",
+    "Daimi diş sürme zamanı: 6–7 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian",
+    "Bukkal dişeti: n_buccal",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Beş tüberküllü ve Y5 oluk düzenlidir; ilk sürdüğü için 6 yaş dişi olarak bilinir.",
+    "Mezial kökte genellikle iki kanal bulunur."
+   ],
+   "clinic": [
+    "Çekiminde n_buccal için ek blok gerekir.",
+    "Kökleri m_mylohyoid hattına göre apse yayılımı açısından değerlendirilir."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_45",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "t_47",
+   "name": "47 – Alt sağ ikinci molar",
+   "fdi": "47",
+   "cat": "teeth",
+   "layer": "tooth",
+   "route": [
+    "FDI 47. Kök sayısı: Çoğunlukla 2 (mezial, distal).",
+    "Daimi diş sürme zamanı: 11–13 yaş (ortalama aralık)."
+   ],
+   "through": [
+    "Pulpa ve periodonsiyum: n_ian",
+    "Bukkal dişeti: n_buccal",
+    "Lingual dişeti: n_lingual"
+   ],
+   "spot": [
+    "Dört tüberküllü ve artı biçimli oluk düzeni tipiktir.",
+    "C biçimli kanal varyasyonu bu dişte tanınır."
+   ],
+   "clinic": [
+    "Apeksleri canalis mandibulaeye yakın olabilir (n_ian).",
+    "Apeksleri linea mylohyoidea altındaysa enfeksiyon submandibular boşluğa yayılabilir."
+   ],
+   "rel": [
+    "blk_ianb",
+    "t_46",
+    "b_mandible"
+   ],
+   "ref": "Nelson, Wheeler's Dental Anatomy, Physiology and Occlusion; Malamed, Handbook of Local Anesthesia (innervasyon)."
+  },
+  {
+   "id": "m_masseter",
+   "name": "M. masseter",
+   "cat": "mastication",
+   "layer": "muscle",
+   "origin": "Arcus zygomaticus",
+   "insertion": "Ramus mandibulae dış yüzü ve angulus",
+   "nerve": "N. massetericus (n_v3 ön gövde)",
+   "action": "Elevasyon; yüzeyel bölüm protrüzyona katkı verir",
+   "route": [
+    "Origo: Arcus zygomaticus",
+    "İnsersiyo: Ramus mandibulae dış yüzü ve angulus"
+   ],
+   "branches": [
+    "Sinir: N. massetericus (n_v3 ön gövde)"
+   ],
+   "spot": [
+    "Çiğneme kaslarının yüzeyel olanıdır.",
+    "Ductus parotideus kasın üzerinden geçip ön kenarında içe döner."
+   ],
+   "clinic": [
+    "Bruksizmde hipertrofi görülebilir.",
+    "Trismus nedenlerindendir."
+   ],
+   "rel": [
+    "ai_masseter",
+    "n_v3",
+    "b_mandible"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_temporalis",
+   "name": "M. temporalis",
+   "cat": "mastication",
+   "layer": "muscle",
+   "origin": "Fossa temporalis ve fascia temporalis",
+   "insertion": "Processus coronoideus ve ramus ön kenarı",
+   "nerve": "Nn. temporales profundi (n_v3 ön gövde)",
+   "action": "Elevasyon; arka lifler retrüzyon",
+   "route": [
+    "Origo: Fossa temporalis ve fascia temporalis",
+    "İnsersiyo: Processus coronoideus ve ramus ön kenarı"
+   ],
+   "branches": [
+    "Sinir: Nn. temporales profundi (n_v3 ön gövde)"
+   ],
+   "spot": [
+    "Mandibulanın başlıca retrüzyon kasıdır (arka lifler)."
+   ],
+   "clinic": [
+    "Gerilim tipi baş ağrısı ve miyofasiyal ağrıda tetik noktalar içerebilir."
+   ],
+   "rel": [
+    "ai_temporalis",
+    "a_deeptemporal",
+    "b_mandible"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_medpt",
+   "name": "M. pterygoideus medialis",
+   "cat": "mastication",
+   "layer": "muscle",
+   "origin": "Derin baş: lamina lateralis processus pterygoidei medial yüzü. Yüzeyel baş: tuber maxillae ve os palatinum processus pyramidalis",
+   "insertion": "Ramus mandibulae iç yüzü, angulus yakını",
+   "nerve": "N. pterygoideus medialis (n_v3 ana gövde)",
+   "action": "Elevasyon, protrüzyon, karşı tarafa lateral hareket",
+   "route": [
+    "Origo: Derin baş: lamina lateralis processus pterygoidei medial yüzü. Yüzeyel baş: tuber maxillae ve os palatinum processus pyramidalis",
+    "İnsersiyo: Ramus mandibulae iç yüzü, angulus yakını"
+   ],
+   "branches": [
+    "Sinir: N. pterygoideus medialis (n_v3 ana gövde)"
+   ],
+   "spot": [
+    "M. masseter ile angulus etrafında kas askısı yapar."
+   ],
+   "clinic": [
+    "IANB sırasında iğne travması trismusun klasik nedenidir (blk_ianb)."
+   ],
+   "rel": [
+    "ai_medpt",
+    "blk_ianb",
+    "n_v3"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_latpt",
+   "name": "M. pterygoideus lateralis",
+   "cat": "mastication",
+   "layer": "muscle",
+   "origin": "Üst baş: ala major infratemporal yüzü. Alt baş: lamina lateralis processus pterygoidei dış yüzü",
+   "insertion": "Fovea pterygoidea, eklem kapsülü ve j_disc",
+   "nerve": "N. pterygoideus lateralis (n_v3 ön gövde)",
+   "action": "Ağız açma (depresyon), protrüzyon, karşı tarafa lateral hareket",
+   "route": [
+    "Origo: Üst baş: ala major infratemporal yüzü. Alt baş: lamina lateralis processus pterygoidei dış yüzü",
+    "İnsersiyo: Fovea pterygoidea, eklem kapsülü ve j_disc"
+   ],
+   "branches": [
+    "Sinir: N. pterygoideus lateralis (n_v3 ön gövde)"
+   ],
+   "spot": [
+    "Çiğneme kasları içinde ağız açmaya katılan kastır.",
+    "A. maxillaris bu kasa göre üç bölüme ayrılır.",
+    "Modelde bu kasın insersiyo yapışma bölgesi yoktur."
+   ],
+   "clinic": [
+    "Tek taraflı V3 lezyonunda çene ağız açarken lezyon tarafına kayar.",
+    "Kondil boynu kırığında proksimal parça bu kasın çekmesiyle öne-içe yer değiştirir."
+   ],
+   "rel": [
+    "j_disc",
+    "a_maxillary",
+    "n_buccal"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_digastric",
+   "name": "M. digastricus",
+   "cat": "oralfloor",
+   "layer": "muscle",
+   "origin": "Arka karın: incisura mastoidea. Ön karın: fossa digastrica (mandibula)",
+   "insertion": "Ara tendon, os hyoideum",
+   "nerve": "Arka karın: n_vii. Ön karın: n_mylohyoid",
+   "action": "Hyoidi kaldırır, hyoid sabitken mandibulayı aşağı çeker",
+   "route": [
+    "Origo: Arka karın: incisura mastoidea. Ön karın: fossa digastrica (mandibula)",
+    "İnsersiyo: Ara tendon, os hyoideum"
+   ],
+   "branches": [
+    "Sinir: Arka karın: n_vii. Ön karın: n_mylohyoid"
+   ],
+   "spot": [
+    "İki karnı iki farklı siniri (V3 ve VII) alır; embriyolojik köken farkını gösterir."
+   ],
+   "clinic": [
+    "Submandibular üçgenin sınırlarından birini yapar."
+   ],
+   "rel": [
+    "ai_digastric",
+    "n_mylohyoid",
+    "b_hyoid"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_mylohyoid",
+   "name": "M. mylohyoideus",
+   "cat": "oralfloor",
+   "layer": "muscle",
+   "origin": "Linea mylohyoidea (mandibula)",
+   "insertion": "Orta hat rafe ve os hyoideum gövdesi",
+   "nerve": "n_mylohyoid",
+   "action": "Ağız tabanını yükseltir, hyoidi kaldırır",
+   "route": [
+    "Origo: Linea mylohyoidea (mandibula)",
+    "İnsersiyo: Orta hat rafe ve os hyoideum gövdesi"
+   ],
+   "branches": [
+    "Sinir: n_mylohyoid"
+   ],
+   "spot": [
+    "Ağız tabanının kas diyaframıdır.",
+    "Sublingual boşluğu altındaki submandibular boşluktan ayırır."
+   ],
+   "clinic": [
+    "Kök uçları linea mylohyoidea üstündeyse apse sublingual, altındaysa submandibular boşluğa yayılır.",
+    "Ludwig anjini: bilateral yayılım ve havayolu tehlikesi; sıklıkla alt molar kaynaklıdır."
+   ],
+   "rel": [
+    "ao_mylohyoid",
+    "n_mylohyoid",
+    "t_47"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_geniohyoid",
+   "name": "M. geniohyoideus",
+   "cat": "oralfloor",
+   "layer": "muscle",
+   "origin": "Spina mentalis inferior",
+   "insertion": "Os hyoideum gövdesi",
+   "nerve": "C1 lifleri (n_xii ile taşınır)",
+   "action": "Hyoidi öne-yukarı çeker, mandibula depresyonuna yardım eder",
+   "route": [
+    "Origo: Spina mentalis inferior",
+    "İnsersiyo: Os hyoideum gövdesi"
+   ],
+   "branches": [
+    "Sinir: C1 lifleri (n_xii ile taşınır)"
+   ],
+   "spot": [
+    "Ağız tabanı içinde C1 ile beslenen kastır."
+   ],
+   "clinic": [
+    "Dil kökü ile birlikte havayolu açıklığına katkı verir."
+   ],
+   "rel": [
+    "ao_geniohyoid",
+    "n_xii",
+    "b_hyoid"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_stylohyoid",
+   "name": "M. stylohyoideus",
+   "cat": "oralfloor",
+   "layer": "muscle",
+   "origin": "Processus styloideus",
+   "insertion": "Os hyoideum",
+   "nerve": "n_vii",
+   "action": "Yutkunmada hyoidi yukarı-arkaya çeker",
+   "route": [
+    "Origo: Processus styloideus",
+    "İnsersiyo: Os hyoideum"
+   ],
+   "branches": [
+    "Sinir: n_vii"
+   ],
+   "spot": [
+    "Stilomastoid delikten hemen sonra CN VII’den dal alır."
+   ],
+   "clinic": [
+    "Eagle sendromunda stiloid çıkıntı komşuluğu ağrı yapabilir."
+   ],
+   "rel": [
+    "n_vii",
+    "m_digastric",
+    "b_hyoid"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_genioglossus",
+   "name": "M. genioglossus",
+   "cat": "oralfloor",
+   "layer": "muscle",
+   "origin": "Spina mentalis superior",
+   "insertion": "Dil alt yüzü ve os hyoideum",
+   "nerve": "n_xii",
+   "action": "Dili öne çıkarır (protrüzyon)",
+   "route": [
+    "Origo: Spina mentalis superior",
+    "İnsersiyo: Dil alt yüzü ve os hyoideum"
+   ],
+   "branches": [
+    "Sinir: n_xii"
+   ],
+   "spot": [
+    "CN XII felcinde dilin lezyon tarafına sapmasını bu kasın güçsüzlüğü açıklar."
+   ],
+   "clinic": [
+    "Genel anestezide gevşediğinde dil kökü geri düşerek havayolunu kapatabilir."
+   ],
+   "rel": [
+    "n_xii",
+    "m_tongue",
+    "b_mandible"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_hyoglossus",
+   "name": "M. hyoglossus",
+   "cat": "oralfloor",
+   "layer": "muscle",
+   "origin": "Os hyoideum cornu majus ve gövdesi",
+   "insertion": "Dilin yan bölümü",
+   "nerve": "n_xii",
+   "action": "Dili aşağı ve geri çeker",
+   "route": [
+    "Origo: Os hyoideum cornu majus ve gövdesi",
+    "İnsersiyo: Dilin yan bölümü"
+   ],
+   "branches": [
+    "Sinir: n_xii"
+   ],
+   "spot": [
+    "A. lingualis bu kasın derininden, CN XII ve n. lingualis yüzeyinden geçer."
+   ],
+   "clinic": [
+    "Ağız tabanı cerrahisinde önemli bir yol göstericidir."
+   ],
+   "rel": [
+    "a_lingual",
+    "n_xii",
+    "n_lingual"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_tensor",
+   "name": "M. tensor veli palatini",
+   "cat": "oralfloor",
+   "layer": "muscle",
+   "origin": "Fossa scaphoidea, spina ossis sphenoidalis ve tuba auditiva kıkırdağı",
+   "insertion": "Hamulus pterygoideus çevresinden döner, aponeurosis palatina",
+   "nerve": "N. pterygoideus medialis dalı (n_v3)",
+   "action": "Yumuşak damağı gerer, östaki borusunu açar",
+   "route": [
+    "Origo: Fossa scaphoidea, spina ossis sphenoidalis ve tuba auditiva kıkırdağı",
+    "İnsersiyo: Hamulus pterygoideus çevresinden döner, aponeurosis palatina"
+   ],
+   "branches": [
+    "Sinir: N. pterygoideus medialis dalı (n_v3)"
+   ],
+   "spot": [
+    "Yumuşak damak kasları içinde CN X dışından (V3) beslenen kastır."
+   ],
+   "clinic": [
+    "Damak yarığında işlev bozukluğu orta kulak efüzyonuna eğilim yaratır."
+   ],
+   "rel": [
+    "n_v3",
+    "g_otic",
+    "b_sphenoid"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_tongue",
+   "name": "Dil (lingua)",
+   "cat": "oralfloor",
+   "layer": "muscle",
+   "origin": "İç ve dış dil kaslarının oluşturduğu kas kütlesi",
+   "insertion": "Mukoza ve dil septumu",
+   "nerve": "Motor: n_xii (m. palatoglossus hariç). Duyu: ön 2/3 n_lingual, arka 1/3 n_ix. Tat: ön 2/3 n_chorda, arka 1/3 n_ix",
+   "action": "Çiğneme, yutma ve konuşma",
+   "route": [
+    "Origo: İç ve dış dil kaslarının oluşturduğu kas kütlesi",
+    "İnsersiyo: Mukoza ve dil septumu"
+   ],
+   "branches": [
+    "Sinir: Motor: n_xii (m. palatoglossus hariç). Duyu: ön 2/3 n_lingual, arka 1/3 n_ix. Tat: ön 2/3 n_chorda, arka 1/3 n_ix"
+   ],
+   "spot": [
+    "Ön 2/3 ve arka 1/3 ayrımı sulcus terminalis iledir.",
+    "M. palatoglossus CN X’tan beslenir."
+   ],
+   "clinic": [
+    "N. lingualis hasarında ön 2/3 uyuşur ve tat bozulur."
+   ],
+   "rel": [
+    "n_lingual",
+    "n_xii",
+    "n_chorda"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_orbicularis",
+   "name": "M. orbicularis oris",
+   "cat": "perioral",
+   "layer": "muscle",
+   "origin": "Modiolus ve komşu mimik kasları; mandibula ve maxilla bağlantıları",
+   "insertion": "Dudak derisi ve mukozası",
+   "nerve": "n_vii (bukkal ve marjinal mandibular dallar)",
+   "action": "Ağzı kapatır, dudakları büzer",
+   "route": [
+    "Origo: Modiolus ve komşu mimik kasları; mandibula ve maxilla bağlantıları",
+    "İnsersiyo: Dudak derisi ve mukozası"
+   ],
+   "branches": [
+    "Sinir: n_vii (bukkal ve marjinal mandibular dallar)"
+   ],
+   "spot": [
+    "Dudak kapanışının ana kasıdır."
+   ],
+   "clinic": [
+    "CN VII felcinde ağız köşesinden sıvı kaçar."
+   ],
+   "rel": [
+    "n_vii",
+    "ao_orbicularis",
+    "a_facial"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_mentalis",
+   "name": "M. mentalis",
+   "cat": "perioral",
+   "layer": "muscle",
+   "origin": "Mandibula fossa incisiva",
+   "insertion": "Çene ucu derisi",
+   "nerve": "n_vii (marjinal mandibular dal)",
+   "action": "Çene derisini ve alt dudağı yükseltir",
+   "route": [
+    "Origo: Mandibula fossa incisiva",
+    "İnsersiyo: Çene ucu derisi"
+   ],
+   "branches": [
+    "Sinir: n_vii (marjinal mandibular dal)"
+   ],
+   "spot": [
+    "Dudak hipertonisitesinde alt ön bölge protezine ve ortodontik dengeye etki eder."
+   ],
+   "clinic": [
+    "Alt ön cerrahide insizyon bu kasa göre planlanır."
+   ],
+   "rel": [
+    "ao_mentalis",
+    "n_mental",
+    "n_vii"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_dao",
+   "name": "M. depressor anguli oris",
+   "cat": "perioral",
+   "layer": "muscle",
+   "origin": "Linea obliqua (mandibula)",
+   "insertion": "Modiolus",
+   "nerve": "n_vii (marjinal mandibular dal)",
+   "action": "Ağız köşesini aşağı çeker",
+   "route": [
+    "Origo: Linea obliqua (mandibula)",
+    "İnsersiyo: Modiolus"
+   ],
+   "branches": [
+    "Sinir: n_vii (marjinal mandibular dal)"
+   ],
+   "spot": [
+    "Marjinal mandibular dal alt çene kenarı boyunca seyreder."
+   ],
+   "clinic": [
+    "Submandibular insizyonda dal hasarı ağız köşesinde asimetri yapar."
+   ],
+   "rel": [
+    "ao_dao",
+    "n_vii",
+    "b_mandible"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_dli",
+   "name": "M. depressor labii inferioris",
+   "cat": "perioral",
+   "layer": "muscle",
+   "origin": "Linea obliqua (mandibula)",
+   "insertion": "Alt dudak derisi",
+   "nerve": "n_vii (marjinal mandibular dal)",
+   "action": "Alt dudağı aşağı ve dışa çeker",
+   "route": [
+    "Origo: Linea obliqua (mandibula)",
+    "İnsersiyo: Alt dudak derisi"
+   ],
+   "branches": [
+    "Sinir: n_vii (marjinal mandibular dal)"
+   ],
+   "spot": [
+    "Foramen mentale bu bölgeye yakındır."
+   ],
+   "clinic": [
+    "Alt ön ve premolar bölge cerrahisinde kas ve n. mentalis birlikte korunur."
+   ],
+   "rel": [
+    "ao_dli",
+    "n_mental",
+    "f_mental"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_lao",
+   "name": "M. levator anguli oris",
+   "cat": "perioral",
+   "layer": "muscle",
+   "origin": "Fossa canina (foramen infraorbitale altı)",
+   "insertion": "Modiolus",
+   "nerve": "n_vii (zigomatik ve bukkal dallar)",
+   "action": "Ağız köşesini kaldırır",
+   "route": [
+    "Origo: Fossa canina (foramen infraorbitale altı)",
+    "İnsersiyo: Modiolus"
+   ],
+   "branches": [
+    "Sinir: n_vii (zigomatik ve bukkal dallar)"
+   ],
+   "spot": [
+    "N. infraorbitalis bu kas ile m. levator labii superioris arasında yüze çıkar."
+   ],
+   "clinic": [
+    "Üst kanin apeks enfeksiyonunun yayılımı bu kasın tutunma düzeyine göre değerlendirilir."
+   ],
+   "rel": [
+    "ao_lao",
+    "f_infraorbital",
+    "t_13"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_lls",
+   "name": "M. levator labii superioris",
+   "cat": "perioral",
+   "layer": "muscle",
+   "origin": "Margo infraorbitalis altı",
+   "insertion": "Üst dudak",
+   "nerve": "n_vii (zigomatik ve bukkal dallar)",
+   "action": "Üst dudağı kaldırır",
+   "route": [
+    "Origo: Margo infraorbitalis altı",
+    "İnsersiyo: Üst dudak"
+   ],
+   "branches": [
+    "Sinir: n_vii (zigomatik ve bukkal dallar)"
+   ],
+   "spot": [
+    "Foramen infraorbitale bu kasın altındadır."
+   ],
+   "clinic": [
+    "İnfraorbital blok bölgesinde palpasyonla aşılan yumuşak doku düzeyindedir (blk_infraorbital)."
+   ],
+   "rel": [
+    "ao_lls",
+    "f_infraorbital",
+    "blk_infraorbital"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_zygmaj",
+   "name": "M. zygomaticus major",
+   "cat": "perioral",
+   "layer": "muscle",
+   "origin": "Os zygomaticum dış yüzü",
+   "insertion": "Modiolus",
+   "nerve": "n_vii (zigomatik ve bukkal dallar)",
+   "action": "Ağız köşesini yukarı-dışa çeker (gülme)",
+   "route": [
+    "Origo: Os zygomaticum dış yüzü",
+    "İnsersiyo: Modiolus"
+   ],
+   "branches": [
+    "Sinir: n_vii (zigomatik ve bukkal dallar)"
+   ],
+   "spot": [
+    "Gülme hareketinin ana kasıdır."
+   ],
+   "clinic": [
+    "CN VII felcinde gülümseme asimetrisi belirgindir."
+   ],
+   "rel": [
+    "ao_zygmaj",
+    "n_vii",
+    "b_zygomatic"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_zygmin",
+   "name": "M. zygomaticus minor",
+   "cat": "perioral",
+   "layer": "muscle",
+   "origin": "Os zygomaticum",
+   "insertion": "Üst dudak",
+   "nerve": "n_vii (zigomatik ve bukkal dallar)",
+   "action": "Üst dudağı kaldırır",
+   "route": [
+    "Origo: Os zygomaticum",
+    "İnsersiyo: Üst dudak"
+   ],
+   "branches": [
+    "Sinir: n_vii (zigomatik ve bukkal dallar)"
+   ],
+   "spot": [
+    "Nazolabial oluğun derinleşmesine katkı verir."
+   ],
+   "clinic": [
+    "CN VII felcinde üst dudak yüksekliği azalır."
+   ],
+   "rel": [
+    "ao_zygmin",
+    "n_vii",
+    "b_zygomatic"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "m_risorius",
+   "name": "M. risorius",
+   "cat": "perioral",
+   "layer": "muscle",
+   "origin": "Fascia parotidea ve masseterica",
+   "insertion": "Modiolus",
+   "nerve": "n_vii (bukkal dal)",
+   "action": "Ağız köşesini yana çeker",
+   "route": [
+    "Origo: Fascia parotidea ve masseterica",
+    "İnsersiyo: Modiolus"
+   ],
+   "branches": [
+    "Sinir: n_vii (bukkal dal)"
+   ],
+   "spot": [
+    "Kemik origosu yoktur; fasyadan başlar."
+   ],
+   "clinic": [
+    "Değişkenliği yüksek bir mimik kasıdır."
+   ],
+   "rel": [
+    "n_vii",
+    "m_masseter",
+    "m_orbicularis"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "j_disc",
+   "name": "Discus articularis (TME)",
+   "cat": "tmj",
+   "layer": "joint",
+   "route": [
+    "Kondil ile fossa mandibularis arasında bikonkav fibröz disk.",
+    "Ekleme üst (kayma) ve alt (rotasyon) iki boşluk verir."
+   ],
+   "spot": [
+    "Ağız açılırken alt boşlukta rotasyon, üst boşlukta öne kayma olur.",
+    "Orta bölümü damarsız ve sinirsizdir; arka bölümde retrodiskal doku vardır."
+   ],
+   "clinic": [
+    "Redüksiyonlu disk deplasmanı: açılırken ve kapanırken klik.",
+    "Redüksiyonsuz deplasman: kilitlenme ve kısıtlı ağız açıklığı."
+   ],
+   "rel": [
+    "m_latpt",
+    "j_capsule",
+    "b_mandible"
+   ],
+   "ref": "Okeson, Management of Temporomandibular Disorders and Occlusion; Moore COA, TME."
+  },
+  {
+   "id": "j_capsule",
+   "name": "Capsula articularis (TME)",
+   "cat": "tmj",
+   "layer": "joint",
+   "route": [
+    "Fossa mandibularis ve tuberculum articulare kenarından collum mandibulae’ye uzanır."
+   ],
+   "spot": [
+    "TME sinoviyal eklemdir; yüzeyi hiyalin yerine fibröz kıkırdakla örtülüdür.",
+    "Duyusu ağırlıkla n_auriculotemporal, ayrıca masseterik ve derin temporal dallardan gelir."
+   ],
+   "clinic": [
+    "Artrosentez ve TME girişimlerinde n_auriculotemporal ve yüzeyel temporal damarlar komşudur."
+   ],
+   "rel": [
+    "n_auriculotemporal",
+    "j_disc",
+    "j_latlig"
+   ],
+   "ref": "Okeson, Management of Temporomandibular Disorders and Occlusion; Moore COA, TME."
+  },
+  {
+   "id": "j_latlig",
+   "name": "Lig. laterale (TME)",
+   "cat": "tmj",
+   "layer": "joint",
+   "route": [
+    "Tuberculum articulare ve arcus zygomaticus kökünden collum mandibulae arka-yan yüzüne."
+   ],
+   "spot": [
+    "Eklemin ana stabilizatörüdür; kondilin arkaya ve aşağı aşırı hareketini sınırlar.",
+    "Gerçek eklem kapsülü kalınlaşmasıdır."
+   ],
+   "clinic": [
+    "Çene travmalarında hasar görerek eklem instabilitesine katkı verebilir."
+   ],
+   "rel": [
+    "j_capsule",
+    "j_smlig",
+    "j_stlig"
+   ],
+   "ref": "Okeson, Management of Temporomandibular Disorders and Occlusion; Moore COA, TME."
+  },
+  {
+   "id": "j_smlig",
+   "name": "Lig. sphenomandibulare",
+   "cat": "tmj",
+   "layer": "joint",
+   "route": [
+    "Spina ossis sphenoidalis’ten lingula mandibulae’ye."
+   ],
+   "spot": [
+    "Aksesuar bağdır; ilk faringeal yay (Meckel) kıkırdağı kalıntısıdır.",
+    "N. alveolaris inferior ile ramus arasında kalır."
+   ],
+   "clinic": [
+    "IANB’de iğne lig. sphenomandibulare önünde, lingula üstünde tutulur (blk_ianb)."
+   ],
+   "rel": [
+    "f_mandibular",
+    "n_ian",
+    "blk_ianb"
+   ],
+   "ref": "Okeson, Management of Temporomandibular Disorders and Occlusion; Moore COA, TME."
+  },
+  {
+   "id": "j_stlig",
+   "name": "Lig. stylomandibulare",
+   "cat": "tmj",
+   "layer": "joint",
+   "route": [
+    "Processus styloideus’tan angulus mandibulae arka kenarına."
+   ],
+   "spot": [
+    "Aksesuar bağdır; protrüzyonu sınırlar.",
+    "Parotis ile submandibular bezi ayıran fasya kalınlaşmasıdır."
+   ],
+   "clinic": [
+    "Eagle sendromu ile komşuluğu nedeniyle ağrı değerlendirmesinde düşünülür."
+   ],
+   "rel": [
+    "j_capsule",
+    "b_mandible",
+    "m_stylohyoid"
+   ],
+   "ref": "Okeson, Management of Temporomandibular Disorders and Occlusion; Moore COA, TME."
+  },
+  {
+   "id": "ao_masseter",
+   "name": "M. masseter – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Arcus zygomaticus alt kenarı ve iç yüzü"
+   ],
+   "through": [
+    "Kas: m_masseter",
+    "Sinir: N. massetericus (n_v3 ön gövde)"
+   ],
+   "spot": [
+    "Hareket: Elevasyon; yüzeyel bölüm protrüzyona katkı verir"
+   ],
+   "clinic": [
+    "Bruksizmde hipertrofi görülebilir.",
+    "Trismus nedenlerindendir."
+   ],
+   "rel": [
+    "m_masseter"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ai_masseter",
+   "name": "M. masseter – insersiyo",
+   "cat": "attach",
+   "layer": "attach_i",
+   "route": [
+    "Kemik üzerindeki bölge: Ramus dış yüzü ve angulus"
+   ],
+   "through": [
+    "Kas: m_masseter",
+    "Sinir: N. massetericus (n_v3 ön gövde)"
+   ],
+   "spot": [
+    "Hareket: Elevasyon; yüzeyel bölüm protrüzyona katkı verir"
+   ],
+   "clinic": [
+    "Bruksizmde hipertrofi görülebilir.",
+    "Trismus nedenlerindendir."
+   ],
+   "rel": [
+    "m_masseter"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_temporalis",
+   "name": "M. temporalis – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Fossa temporalis"
+   ],
+   "through": [
+    "Kas: m_temporalis",
+    "Sinir: Nn. temporales profundi (n_v3 ön gövde)"
+   ],
+   "spot": [
+    "Hareket: Elevasyon; arka lifler retrüzyon"
+   ],
+   "clinic": [
+    "Gerilim tipi baş ağrısı ve miyofasiyal ağrıda tetik noktalar içerebilir."
+   ],
+   "rel": [
+    "m_temporalis"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ai_temporalis",
+   "name": "M. temporalis – insersiyo",
+   "cat": "attach",
+   "layer": "attach_i",
+   "route": [
+    "Kemik üzerindeki bölge: Processus coronoideus ve ramus ön kenarı"
+   ],
+   "through": [
+    "Kas: m_temporalis",
+    "Sinir: Nn. temporales profundi (n_v3 ön gövde)"
+   ],
+   "spot": [
+    "Hareket: Elevasyon; arka lifler retrüzyon"
+   ],
+   "clinic": [
+    "Gerilim tipi baş ağrısı ve miyofasiyal ağrıda tetik noktalar içerebilir."
+   ],
+   "rel": [
+    "m_temporalis"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_medpt",
+   "name": "M. pterygoideus medialis – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Fossa pterygoidea, processus pterygoideus"
+   ],
+   "through": [
+    "Kas: m_medpt",
+    "Sinir: N. pterygoideus medialis (n_v3 ana gövde)"
+   ],
+   "spot": [
+    "Hareket: Elevasyon, protrüzyon, karşı tarafa lateral hareket"
+   ],
+   "clinic": [
+    "IANB sırasında iğne travması trismusun klasik nedenidir (blk_ianb)."
+   ],
+   "rel": [
+    "m_medpt"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ai_medpt",
+   "name": "M. pterygoideus medialis – insersiyo",
+   "cat": "attach",
+   "layer": "attach_i",
+   "route": [
+    "Kemik üzerindeki bölge: Ramus iç yüzü, angulus yakını"
+   ],
+   "through": [
+    "Kas: m_medpt",
+    "Sinir: N. pterygoideus medialis (n_v3 ana gövde)"
+   ],
+   "spot": [
+    "Hareket: Elevasyon, protrüzyon, karşı tarafa lateral hareket"
+   ],
+   "clinic": [
+    "IANB sırasında iğne travması trismusun klasik nedenidir (blk_ianb)."
+   ],
+   "rel": [
+    "m_medpt"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_latpt",
+   "name": "M. pterygoideus lateralis – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Lamina lateralis processus pterygoidei (alt baş)"
+   ],
+   "through": [
+    "Kas: m_latpt",
+    "Sinir: N. pterygoideus lateralis (n_v3 ön gövde)"
+   ],
+   "spot": [
+    "Hareket: Ağız açma (depresyon), protrüzyon, karşı tarafa lateral hareket"
+   ],
+   "clinic": [
+    "Tek taraflı V3 lezyonunda çene ağız açarken lezyon tarafına kayar.",
+    "Kondil boynu kırığında proksimal parça bu kasın çekmesiyle öne-içe yer değiştirir."
+   ],
+   "rel": [
+    "m_latpt"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ai_digastric",
+   "name": "M. digastricus – insersiyo",
+   "cat": "attach",
+   "layer": "attach_i",
+   "route": [
+    "Kemik üzerindeki bölge: Fossa digastrica (ön karın; bazı kitaplarda origo olarak anılır)"
+   ],
+   "through": [
+    "Kas: m_digastric",
+    "Sinir: Arka karın: n_vii. Ön karın: n_mylohyoid"
+   ],
+   "spot": [
+    "Hareket: Hyoidi kaldırır, hyoid sabitken mandibulayı aşağı çeker"
+   ],
+   "clinic": [
+    "Submandibular üçgenin sınırlarından birini yapar."
+   ],
+   "rel": [
+    "m_digastric"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_geniohyoid",
+   "name": "M. geniohyoideus – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Spina mentalis inferior"
+   ],
+   "through": [
+    "Kas: m_geniohyoid",
+    "Sinir: C1 lifleri (n_xii ile taşınır)"
+   ],
+   "spot": [
+    "Hareket: Hyoidi öne-yukarı çeker, mandibula depresyonuna yardım eder"
+   ],
+   "clinic": [
+    "Dil kökü ile birlikte havayolu açıklığına katkı verir."
+   ],
+   "rel": [
+    "m_geniohyoid"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ai_geniohyoid",
+   "name": "M. geniohyoideus – insersiyo",
+   "cat": "attach",
+   "layer": "attach_i",
+   "route": [
+    "Kemik üzerindeki bölge: Os hyoideum gövdesi"
+   ],
+   "through": [
+    "Kas: m_geniohyoid",
+    "Sinir: C1 lifleri (n_xii ile taşınır)"
+   ],
+   "spot": [
+    "Hareket: Hyoidi öne-yukarı çeker, mandibula depresyonuna yardım eder"
+   ],
+   "clinic": [
+    "Dil kökü ile birlikte havayolu açıklığına katkı verir."
+   ],
+   "rel": [
+    "m_geniohyoid"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_mylohyoid",
+   "name": "M. mylohyoideus – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Linea mylohyoidea"
+   ],
+   "through": [
+    "Kas: m_mylohyoid",
+    "Sinir: n_mylohyoid"
+   ],
+   "spot": [
+    "Hareket: Ağız tabanını yükseltir, hyoidi kaldırır"
+   ],
+   "clinic": [
+    "Kök uçları linea mylohyoidea üstündeyse apse sublingual, altındaysa submandibular boşluğa yayılır.",
+    "Ludwig anjini: bilateral yayılım ve havayolu tehlikesi; sıklıkla alt molar kaynaklıdır."
+   ],
+   "rel": [
+    "m_mylohyoid"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_mentalis",
+   "name": "M. mentalis – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Fossa incisiva"
+   ],
+   "through": [
+    "Kas: m_mentalis",
+    "Sinir: n_vii (marjinal mandibular dal)"
+   ],
+   "spot": [
+    "Hareket: Çene derisini ve alt dudağı yükseltir"
+   ],
+   "clinic": [
+    "Alt ön cerrahide insizyon bu kasa göre planlanır."
+   ],
+   "rel": [
+    "m_mentalis"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_dao",
+   "name": "M. depressor anguli oris – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Linea obliqua"
+   ],
+   "through": [
+    "Kas: m_dao",
+    "Sinir: n_vii (marjinal mandibular dal)"
+   ],
+   "spot": [
+    "Hareket: Ağız köşesini aşağı çeker"
+   ],
+   "clinic": [
+    "Submandibular insizyonda dal hasarı ağız köşesinde asimetri yapar."
+   ],
+   "rel": [
+    "m_dao"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_dli",
+   "name": "M. depressor labii inferioris – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Linea obliqua, foramen mentale önü"
+   ],
+   "through": [
+    "Kas: m_dli",
+    "Sinir: n_vii (marjinal mandibular dal)"
+   ],
+   "spot": [
+    "Hareket: Alt dudağı aşağı ve dışa çeker"
+   ],
+   "clinic": [
+    "Alt ön ve premolar bölge cerrahisinde kas ve n. mentalis birlikte korunur."
+   ],
+   "rel": [
+    "m_dli"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_orbicularis",
+   "name": "M. orbicularis oris – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Mandibula kesici bölgesi"
+   ],
+   "through": [
+    "Kas: m_orbicularis",
+    "Sinir: n_vii (bukkal ve marjinal mandibular dallar)"
+   ],
+   "spot": [
+    "Hareket: Ağzı kapatır, dudakları büzer"
+   ],
+   "clinic": [
+    "CN VII felcinde ağız köşesinden sıvı kaçar."
+   ],
+   "rel": [
+    "m_orbicularis"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_lao",
+   "name": "M. levator anguli oris – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Fossa canina"
+   ],
+   "through": [
+    "Kas: m_lao",
+    "Sinir: n_vii (zigomatik ve bukkal dallar)"
+   ],
+   "spot": [
+    "Hareket: Ağız köşesini kaldırır"
+   ],
+   "clinic": [
+    "Üst kanin apeks enfeksiyonunun yayılımı bu kasın tutunma düzeyine göre değerlendirilir."
+   ],
+   "rel": [
+    "m_lao"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_lls",
+   "name": "M. levator labii superioris – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Margo infraorbitalis altı"
+   ],
+   "through": [
+    "Kas: m_lls",
+    "Sinir: n_vii (zigomatik ve bukkal dallar)"
+   ],
+   "spot": [
+    "Hareket: Üst dudağı kaldırır"
+   ],
+   "clinic": [
+    "İnfraorbital blok bölgesinde palpasyonla aşılan yumuşak doku düzeyindedir (blk_infraorbital)."
+   ],
+   "rel": [
+    "m_lls"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_zygmaj",
+   "name": "M. zygomaticus major – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Os zygomaticum dış yüzü"
+   ],
+   "through": [
+    "Kas: m_zygmaj",
+    "Sinir: n_vii (zigomatik ve bukkal dallar)"
+   ],
+   "spot": [
+    "Hareket: Ağız köşesini yukarı-dışa çeker (gülme)"
+   ],
+   "clinic": [
+    "CN VII felcinde gülümseme asimetrisi belirgindir."
+   ],
+   "rel": [
+    "m_zygmaj"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  },
+  {
+   "id": "ao_zygmin",
+   "name": "M. zygomaticus minor – origo",
+   "cat": "attach",
+   "layer": "attach_o",
+   "route": [
+    "Kemik üzerindeki bölge: Os zygomaticum"
+   ],
+   "through": [
+    "Kas: m_zygmin",
+    "Sinir: n_vii (zigomatik ve bukkal dallar)"
+   ],
+   "spot": [
+    "Hareket: Üst dudağı kaldırır"
+   ],
+   "clinic": [
+    "CN VII felcinde üst dudak yüksekliği azalır."
+   ],
+   "rel": [
+    "m_zygmin"
+   ],
+   "ref": "Moore COA, İnfratemporal fossa ve Yüz; Gray's Anatomy, Baş-boyun kasları; Netter Atlas."
+  }
+ ]
+}

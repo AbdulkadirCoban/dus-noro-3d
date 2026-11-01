@@ -1,0 +1,17 @@
+Bu klasördeki GLB dosyaları aşağıdaki çalışmalardan türetilmiştir ve
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) ile paylaşılır.
+https://creativecommons.org/licenses/by-sa/4.0/
+
+KAYNAKLAR
+- Z-Anatomy, CC BY-SA 4.0
+  https://github.com/Z-Anatomy/Models-of-human-anatomy
+  Z-Anatomy, kendi lisans dosyasında şunları da bildirir: BodyParts3D (DBCLS) ve
+  "Cranial Nerves and Foramina" (University of Dundee, CAHID, CC BY 4.0).
+- "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International"
+  https://dbarchive.biosciencedbc.jp/en/bodyparts3d/
+  Güncel lisans sayfası (27.02.2025) CC BY 4.0 belirtir; kaynak OBJ başlıkları
+  eski CC BY-SA 2.1 Japonya metnini taşır.
+
+YAPILAN DEĞİŞİKLİKLER
+Eksen ve konum dönüşümü, sol tarafın aynalanması, poligon azaltma, eğrilerden tüp üretimi,
+meshopt sıkıştırması. Bazı yollar (uygulamada "Şematik yol" etiketli) elle eklenmiştir.

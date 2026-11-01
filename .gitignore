@@ -1,0 +1,7 @@
+node_modules
+dist
+.model-src
+test-results
+playwright-report
+tests/screens
+DUS_Noro_3D.html
