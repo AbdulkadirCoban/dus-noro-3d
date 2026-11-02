@@ -373,6 +373,92 @@ test('kemik opak başlar, kaydırıcı saydamlaştırır, GL gerçekten çizer',
   }
 });
 
+test('15 ve 25 tek köklü, 14 ve 16 kök sayısını korur', async ({ page }) => {
+  await open(page);
+  // Köke yakın dilimde birbirine bağlı olmayan üçgen adaları sayılır (üst dişlerde kök ucu y+ yönündedir)
+  const roots = await page.evaluate((ids) => {
+    const count = (mesh, h) => {
+      mesh.updateWorldMatrix(true, false);
+      const a = mesh.geometry.attributes.position;
+      const ix = mesh.geometry.index.array;
+      const e = mesh.matrixWorld.elements;
+      const y = (i) => e[1] * a.getX(i) + e[5] * a.getY(i) + e[9] * a.getZ(i) + e[13];
+      const key = (i) => `${a.getX(i).toFixed(2)},${a.getY(i).toFixed(2)},${a.getZ(i).toFixed(2)}`;
+      const parent = new Map();
+      const find = (k) => { while (parent.get(k) !== k) k = parent.get(k); return k; };
+      for (let t = 0; t < ix.length; t += 3) {
+        const tri = [ix[t], ix[t + 1], ix[t + 2]];
+        const ys = tri.map(y);
+        if (Math.min(...ys) > h || Math.max(...ys) < h) continue;
+        const ks = tri.map(key);
+        for (const k of ks) if (!parent.has(k)) parent.set(k, k);
+        parent.set(find(ks[0]), find(ks[1]));
+        parent.set(find(ks[1]), find(ks[2]));
+      }
+      return new Set([...parent.keys()].map(find)).size;
+    };
+    return Object.fromEntries(ids.map((id) => {
+      const mesh = window.__app.scene.records.get(id).meshes[0];
+      mesh.updateWorldMatrix(true, false);
+      const a = mesh.geometry.attributes.position;
+      const e = mesh.matrixWorld.elements;
+      let lo = Infinity;
+      let hi = -Infinity;
+      for (let i = 0; i < a.count; i++) {
+        const y = e[1] * a.getX(i) + e[5] * a.getY(i) + e[9] * a.getZ(i) + e[13];
+        lo = Math.min(lo, y);
+        hi = Math.max(hi, y);
+      }
+      return [id, count(mesh, lo + (hi - lo) * 0.9)];
+    }));
+  }, ['t_14', 't_15', 't_16', 't_24', 't_25', 't_26']);
+  expect(roots).toEqual({ t_14: 2, t_15: 1, t_16: 3, t_24: 2, t_25: 1, t_26: 3 });
+});
+
+test('seçim: ilişkili yapılar görünür ve seçili yapıdan farklı renktedir', async ({ page }) => {
+  await open(page);
+  const state = async (id) => page.evaluate((sel) => {
+    const { scene, byId } = window.__app;
+    window.__app.select(sel);
+    const out = {};
+    for (const [k, rec] of scene.records) {
+      const m = rec.meshes[0];
+      if (m?.visible && m.material.color) out[k] = m.material.color.getHex();
+    }
+    return { colors: out, hidden: scene.records.get('m_masseter') ? !scene.records.get('m_masseter').meshes[0].visible : null, layers: Object.fromEntries([...byId].map(([k, s]) => [k, s.layer])) };
+  }, id);
+  const SEL = 0xff2bd6;
+  const REL = 0xf2a93b;
+
+  // Sinir: dalları ve deliği görünür; aynı katmandaki sinir sarı kalır, seçili sinir pembe olur
+  const ian = await state('n_ian');
+  expect(ian.colors.n_ian).toBe(SEL);
+  expect(ian.colors.n_lingual).toBe(0xf5d04e);
+  expect(ian.colors.f_mandibular).toBe(0x4fd8d8);
+  expect(ian.colors.b_mandible).toBe(REL);
+  expect(ian.colors.t_46).toBe(REL);
+  await expect(page.locator('.rel-row button[data-goto="n_lingual"]')).toBeVisible();
+
+  // Arter: dal hem panelde hem sahnede, ana arter de (ters yönde ilişki) görünür
+  const mma = await state('a_mma');
+  expect(mma.colors.a_mma).toBe(SEL);
+  expect(mma.colors.a_maxillary).toBe(0xef5350);
+  expect(mma.colors.f_spinosum).toBe(0x4fd8d8);
+
+  // Kemik katmanı kapalıyken ilişkili kemik katmanı geri açmaz
+  await page.locator('#chips [data-layer="bone"]').click();
+  const off = await state('n_ian');
+  expect(off.colors.b_mandible).toBeUndefined();
+  expect(off.colors.n_lingual).toBe(0xf5d04e);
+  await page.locator('#chips [data-layer="bone"]').click();
+
+  // Blok: hedef sinir seçili renkte, diğer yapılar ilişkili
+  const blk = await state('blk_ianb');
+  expect(blk.colors.n_ian).toBe(SEL);
+  expect(blk.colors.n_lingual).toBe(0xf5d04e);
+  expect(blk.colors.b_mandible).toBe(REL);
+});
+
 test('dokunma hedefleri 44 px ve yatay taşma yok', async ({ page }) => {
   await open(page);
   await page.evaluate(() => window.__app.select('v_cavernous', { instant: true }));

@@ -108,6 +108,28 @@ $('#btn-list').addEventListener('click', () => app.classList.toggle('list-open')
 // Liste açıkken sahneye dokunmak listeyi kapatsın
 $('#stage').addEventListener('pointerdown', () => app.classList.remove('list-open'));
 
+// ---------- İlişkili yapılar ----------
+// Yapının metninde adı geçenler ile onu dal veya içinden geçen olarak sayanlar; yalnız modeli olanlar sahnede gösterilir
+const ID_RE = /\b[a-z]{1,3}_[a-z0-9_]+\b/g;
+const REL_FIELDS = ['rel', 'branches', 'through', 'route', 'spot', 'clinic', 'pre', 'post', 'path', 'nerve', 'action'];
+const idsIn = (v) => (JSON.stringify(v ?? '').match(ID_RE) ?? []).filter((m) => byId.has(m));
+const citedBy = new Map();
+for (const s of items) {
+  for (const m of idsIn([s.branches, s.through])) {
+    if (!citedBy.has(m)) citedBy.set(m, []);
+    citedBy.get(m).push(s.id);
+  }
+}
+const relatedCache = new Map();
+function relatedOf(id) {
+  if (!relatedCache.has(id)) {
+    const s = byId.get(id);
+    const all = [...REL_FIELDS.flatMap((f) => idsIn(s[f])), ...(citedBy.get(id) ?? [])];
+    relatedCache.set(id, [...new Set(all)].filter((r) => r !== id && index.items[r]));
+  }
+  return relatedCache.get(id);
+}
+
 // ---------- Seçim ve ayrıntı paneli ----------
 let current = null;
 let detailTab = 'route';
@@ -119,6 +141,9 @@ const TABS = [
 ];
 const detailEl = $('#detail');
 const listHtml = (arr) => (arr?.length ? `<ul>${arr.map((t) => `<li>${linkify(t)}</li>`).join('')}</ul>` : '<p class="empty">Bu yapı için ayrı bir madde yok.</p>');
+
+// Bloğun yapıları kendi sahnesinden gelir; modeli olmayan blok bağlantıları panelde kalır
+const relRow = (s) => (s.layer === 'block' ? s.focus.slice(1) : [...new Set([...relatedOf(s.id), ...(s.rel ?? [])])]);
 
 function renderDetail() {
   const s = byId.get(current);
@@ -148,8 +173,9 @@ function renderDetail() {
     <div class="badges">${badges.join('')}</div>
     <div class="dtabs" role="tablist">${TABS.map(([k, n]) => `<button role="tab" data-tab="${k}" class="${k === detailTab ? 'on' : ''}">${n}</button>`).join('')}</div>
     <div id="dbody">${body}</div>
-    <div class="rel-title">Komşu yapılar</div>
-    <div class="rel-row">${(s.rel ?? []).map((id) => `<button data-goto="${id}">${esc(byId.get(id).name)}</button>`).join('')}</div>
+    <div class="rel-title">İlişkili yapılar</div>
+    <div class="rel-key"><span><i class="dot key-sel"></i>Seçili</span><span><i class="dot key-rel"></i>İlişkili kemik/diş</span><span>Diğer ilişkililer kendi renginde</span></div>
+    <div class="rel-row">${relRow(s).map((id) => `<button class="lay-${byId.get(id).layer}" data-goto="${id}"><i class="dot"></i>${esc(byId.get(id).name)}</button>`).join('')}</div>
     <p class="ref">Kaynak notu: ${esc(s.ref)}</p>`;
   detailEl.scrollTop = 0;
 }
@@ -168,12 +194,11 @@ function select(id, { instant = false } = {}) {
   const s = byId.get(id);
   if (!s) return;
   current = id;
-  const rel = s.rel ?? [];
   if (s.layer === 'block') {
-    scene.highlight({ sel: s.focus, rel: [], needle: s.needle, primary: s.focus[0], relLabels: s.focus.slice(1, 4), labelTap: select });
+    scene.highlight({ sel: s.focus.slice(0, 1), rel: s.focus.slice(1), needle: s.needle, primary: s.focus[0], relLabels: s.focus.slice(1, 4), labelTap: select });
     scene.focusOn(s.focus.filter((f) => byId.get(f).layer !== 'bone'), { instant });
   } else {
-    scene.highlight({ sel: [id], rel: rel.slice(0, 3), primary: id, labelTap: select });
+    scene.highlight({ sel: [id], rel: relatedOf(id), primary: id, relLabels: relatedOf(id).slice(0, 3), labelTap: select });
     scene.focusOn([id], { instant });
   }
   listEl.querySelectorAll('.item.on').forEach((b) => b.classList.remove('on'));

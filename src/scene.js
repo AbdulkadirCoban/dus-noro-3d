@@ -18,6 +18,11 @@ const COLORS = {
   attach_i: 0x1e88e5,
   needle: 0x6ee7a8,
 };
+// Seçili yapı her katmanda aynı renktir. İlişkili yapılar katman rengini korur (sinir sarı, arter kırmızı);
+// kendi rengi soluk ve nötr kalan kemik ile diş kehribar olur.
+const SEL_COLOR = 0xff2bd6;
+const SEL_EMISSIVE = 0x7a0f66;
+const REL_COLOR = 0xf2a93b;
 const GROUP_OF = { bone: 'bone', foramen: 'foramen', nerve: 'nerve', ganglion: 'nerve', artery: 'artery', vein: 'vein', context: 'context', tooth: 'tooth', muscle: 'muscle', joint: 'muscle', attach_o: 'attachment', attach_i: 'attachment' };
 const LOAD_ORDER = ['bones', 'teeth', 'nerves', 'arteries', 'veins', 'muscles', 'attachments', 'context'];
 const FILE_LABEL = { bones: 'Kemik', nerves: 'Sinir', arteries: 'Arter', veins: 'Ven', context: 'Dura ve beyin sapı', teeth: 'Diş', muscles: 'Kas ve TME', attachments: 'Kas yapışması' };
@@ -140,8 +145,8 @@ function layerMaterials(layer) {
     return {
       base: std({ ...solid }),
       dim: std({ ...solid }),
-      rel: std({ ...solid, color: 0xffe7b0 }),
-      sel: std({ ...solid, color: 0xffcf70, emissive: 0x6b4a10 }),
+      rel: std({ ...solid, color: REL_COLOR }),
+      sel: std({ ...solid, color: SEL_COLOR, emissive: SEL_EMISSIVE }),
     };
   }
   if (layer === 'context') {
@@ -150,7 +155,7 @@ function layerMaterials(layer) {
       base: std({ ...glass, opacity: 0.28 }),
       dim: std({ ...glass, opacity: 0.1 }),
       rel: std({ ...glass, opacity: 0.45, emissive: 0x2c2350 }),
-      sel: std({ ...glass, opacity: 0.7, emissive: 0x4a3a80 }),
+      sel: std({ ...glass, opacity: 0.7, color: SEL_COLOR, emissive: SEL_EMISSIVE }),
     };
   }
   const em = new THREE.Color(color).multiplyScalar(0.55);
@@ -160,8 +165,13 @@ function layerMaterials(layer) {
     base: std({}),
     dim: std({ transparent: true, opacity: 0.13, depthWrite: false }),
     // Vurgulu yapılar saydam kuyrukta en son çizilir, böylece opak kemiğin içinden görünür
-    rel: std({ transparent: true, emissive: em.clone().multiplyScalar(0.5) }),
-    sel: std({ transparent: true, emissive: em, color: new THREE.Color(color).lerp(new THREE.Color(0xffffff), 0.25) }),
+    rel: layer === 'tooth'
+      ? std({ transparent: true, color: REL_COLOR, emissive: new THREE.Color(REL_COLOR).multiplyScalar(0.25) })
+      : std({ transparent: true, emissive: em.clone().multiplyScalar(0.5) }),
+    // İğne seçimin parçası değildir, kendi yeşilinde kalır
+    sel: layer === 'needle'
+      ? std({ transparent: true, emissive: em, color: new THREE.Color(color).lerp(new THREE.Color(0xffffff), 0.25) })
+      : std({ transparent: true, color: SEL_COLOR, emissive: SEL_EMISSIVE }),
   };
   // Yapışma bölgeleri kemik yüzeyinde durur; titreşmesin diye öne alınır
   if (layer.startsWith('attach')) {
@@ -230,8 +240,8 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
     boneSets.set(id, {
       base: std({}),
       dim: std({}),
-      rel: std({ color: color.clone().lerp(new THREE.Color(0xffffff), 0.2) }),
-      sel: std({ color: color.clone().lerp(new THREE.Color(0xffffff), 0.15), emissive: color.clone().multiplyScalar(0.45) }),
+      rel: std({ color: REL_COLOR }),
+      sel: std({ color: SEL_COLOR, emissive: SEL_EMISSIVE }),
     });
   }
   let colorMode = false;
@@ -357,7 +367,8 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
       const material = isSel || rec.layer === 'needle' ? m.sel : isRel ? m.rel : active ? m.dim : m.base;
       let visible;
       if (rec.layer === 'needle') visible = state.needle === rec.id;
-      else visible = isSel || isRel || (state.view ? inView(rec) : !!layerOn[group]);
+      // İlişkili kemik kapatılan kemik katmanını geri açmaz: içeriyi görmek için kapatılmış olabilir
+      else visible = isSel || (isRel && rec.layer !== 'bone') || (state.view ? inView(rec) : !!layerOn[group]);
       const front = rec.layer !== 'bone' && rec.layer !== 'context' && (isSel || isRel || rec.layer === 'needle');
       if (front && visible) xray = true;
       const work = state.work?.has(rec.id) ? state.work.get(rec.id) ?? true : null;

@@ -218,6 +218,9 @@ for (const [q, arch, side] of TOOTH_QUADRANTS) {
     GEO[`t_${q}${i + 1}`] = { file: 'teeth', side, src: [za(`${arch} ${type}.r`)], movesWithMandible: arch === 'Lower' };
   });
 }
+// Kaynak modelde üst ikinci premolar iki köklüdür; beklenen anatomi tek kök olduğu için kök yeniden örülür
+GEO.t_15.singleRoot = true;
+GEO.t_25.singleRoot = true;
 
 const muscle = (src, o = {}) => ({ file: 'muscles', side: 'both', src, ...o });
 const attach = (names, o = {}) => ({ file: 'attachments', side: 'both', src: names.map((n) => za(n, 0.3)), ...o });

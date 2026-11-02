@@ -21,6 +21,8 @@
   --attach-o: #e53935;
   --attach-i: #1e88e5;
   --block: #6ee7a8;
+  --sel: #ff2bd6;
+  --rel: #f2a93b;
   --touch: 44px;
   --sat: env(safe-area-inset-top, 0px);
   --sab: env(safe-area-inset-bottom, 0px);
@@ -73,6 +75,7 @@ button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px 
 .label button { display: flex; align-items: center; min-height: var(--touch); padding: 0; white-space: nowrap; }
 .label span { display: block; padding: 5px 10px; border-radius: 8px; background: rgba(13, 18, 25, .9); border: 1px solid var(--c, var(--accent)); font-size: 13px; font-weight: 650; }
 .label.rel span { font-weight: 500; font-size: 12px; padding: 3px 8px; opacity: .92; border-style: dashed; }
+.label.main { --c: var(--sel); }
 .label.main button { cursor: default; }
 .label::before { content: ""; position: absolute; left: -22px; top: 50%; width: 22px; height: 1px; background: var(--c, var(--accent)); }
 
@@ -175,7 +178,11 @@ button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px 
 .par b { display: block; color: var(--accent); font-size: 12px; margin-bottom: 2px; }
 .ilink { display: inline; min-height: 0; min-width: 0; padding: 0; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-size: inherit; text-align: left; }
 .rel-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-.rel-row button { padding: 2px 10px; border-radius: 8px; border: 1px dashed var(--line); font-size: 13px; }
+.rel-row button { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 8px; border: 1px dashed var(--line); font-size: 13px; }
+.rel-key { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; color: var(--muted); font-size: 12px; }
+.rel-key span { display: inline-flex; align-items: center; gap: 5px; }
+.key-sel { background: var(--sel); }
+.key-rel { background: var(--rel); }
 .rel-title { color: var(--muted); font-size: 12px; margin-top: 14px; }
 .ref { color: var(--muted); font-size: 12px; margin-top: 14px; border-top: 1px solid var(--line); padding-top: 8px; }
 .empty { color: var(--muted); }

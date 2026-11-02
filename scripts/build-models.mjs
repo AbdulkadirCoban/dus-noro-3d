@@ -237,6 +237,133 @@ function sphereOf(pos) {
   return { c: c.map((v) => +v.toFixed(2)), r: +r.toFixed(2), a: [pos[best], pos[best + 1], pos[best + 2]].map((v) => +v.toFixed(2)) };
 }
 
+// Yukarı bakan (üst çene) dişin çatallanan kökünü çatallanmanın hemen altından kesip tek konik kök örer
+function singleRoot(m) {
+  const weld = new Map();
+  const ids = new Uint32Array(m.pos.length / 3);
+  for (let i = 0; i < ids.length; i++) {
+    const key = `${m.pos[3 * i].toFixed(3)},${m.pos[3 * i + 1].toFixed(3)},${m.pos[3 * i + 2].toFixed(3)}`;
+    if (!weld.has(key)) weld.set(key, i);
+    ids[i] = weld.get(key);
+  }
+  const z = (i) => m.pos[3 * i + 2];
+  const sections = (h) => {
+    const parent = new Map();
+    const find = (a) => {
+      while (parent.get(a) !== a) a = parent.get(a);
+      return a;
+    };
+    for (let t = 0; t < m.idx.length; t += 3) {
+      const tri = [m.idx[t], m.idx[t + 1], m.idx[t + 2]];
+      const zs = tri.map(z);
+      if (Math.min(...zs) > h || Math.max(...zs) < h) continue;
+      const [a, b, c] = tri.map((i) => ids[i]);
+      for (const k of [a, b, c]) if (!parent.has(k)) parent.set(k, k);
+      parent.set(find(a), find(b));
+      parent.set(find(b), find(c));
+    }
+    return new Set([...parent.keys()].map(find)).size;
+  };
+  let zMin = Infinity;
+  let zMax = -Infinity;
+  for (let i = 0; i < ids.length; i++) {
+    zMin = Math.min(zMin, z(i));
+    zMax = Math.max(zMax, z(i));
+  }
+  let fork = null;
+  for (let h = (zMin + zMax) / 2; h < zMax && fork === null; h += 0.25) if (sections(h) >= 2) fork = h;
+  if (fork === null) throw new Error('singleRoot: çatallanma bulunamadı');
+  const cut = fork - 1.5;
+
+  const idx = [];
+  const net = new Map();
+  for (let t = 0; t < m.idx.length; t += 3) {
+    const tri = [m.idx[t], m.idx[t + 1], m.idx[t + 2]];
+    if (Math.max(...tri.map(z)) > cut) continue;
+    idx.push(...tri);
+    const w = tri.map((i) => ids[i]);
+    for (let e = 0; e < 3; e++) {
+      const [u, v] = [w[e], w[(e + 1) % 3]];
+      if (net.has(`${v},${u}`)) net.delete(`${v},${u}`);
+      else net.set(`${u},${v}`, [u, v]);
+    }
+  }
+  const next = new Map([...net.values()]);
+  if (next.size !== net.size) throw new Error('singleRoot: kesit sınırı basit değil');
+  const start = next.keys().next().value;
+  const loop = [start];
+  for (let u = next.get(start); u !== start; u = next.get(u)) loop.push(u);
+  if (loop.length !== next.size) throw new Error('singleRoot: kesitte birden çok sınır var');
+
+  const mean = (list) => {
+    const c = [0, 0, 0];
+    for (const i of list) for (let a = 0; a < 3; a++) c[a] += m.pos[3 * i + a] / list.length;
+    return c;
+  };
+  const c0 = mean(loop);
+  // Kök ucu: iki eski apeksin ortası, kök boyu korunur
+  const tips = [];
+  for (let i = 0; i < ids.length; i++) if (z(i) > fork + (zMax - fork) * 0.8) tips.push(i);
+  const tip = mean(tips);
+  const pos = [...m.pos];
+  const RINGS = 14;
+  // Kesim sınırı dişli olduğundan kesit yukarı çıktıkça yumuşatılmış çevreye geçer; yoksa kökte çizgiler kalır
+  const SMOOTH = 6;
+  const raw = loop.map((b) => [m.pos[3 * b] - c0[0], m.pos[3 * b + 1] - c0[1]]);
+  const smooth = raw.map((_, i) => {
+    const o = [0, 0];
+    for (let d = -SMOOTH; d <= SMOOTH; d++) {
+      const r = raw[(i + d + raw.length) % raw.length];
+      o[0] += r[0] / (2 * SMOOTH + 1);
+      o[1] += r[1] / (2 * SMOOTH + 1);
+    }
+    return o;
+  });
+  const rings = [loop];
+  for (let k = 1; k <= RINGS; k++) {
+    // Halkalar uca doğru sıklaşır; kök incelir ve yuvarlak biter
+    const t = 1 - (1 - k / (RINGS + 1)) ** 1.6;
+    const s = (1 - 0.55 * t) * Math.sqrt(1 - t ** 4);
+    const b = Math.min(1, t * 4);
+    const ring = [];
+    loop.forEach((v, i) => {
+      ring.push(pos.length / 3);
+      pos.push(
+        c0[0] + (tip[0] - c0[0]) * t + (raw[i][0] + (smooth[i][0] - raw[i][0]) * b) * s,
+        c0[1] + (tip[1] - c0[1]) * t + (raw[i][1] + (smooth[i][1] - raw[i][1]) * b) * s,
+        z(v) + (zMax - z(v)) * t,
+      );
+    });
+    rings.push(ring);
+  }
+  const apex = pos.length / 3;
+  pos.push(tip[0], tip[1], zMax);
+  // Sınır kenarı u→v ise komşu yüz v→u kenarını kullanır: sarım kopmaz
+  for (let r = 0; r < RINGS; r++) {
+    for (let i = 0; i < loop.length; i++) {
+      const j = (i + 1) % loop.length;
+      const [u, v, u1, v1] = [rings[r][i], rings[r][j], rings[r + 1][i], rings[r + 1][j]];
+      idx.push(v, u, u1, v, u1, v1);
+    }
+  }
+  const last = rings[RINGS];
+  for (let i = 0; i < loop.length; i++) idx.push(last[(i + 1) % loop.length], last[i], apex);
+  return compact(pos, idx);
+}
+
+function compact(pos, idx) {
+  const map = new Map();
+  const out = [];
+  const ni = idx.map((v) => {
+    if (!map.has(v)) {
+      map.set(v, map.size);
+      out.push(pos[v * 3], pos[v * 3 + 1], pos[v * 3 + 2]);
+    }
+    return map.get(v);
+  });
+  return { pos: new Float32Array(out), idx: new Uint32Array(ni) };
+}
+
 function buildSource(g) {
   const meshes = [];
   for (const s of g.src) {
@@ -252,7 +379,7 @@ function buildSource(g) {
       }
     }
   }
-  return merge(meshes);
+  return g.singleRoot ? singleRoot(merge(meshes)) : merge(meshes);
 }
 
 const files = { bones: [], arteries: [], veins: [], nerves: [], context: [], teeth: [], muscles: [], attachments: [] };
