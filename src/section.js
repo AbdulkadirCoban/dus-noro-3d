@@ -5,10 +5,12 @@ const TONE = {
   muscle: { fill: '#6e6e6e', line: '#808080' },
   joint: { fill: '#8c8c8c', line: '#9c9c9c' },
   bone: { fill: '#c9c9c9', line: '#ececec' },
+  cartilage: { fill: '#b0b0b0', line: '#c8c8c8' },
+  gland: { fill: '#9a9a9a', line: '#acacac' },
   tooth: { fill: '#ffffff', line: '#ffffff' },
 };
 const PULP = '#4a4a4a';
-const SOLID_ORDER =['muscle', 'joint', 'bone', 'tooth'];
+const SOLID_ORDER = ['muscle', 'gland', 'joint', 'cartilage', 'bone', 'tooth'];
 const THIN = { vein: '#5b8dee', artery: '#ef5350', nerve: '#f5d04e' };
 const AXIS_NAME = { x: 'Sagittal', y: 'Aksiyel', z: 'Koronal' };
 // Radyolojik yerleşim: koronal ve aksiyelde hastanın sağı görüntünün solunda, sagittalde ön solda

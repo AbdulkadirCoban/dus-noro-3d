@@ -118,8 +118,12 @@ export const GEO = {
   n_vii: nerve([cv('Facial nerve (VII).r', 0), ...[1, 2, 3, 4, 5, 6, 7, 8].map((i) => cv('Facial nerve (VII).r', i))], { radius: 0.6 }),
   n_gsp: nerve([pth([P.geniculate, [-34, -1.5, 1584.5], [-24, -4.8, 1584], [-17, -6.8, 1583], P.lacerum])], { radius: 0.4, schematic: true }),
   n_vidian: nerve([pth([P.lacerum, [-15.5, -14, 1579.5], [-17.5, -26, 1577.5], P.ptcanalAnt, P.ppf])], { radius: 0.4, schematic: true }),
-  n_lsp: nerve([pth([[-37.5, 7, 1571], [-40, 5, 1578], [-36, -2.5, 1584], [-30, -8, 1584], P.ovale, P.otic])], { radius: 0.35, schematic: true }),
-  n_chorda: nerve([cv('Facial nerve (VII).r', 9), pth([[-48.4, 2.32, 1582.86], [-44, 0.5, 1579], [-37, -3, 1574]]), cv('Chorda tympani.r', 0, { from: [-34.5, -3.5, 1572] })], { radius: 0.35, schematic: true }),
+  // N. tympanicus CN IX'un alt gangliyonundan (foramen jugulare altı, IX eğrisi üzerindeki nokta) başlar
+  n_lsp: nerve([pth([[-31.7, 10.6, 1565.4], [-35, 9, 1567.5], [-37.5, 7, 1571], [-40, 5, 1578], [-36, -2.5, 1584], [-30, -8, 1584], P.ovale, P.otic])], { radius: 0.35, schematic: true }),
+  // Chorda fasiyal gövdeden foramen stylomastoideum'un ~5 mm üstünde ayrılır (çatal noktası gövde eğrisi üzerindedir),
+  // öne-yukarı orta kulağa girer, fissura petrotympanica'dan çıkıp n. lingualis'e katılır.
+  // Kaynaktaki 9. eğri gövdeye 3 mm paralel yükseldiği için kullanılmaz: iki sinir aynı kanalda gibi görünüyordu.
+  n_chorda: nerve([pth([[-45.4, 11, 1573.8], [-46.3, 8.5, 1577.5], [-45.6, 4.8, 1580.6], [-43, 1, 1580.3], [-39.6, -1.8, 1577.6], [-35.8, -3.2, 1574.2], [-31.6, -4.2, 1571.4]]), cv('Chorda tympani.r', 0, { from: [-29.8, -4.9, 1570.9] })], { radius: 0.35, schematicPart: true }),
   n_viii: nerve([cv('Vestibulocochlear nerve (VIII).r', 0), cv('Vestibular nerve.r', 0)], { radius: 0.8 }),
   n_ix: nerve(all('Glossopharyngeal nerve (IX).r', 7).map((c) => ({ ...c, minZ: 1440 })), { radius: 0.5 }),
   n_x: nerve([cv('Vagus nerve (X).r', 2, { minZ: 1385 }), cv('Vagus nerve (X).r', 1), cv('Vagus nerve (X).r', 17), cv('Vagus nerve (X).r', 18), cv('Vagus nerve (X).r', 19)], { radius: 0.7 }),
@@ -137,7 +141,8 @@ export const GEO = {
   g_submandibular: gang(P.submand, 1.7),
 
   // ---------------- ARTERLER ----------------
-  a_cca: art([cv('Right common carotid artery', 0)], { radius: 2.8 }),
+  // Sağ CCA truncus brachiocephalicus'tan, sol CCA arcus aortae'den çıkar: ayna değil iki gerçek eğri
+  a_cca: art([cv('Right common carotid artery', 0), cv('Left common carotid artery', 0)], { side: 'mid', radius: 2.8 }),
   a_ica: art([cv('Internal carotid artery.r', 0, { to: [-27.8, 0.7, 1508] }), bp('FJ1682')], { radius: 2 }),
   a_ophthalmic: art([bp('FJ1695')]),
   a_aca: art([bp('FJ1654')]),
@@ -153,7 +158,7 @@ export const GEO = {
   a_pica: art([bp('FJ1715')]),
   a_antspinal: art([bp('FJ1657')]),
   a_labyrinthi: art([pth([[-1.6, -1.5, 1583.5], [-9, 2, 1583], [-16, 4, 1583], P.iac, [-27, 4.8, 1583.5]])], { radius: 0.3, schematic: true }),
-  a_subclavian: art([bp('FJ3579')]),
+  a_subclavian: art([cv('Right subclavian artery', 0), cv('Left subclavian artery', 0)], { side: 'mid', radius: 2.6 }),
   a_eca: art([cv('External carotid artery.r', 0)], { radius: 1.6 }),
   a_supthyroid: art([pth([[-31.6, -0.5, 1491], [-28, -13, 1486], [-21, -22, 1472], [-16, -21, 1459]])], { radius: 0.7, schematic: true }),
   a_ascpharyngeal: art([cv('Ascending pharyngeal artery.r', 0)], { radius: 0.5 }),
@@ -275,6 +280,105 @@ Object.assign(GEO, {
   ao_lls: attach(['Levator labii superioris.or']),
   ao_zygmaj: attach(['Zygomaticus major muscle.or']),
   ao_zygmin: attach(['Zygomaticus minor muscle.or']),
+});
+
+// ---------------- BOYUN, BEZLER, MİMİK KASLARI, BOYUN ÜÇGENLERİ ----------------
+const gland = (src, o = {}) => ({ file: 'glands', side: 'both', src, ...o });
+const cart = (src) => ({ file: 'glands', side: 'mid', src });
+const region = (src, o = {}) => ({ file: 'regions', side: 'both', src, ...o });
+// Ense üçgeninin kaynakta bölge mesh'i yoktur: SCM arka kenarı, trapez ön kenarı ve omohyoid alt karnı arasında deri düzeyinde çizilir
+const OCCIPITAL_TRIANGLE = [[-58, 48, 1565], [-57, 25, 1538], [-54, 0, 1492], [-52, -12, 1442], [-76, 6, 1426], [-62, 20, 1460], [-48, 42, 1505]];
+// Erb noktası: SCM arka kenarının ortası; yüzeyel servikal pleksus dalları buradan çıkar (ölçüm: SCM mesh'i)
+const ERB = [-43, 5, 1490];
+
+Object.assign(GEO, {
+  b_c3: bone([za('Vertebra C3', 0.7)], 'mid'),
+  b_c4: bone([za('Vertebra C4', 0.7)], 'mid'),
+  b_c5: bone([za('Vertebra C5', 0.7)], 'mid'),
+  b_c6: bone([za('Vertebra C6', 0.7)], 'mid'),
+  b_c7: bone([za('Vertebra C7', 0.7)], 'mid'),
+  b_clavicle: bone([za('Clavicle.r')]),
+  b_rib1: bone([za('First rib.r', 0.6), za('Costal cartilage of first rib.r', 0.5)]),
+  b_manubrium: bone([za('Manubrium of sternum', 0.7)], 'mid'),
+
+  k_thyroid: cart([za('Thyroid cartilage', 0.5)]),
+  k_cricoid: cart([za('Cricoid cartilage', 0.7)]),
+  k_epiglottis: cart([za('Epiglottis', 0.5)]),
+  k_trachea: cart([za('Trachea', 0.5)]),
+
+  gl_parotid: gland([za('Parotid gland.r'), za('(Accessory parotid gland).r'), cv('Parotid duct.r', 0)], { radius: 0.8 }),
+  gl_submand: gland([za('Submandibular gland.r')]),
+  gl_subling: gland([za('Sublingual gland.r')]),
+  gl_thyroid: { file: 'glands', side: 'mid', src: [za('Thyroid gland', 0.6)] },
+  gl_parathyroid: gland([za('Superior parathyroid gland.r'), za('Inferior parathyroid gland.r')]),
+  gl_adenohyp: { file: 'glands', side: 'mid', src: [za('Adenohypophysis')] },
+  gl_neurohyp: { file: 'glands', side: 'mid', src: [za('Neurohypophysis')] },
+  gl_pineal: { file: 'glands', side: 'mid', src: [za('Pineal gland')] },
+  gl_lacrimal: gland([za('Lacrimal gland.r', 0.6)]),
+
+  m_scm: muscle([za('Sternocleidomastoid muscle.r', 0.6)]),
+  m_platysma: muscle([za('Platysma.r', 0.4)]),
+  m_omohyoid: muscle([za('Omohyoid muscle.r', 0.6)]),
+  m_sternohyoid: muscle([za('Sternohyoid muscle.r')]),
+  m_sternothyroid: muscle([za('Sternothyroid muscle.r')]),
+  m_thyrohyoid: muscle([za('Thyrohyoid muscle.r')]),
+  m_scalant: muscle([za('Scalenus anterior muscle.r')]),
+  m_scalmed: muscle([za('Scalenus medius muscle.r')]),
+  m_scalpost: muscle([za('Scalenus posterior muscle.r')]),
+  m_trapezius: muscle([za('Ascending part of trapezius muscle.r', 0.5)]),
+  m_levscap: muscle([za('Levator scapulae.r', 0.6)]),
+  m_splenius: muscle([za('Splenius capitis muscle.r', 0.4)]),
+  m_longuscolli: muscle([za('Longus colli muscle.r', 0.3), za('Longus capitis muscle.r', 0.5)]),
+  m_constrictor: muscle([za('Superior pharyngeal constrictor.r', 0.4), za('Middle pharyngeal constrictor.r', 0.5), za('Inferior pharyngeal constrictor.r', 0.5)]),
+  m_stylopharyngeus: muscle([za('Stylopharyngeus muscle.r', 0.12)]),
+
+  m_frontalis: muscle([za('Frontalis muscle.r', 0.4)]),
+  m_occipitalis: muscle([za('Occipitalis muscle.r', 0.5)]),
+  m_galea: muscle([za('Epicranial aponeurosis.r', 0.12)]),
+  m_temporoparietalis: muscle([za('Temporoparietalis muscle.r', 0.2)]),
+  m_procerus: muscle([za('Procerus muscle.r')]),
+  m_corrugator: muscle([za('Corrugator supercilii.r')]),
+  m_orboculi: muscle([za('Orbital part of orbicularis oculi.r', 0.6), za('Palpebral part of orbicularis oculi.r')]),
+  m_nasalis: muscle([za('Nasalis muscle.r')]),
+  m_depsepti: muscle([za('Depressor septi nasi.r')]),
+  m_levpalp: muscle([za('Levator palpebrae superioris.r', 0.6)]),
+
+  ao_scm: attach(['Sternocleidomastoid muscle.or', 'Sternocleidomastoid muscle.o1r']),
+  ai_scm: attach(['Sternocleidomastoid muscle.er']),
+
+  r_submental: region([za('Submental triangle.r')]),
+  r_submand: region([za('Submandibular triangle.r')]),
+  r_carotid: region([za('Carotid triangle.r')]),
+  r_muscular: region([za('Muscular triangle.r')]),
+  r_occipital: region([{ kind: 'poly', pts: OCCIPITAL_TRIANGLE }], { schematic: true }),
+  r_omoclav: region([za('Greater supraclavicular fossa.r')]),
+
+  a_brachiocephalic: art([cv('Brachiocephalic trunk', 0)], { side: 'mid', radius: 3.4 }),
+  a_thyrocervical: art([cv('Thyrocervical trunk.r', 0)], { radius: 1.4 }),
+  a_infthyroid: art(all('Inferior thyroid artery.r', 2), { radius: 0.8 }),
+  a_transcervical: art(all('Transverse cervical artery.r', 3), { radius: 0.7 }),
+  a_suprascapular: art([cv('Suprascapular artery.r', 0, { minZ: 1380 })], { radius: 0.8 }),
+  a_costocervical: art([cv('Costocervical trunk.r', 0)], { radius: 1 }),
+  a_supraorbital: art(all('Supra-orbital artery.r', 2), { radius: 0.4 }),
+  a_supratrochlear: art(all('Supratrochlear artery.r', 4), { radius: 0.35 }),
+
+  v_ejv: vein([cv('External jugular vein.r', 0)], { radius: 1.3 }),
+  v_ajv: vein([cv('Anterior jugular vein.r', 0)], { radius: 0.9 }),
+  v_subclavian: vein([cv('Right subclavian vein', 0), cv('Left subclavian vein', 0)], { side: 'mid', radius: 2.6 }),
+  v_brachiocephalic: vein([cv('Right brachiocephalic vein', 0), cv('Left brachiocephalic vein', 0)], { side: 'mid', radius: 3.2 }),
+  v_supthyroid: vein([cv('Superior thyroid vein.r', 0)], { radius: 0.7 }),
+
+  n_plexus: nerve([0, 1, 2, 3, 4, 5, 6].map((i) => cv('Roots of brachial plexus.r', i)).concat(['Superior', 'Middle', 'Inferior'].map((t) => cv(`${t} trunk of brachial plexus.r`, 0))), { radius: 1 }),
+  n_symp: nerve([cv('Sympathetic trunk.r', 0, { minZ: 1380 })], { radius: 0.6 }),
+  // Kaynakta yok: m. scalenus anterior ön yüzünde (ölçülen yüzeyin 3 mm içi), yukarıdan aşağı lateralden mediale
+  n_phrenic: nerve([pth([[-21, 2, 1490], [-29.5, -4, 1470], [-34, -9, 1448], [-40, -10.5, 1431], [-44, -9.5, 1416], [-35, -7, 1398]])], { radius: 0.45, schematic: true }),
+  n_cervplexus: nerve([
+    pth([ERB, [-49, 7, 1512], [-55, 7, 1535], [-62, 4, 1555], [-67, 2, 1566]]),
+    pth([ERB, [-45, 15, 1515], [-50, 26, 1540], [-56, 40, 1560], [-55, 55, 1585]]),
+    pth([ERB, [-40, -8, 1488], [-30, -24, 1486], [-15, -38, 1484]]),
+    pth([ERB, [-50, 0, 1465], [-58, -10, 1440], [-62, -20, 1418]]),
+    pth([[-50, 0, 1465], [-40, -20, 1432], [-30, -35, 1412]]),
+  ], { radius: 0.4, schematic: true }),
 });
 
 // Mandibula hareketinde kemikle birlikte taşınacak mevcut yapılar

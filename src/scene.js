@@ -17,22 +17,27 @@ const COLORS = {
   attach_o: 0xe53935,
   attach_i: 0x1e88e5,
   needle: 0x6ee7a8,
+  gland: 0x8bc34a,
+  cartilage: 0xa9cfe0,
+  region: 0x26a69a,
 };
 // Seçili yapı her katmanda aynı renktir. İlişkili yapılar katman rengini korur (sinir sarı, arter kırmızı);
 // kendi rengi soluk ve nötr kalan kemik ile diş kehribar olur.
 const SEL_COLOR = 0xff2bd6;
 const SEL_EMISSIVE = 0x7a0f66;
 const REL_COLOR = 0xf2a93b;
-const GROUP_OF = { bone: 'bone', foramen: 'foramen', nerve: 'nerve', ganglion: 'nerve', artery: 'artery', vein: 'vein', context: 'context', tooth: 'tooth', muscle: 'muscle', joint: 'muscle', attach_o: 'attachment', attach_i: 'attachment' };
-const LOAD_ORDER = ['bones', 'teeth', 'nerves', 'arteries', 'veins', 'muscles', 'attachments', 'context'];
-const FILE_LABEL = { bones: 'Kemik', nerves: 'Sinir', arteries: 'Arter', veins: 'Ven', context: 'Dura ve beyin sapı', teeth: 'Diş', muscles: 'Kas ve TME', attachments: 'Kas yapışması' };
-const HOME = { dir: [0.42, 0.2, 0.88], target: [0, 8, -18], halfH: 150, halfW: 95 };
+const GROUP_OF = { bone: 'bone', cartilage: 'bone', foramen: 'foramen', nerve: 'nerve', ganglion: 'nerve', artery: 'artery', vein: 'vein', context: 'context', tooth: 'tooth', muscle: 'muscle', joint: 'muscle', attach_o: 'attachment', attach_i: 'attachment', gland: 'gland', region: 'region' };
+const LOAD_ORDER = ['bones', 'teeth', 'nerves', 'arteries', 'veins', 'glands', 'muscles', 'attachments', 'regions', 'context'];
+const FILE_LABEL = { bones: 'Kemik', nerves: 'Sinir', arteries: 'Arter', veins: 'Ven', context: 'Dura ve beyin sapı', teeth: 'Diş', muscles: 'Kas ve TME', attachments: 'Kas yapışması', glands: 'Bez ve kıkırdak', regions: 'Boyun üçgeni' };
+const HOME = { dir: [0.42, 0.2, 0.88], target: [0, -55, -12], halfH: 192, halfW: 110 };
 // Renk modu: her kemik ayrı canlı renk; komşular (maxilla-zygomaticum, palatinum-vomer vb.) ayırt edilir
 const BONE_PALETTE = {
   b_frontal: 0x3d7fe0, b_parietal: 0xf0cf3a, b_temporal: 0x3fbf6a, b_occipital: 0x8f6ad8, b_sphenoid: 0xe04fa8,
   b_ethmoid: 0xc9a227, b_zygomatic: 0xf28c28, b_maxilla: 0x22c3c9, b_mandible: 0xe8504a, b_nasal: 0xa4d93a,
   b_lacrimal: 0xff7ac6, b_palatine: 0xb06ae0, b_vomer: 0xf2a65a, b_concha: 0x7ad1a0, b_atlas: 0x9aa7b3, b_axis: 0xb3a89a, b_hyoid: 0xc2b280,
 };
+// Dokunmada kaba (arka plan) sayılan katmanlar: ince yapılar bunların arkasında kalsa da önce seçilir
+const COARSE = new Set(['bone', 'cartilage', 'context', 'region']);
 const PRESET_DIR = { front: [0, 0.05, 1], right: [-1, 0.05, 0.02], left: [1, 0.05, 0.02], top: [0, 1, 0.02], bottom: [0, -1, 0.02] };
 
 // Dünya koordinatlarında konum dizisi: kesit yüzeyi ve 2B kesit görüntüsü bunu kullanır
@@ -56,7 +61,7 @@ export function meshIndex(mesh) {
 }
 
 // Kesit yüzeyi yalnız kapalı katmanlar için: tüpler (sinir, damar) ve kabuklar dışarıda kalır
-const CAP_COLORS = { bone: 0xe8d8b0, muscle: 0xb5342a, joint: 0x6fb5a3, tooth: 0xffffff };
+const CAP_COLORS = { bone: 0xe8d8b0, cartilage: 0xb9dbe8, muscle: 0xb5342a, gland: 0x8fbf5a, joint: 0x6fb5a3, tooth: 0xffffff };
 const CAP_LAYERS = Object.keys(CAP_COLORS);
 const AXES = ['x', 'y', 'z'];
 const CAP_VS = 'varying vec3 vW; void main() { vec4 w = modelMatrix * vec4(position, 1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }';
@@ -149,7 +154,7 @@ function layerMaterials(layer) {
       sel: std({ ...solid, color: SEL_COLOR, emissive: SEL_EMISSIVE }),
     };
   }
-  if (layer === 'context') {
+  if (layer === 'context' || layer === 'region') {
     const glass = { transparent: true, depthWrite: false, side: THREE.DoubleSide };
     return {
       base: std({ ...glass, opacity: 0.28 }),
@@ -169,6 +174,8 @@ function layerMaterials(layer) {
       ? std({ transparent: true, color: REL_COLOR, emissive: new THREE.Color(REL_COLOR).multiplyScalar(0.25) })
       : std({ transparent: true, emissive: em.clone().multiplyScalar(0.5) }),
     // İğne seçimin parçası değildir, kendi yeşilinde kalır
+    // Boyun üçgeni seçiliyken sınır kasları saydamlaşır: üçgen yüzeyi ve içerik arkada kalmasın
+    ghost: std({ transparent: true, opacity: 0.32, depthWrite: false, emissive: em.clone().multiplyScalar(0.4) }),
     sel: layer === 'needle'
       ? std({ transparent: true, emissive: em, color: new THREE.Color(color).lerp(new THREE.Color(0xffffff), 0.25) })
       : std({ transparent: true, color: SEL_COLOR, emissive: SEL_EMISSIVE }),
@@ -216,6 +223,9 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
   controls.minDistance = 14;
   controls.maxDistance = 900;
   controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN };
+  // Kıstırma ve tekerlek parmakların (imlecin) olduğu yere doğru yaklaştırır
+  controls.zoomToCursor = true;
+  controls.screenSpacePanning = true;
 
   const mats = Object.fromEntries(Object.keys(COLORS).map((k) => [k, layerMaterials(k)]));
 
@@ -271,9 +281,12 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
     return records.get(id);
   };
   const pickables = [];
+  // Delik ağzı halkanın çocuğudur: halka gizliyse görünmez sayılır
+  const isShown = (m) => m.visible && (!m.userData.child || m.parent.visible);
 
-  const layerOn = { bone: true, foramen: true, nerve: true, artery: true, vein: true, context: false, tooth: true, muscle: false, attachment: false };
-  const state = { sel: [], rel: [], needle: null, primary: null, hideLabels: false, view: null, work: null };
+  const layerOn = { bone: true, foramen: true, nerve: true, artery: true, vein: true, context: false, tooth: true, muscle: false, attachment: false, gland: true, region: false };
+  // hidden: kullanıcının gizlediği yapılar; solo: yalnız gösterilen yapılar (null ise kapalı)
+  const state = { sel: [], rel: [], needle: null, primary: null, hideLabels: false, view: null, work: null, hidden: new Set(), solo: null };
   // Soru görünümü katman düğmelerini ezer, onların durumunu değiştirmez
   const inView = (rec) => {
     const w = state.view;
@@ -281,14 +294,26 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
   };
 
   // Delik ve ganglion işaretçileri model yüklenmeden kullanılabilsin diye burada üretilir
+  // Delikler halka ve koyu ağızla çizilir: küre kemiğin içinde kaybolup neyin delik olduğu anlaşılmıyordu.
+  // Halka, delikten geçen yapıların yönüne göre load() sonunda döndürülür.
   const sphere = new THREE.SphereGeometry(1, 20, 14);
+  const ring = new THREE.TorusGeometry(1.15, 0.32, 10, 32);
+  const mouth = new THREE.CircleGeometry(0.9, 28);
+  const mouthMat = new THREE.MeshBasicMaterial({ color: 0x061418, side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 });
   for (const [id, it] of Object.entries(index.items)) {
     if (!it.marker) continue;
     const st = byId.get(id);
     if (!st) continue;
     const rec = record(id);
+    const isHole = st.layer === 'foramen';
     for (const side of it.sides) {
-      const mesh = new THREE.Mesh(sphere, mats[st.layer].base);
+      const mesh = new THREE.Mesh(isHole ? ring : sphere, mats[st.layer].base);
+      if (isHole) {
+        const m = new THREE.Mesh(mouth, mouthMat);
+        m.userData = { id, side: side.tag, layer: st.layer, child: true };
+        mesh.add(m);
+        pickables.push(m);
+      }
       mesh.position.set(...side.c);
       const s = it.scale ?? [1, 1, 1];
       mesh.scale.set(it.r * s[0], it.r * s[1], it.r * s[2]);
@@ -333,6 +358,11 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
       renderer.render(scene, camera);
       frames++;
       updateLabels();
+      if (holeLabels) {
+        placeHoles();
+        clearTimeout(holeTimer);
+        holeTimer = setTimeout(checkHoles, 140);
+      }
       frameListeners.forEach((f) => f());
     }
     if (moved || tween) invalidate();
@@ -364,13 +394,16 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
       const isSel = sel.has(rec.id);
       const isRel = rel.has(rec.id);
       const m = (colorMode && boneSets.get(rec.id)) || mats[rec.layer];
-      const material = isSel || rec.layer === 'needle' ? m.sel : isRel ? m.rel : active ? m.dim : m.base;
+      const ghost = isRel && state.ghostRel && (rec.layer === 'muscle' || rec.layer === 'gland' || rec.layer === 'joint');
+      const material = isSel || rec.layer === 'needle' ? m.sel : ghost ? m.ghost : isRel ? m.rel : active ? m.dim : m.base;
       let visible;
       if (rec.layer === 'needle') visible = state.needle === rec.id;
-      // İlişkili kemik kapatılan kemik katmanını geri açmaz: içeriyi görmek için kapatılmış olabilir
-      else visible = isSel || (isRel && rec.layer !== 'bone') || (state.view ? inView(rec) : !!layerOn[group]);
-      const front = rec.layer !== 'bone' && rec.layer !== 'context' && (isSel || isRel || rec.layer === 'needle');
+      // İlişkili yapı kapatılmış katmanı geri açmaz (ör. kaslar kapalıyken n. facialis kasları göstermez);
+      // yardımcı katmanlar (yapışma, üçgen, dura) ve blok/üçgen sahneleri ilişkiliyi her zaman gösterir
+      else visible = isSel || (isRel && relShown(rec)) || (state.view ? inView(rec) : !!layerOn[group]);
+      const front = (!COARSE.has(rec.layer) || (rec.layer === 'region' && isSel)) && (isSel || isRel || rec.layer === 'needle');
       if (front && visible) xray = true;
+      if (state.hidden.has(rec.id) || (state.solo && !state.solo.has(rec.id) && rec.layer !== 'needle')) visible = false;
       const work = state.work?.has(rec.id) ? state.work.get(rec.id) ?? true : null;
       for (const mesh of rec.meshes) {
         // Seçim önceliklidir; çalışan kasın yalnız ilgili tarafı vurgulanır
@@ -496,17 +529,33 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
     invalidate();
   }
 
-  function highlight({ sel = [], rel = [], needle = null, primary = null, labelTap = null, showLabels = true, relLabels = rel, keepBase = false } = {}) {
+  const AUX = new Set(['attachment', 'region', 'context']);
+  function relShown(rec) {
+    const group = GROUP_OF[rec.layer];
+    if (group === 'bone') return false;
+    if (state.forceRel || layerOn[group]) return true;
+    // Yapışma bölgesi kasın parçasıdır: kaslar kapalıyken yalnız kas seçiliyse görünür
+    if (group === 'attachment') return !!layerOn.muscle || state.sel.some((id) => GROUP_OF[records.get(id)?.layer] === 'muscle');
+    return AUX.has(group);
+  }
+  let labelArgs = null;
+  function drawLabels() {
+    clearLabels();
+    if (!labelArgs) return;
+    const { primary, relLabels, labelTap } = labelArgs;
+    addLabel(primary, 'main', null);
+    relLabels.filter((id) => { const r = records.get(id); return !r || state.view || relShown(r) || layerOn[GROUP_OF[r.layer]]; }).slice(0, 3).forEach((id) => addLabel(id, 'rel', labelTap));
+  }
+  function highlight({ sel = [], rel = [], needle = null, primary = null, labelTap = null, showLabels = true, relLabels = rel, keepBase = false, ghostRel = false, forceRel = false } = {}) {
     state.keepBase = keepBase;
+    state.ghostRel = ghostRel;
+    state.forceRel = forceRel;
     state.sel = sel;
     state.rel = rel;
     state.needle = needle;
     state.primary = primary;
-    clearLabels();
-    if (showLabels && primary) {
-      addLabel(primary, 'main', null);
-      relLabels.slice(0, 3).forEach((id) => addLabel(id, 'rel', labelTap));
-    }
+    labelArgs = showLabels && primary ? { primary, relLabels, labelTap } : null;
+    drawLabels();
     applyMaterials();
   }
 
@@ -551,6 +600,7 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
 
   function setLayer(group, on) {
     layerOn[group] = on;
+    if (labelArgs) drawLabels();
     applyMaterials();
   }
 
@@ -785,9 +835,9 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
       ray.setFromCamera(new THREE.Vector2(((cx + dx - rect.left) / rect.width) * 2 - 1, -(((cy + dy - rect.top) / rect.height) * 2 - 1)), camera);
       return ray.intersectObjects(list, false).filter((h) => passes(h.point));
     };
-    const visible = pickables.filter((m) => m.visible);
-    const fine = visible.filter((m) => m.userData.layer !== 'bone' && m.userData.layer !== 'context');
-    const coarse = visible.filter((m) => m.userData.layer === 'bone' || m.userData.layer === 'context');
+    const visible = pickables.filter(isShown);
+    const fine = visible.filter((m) => !COARSE.has(m.userData.layer));
+    const coarse = visible.filter((m) => COARSE.has(m.userData.layer));
     const wall = castAll(0, 0, coarse)[0];
     const shown = new Set([...state.sel, ...state.rel, ...(state.work?.keys() ?? [])]);
     for (const [dx, dy] of OFFSETS) {
@@ -799,23 +849,98 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
   }
 
   let pickCb = null;
+  let longCb = null;
   let downAt = null;
   let multi = false;
+  let lastTap = null;
+  let pressTimer = 0;
+  // Uzun basış (iPad) ve sağ tık (masaüstü) yapı menüsünü açar; iki kez dokunma o noktaya yaklaştırır
+  const LONG_MS = 550;
   canvas.addEventListener('pointerdown', (e) => {
+    clearTimeout(pressTimer);
     if (e.isPrimary) {
-      downAt = { x: e.clientX, y: e.clientY, t: performance.now() };
+      downAt = { x: e.clientX, y: e.clientY, t: performance.now(), long: false };
       multi = false;
+      const at = downAt;
+      if (e.button === 0) {
+        pressTimer = setTimeout(() => {
+          if (downAt !== at || multi || !longCb) return;
+          at.long = true;
+          longCb({ id: pickAt(at.x, at.y), x: at.x, y: at.y });
+        }, LONG_MS);
+      }
     } else {
       multi = true;
     }
   });
+  canvas.addEventListener('pointermove', (e) => {
+    if (downAt && e.isPrimary && Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y) >= 9) clearTimeout(pressTimer);
+  });
+  canvas.addEventListener('pointercancel', () => clearTimeout(pressTimer));
+  canvas.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    if (longCb && e.pointerType !== 'touch') longCb({ id: pickAt(e.clientX, e.clientY), x: e.clientX, y: e.clientY });
+  });
   canvas.addEventListener('pointerup', (e) => {
+    clearTimeout(pressTimer);
     if (!e.isPrimary || !downAt || multi) return;
+    if (downAt.long || e.button !== 0) {
+      downAt = null;
+      return;
+    }
     const moved = Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y);
     const quick = performance.now() - downAt.t < 450;
     downAt = null;
-    if (moved < 9 && quick && pickCb) pickCb(pickAt(e.clientX, e.clientY));
+    if (!(moved < 9 && quick)) return;
+    const now = performance.now();
+    if (lastTap && now - lastTap.t < 320 && Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y) < 30) {
+      lastTap = null;
+      zoomAt(e.clientX, e.clientY);
+      return;
+    }
+    lastTap = { t: now, x: e.clientX, y: e.clientY };
+    if (pickCb) pickCb(pickAt(e.clientX, e.clientY));
   });
+
+  // Dokunulan yüzey noktasına yaklaşır ve dönme merkezini oraya taşır
+  const zoomRay = new THREE.Raycaster();
+  function zoomAt(cx, cy) {
+    const rect = canvas.getBoundingClientRect();
+    zoomRay.setFromCamera(new THREE.Vector2(((cx - rect.left) / rect.width) * 2 - 1, -(((cy - rect.top) / rect.height) * 2 - 1)), camera);
+    const planes = renderer.clippingPlanes;
+    const hit = zoomRay.intersectObjects(pickables.filter(isShown), false).find((h) => planes.every((pl) => pl.distanceToPoint(h.point) >= 0));
+    const target = hit ? hit.point : controls.target.clone();
+    const dist = Math.max(controls.minDistance * 2, camera.position.distanceTo(target) * 0.55);
+    const dir = camera.position.clone().sub(target).normalize();
+    flyTo(target.clone().addScaledVector(dir, dist).toArray(), target.toArray(), { ms: 450 });
+  }
+  // Düğmeyle yakınlaştırma: hedef aynı kalır
+  function zoomBy(f) {
+    const dir = camera.position.clone().sub(controls.target);
+    const d = THREE.MathUtils.clamp(dir.length() * f, controls.minDistance, controls.maxDistance);
+    flyTo(controls.target.clone().addScaledVector(dir.normalize(), d).toArray(), controls.target.toArray(), { ms: 260 });
+  }
+  // Tek parmak (ve sol fare tuşu): döndür veya kaydır
+  function setPanMode(on) {
+    controls.touches.ONE = on ? THREE.TOUCH.PAN : THREE.TOUCH.ROTATE;
+    controls.mouseButtons.LEFT = on ? THREE.MOUSE.PAN : THREE.MOUSE.ROTATE;
+  }
+
+  // ---------- Gizleme ve yalnız gösterme ----------
+  function setHidden(id, on) {
+    if (on) state.hidden.add(id);
+    else state.hidden.delete(id);
+    applyMaterials();
+  }
+  function showAll() {
+    state.hidden.clear();
+    state.solo = null;
+    applyMaterials();
+  }
+  function setSolo(ids) {
+    state.solo = ids ? new Set(ids) : null;
+    applyMaterials();
+  }
 
   let loaded = false;
   async function load(onProgress) {
@@ -844,7 +969,7 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
         const layer = needleItem ? 'needle' : byId.get(id).layer;
         m.userData = { id, side, layer };
         m.material = mats[layer].base;
-        if (layer === 'bone' || layer === 'context') m.userData.baseOrder = 5;
+        if (COARSE.has(layer)) m.userData.baseOrder = 5;
         rec.meshes.push(m);
         if (!needleItem) pickables.push(m);
       }
@@ -852,11 +977,119 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
       applyMaterials();
       onProgress({ ratio: done / total, label: FILE_LABEL[file], file, finished: true });
     }
+    orientForamina();
     loaded = true;
   }
 
   for (const m of pickables) m.userData.layer = byId.get(m.userData.id).layer;
   applyMaterials();
+
+  // Delik halkası, delikten geçen sinir ve damarların o noktadaki ortak yönüne dik durur (yerel noktaların ana ekseni)
+  function orientForamina() {
+    const z = new THREE.Vector3(0, 0, 1);
+    const p = new THREE.Vector3();
+    for (const rec of records.values()) {
+      if (rec.layer !== 'foramen') continue;
+      const st = byId.get(rec.id);
+      const via = [...new Set([...(st.through ?? []), ...(st.rel ?? [])].flatMap((x) => String(x).match(/\b[a-z]{1,3}_[a-z0-9_]+\b/g) ?? []))]
+        .filter((x) => ['nerve', 'artery', 'vein'].includes(byId.get(x)?.layer) && records.has(x));
+      for (const mesh of rec.meshes) {
+        const c = mesh.position;
+        const r = Math.max(6, mesh.scale.x * 3);
+        const pts = [];
+        for (const id of via) {
+          for (const m of records.get(id).meshes) {
+            const s = m.userData.side;
+            if (s && s !== 'M' && mesh.userData.side !== 'M' && s !== mesh.userData.side) continue;
+            const a = m.geometry.attributes.position;
+            m.updateWorldMatrix(true, false);
+            for (let i = 0; i < a.count; i += 2) {
+              p.fromBufferAttribute(a, i).applyMatrix4(m.matrixWorld);
+              if (p.distanceToSquared(c) < r * r) pts.push(p.clone());
+            }
+          }
+        }
+        mesh.userData.axisPts = pts.length;
+        if (pts.length < 12) continue;
+        const mean = pts.reduce((s, q) => s.add(q), new THREE.Vector3()).multiplyScalar(1 / pts.length);
+        // Kovaryansın ana öz vektörü (kuvvet yöntemi)
+        const cov = [0, 0, 0, 0, 0, 0];
+        for (const q of pts) {
+          const dx = q.x - mean.x;
+          const dy = q.y - mean.y;
+          const dz = q.z - mean.z;
+          cov[0] += dx * dx; cov[1] += dx * dy; cov[2] += dx * dz; cov[3] += dy * dy; cov[4] += dy * dz; cov[5] += dz * dz;
+        }
+        const v = new THREE.Vector3(1, 0.7, 0.4);
+        for (let k = 0; k < 24; k++) {
+          v.set(cov[0] * v.x + cov[1] * v.y + cov[2] * v.z, cov[1] * v.x + cov[3] * v.y + cov[4] * v.z, cov[2] * v.x + cov[4] * v.y + cov[5] * v.z).normalize();
+        }
+        mesh.quaternion.setFromUnitVectors(z, v);
+        mesh.userData.axis = v.toArray();
+      }
+    }
+    invalidate();
+  }
+
+  // ---------- Delik adları ----------
+  // Yalnız kameradan görünen deliklerin adı gösterilir; görünürlük kamera durunca ışınla denetlenir
+  let holeLabels = null;
+  let holeTimer = 0;
+  const holeRay = new THREE.Raycaster();
+  const holeP = new THREE.Vector3();
+  function setHoleLabels(on) {
+    holeLabels?.forEach((l) => l.el.remove());
+    holeLabels = null;
+    if (on) {
+      holeLabels = [];
+      for (const rec of records.values()) {
+        if (rec.layer !== 'foramen') continue;
+        for (const mesh of rec.meshes) {
+          const el = document.createElement('button');
+          el.className = 'hole-label';
+          el.textContent = byId.get(rec.id).name;
+          el.dataset.goto = rec.id;
+          labelsEl.append(el);
+          holeLabels.push({ el, mesh, open: false });
+        }
+      }
+      checkHoles();
+    }
+    invalidate();
+  }
+  function checkHoles() {
+    if (!holeLabels) return;
+    const walls = pickables.filter((m) => isShown(m) && (m.userData.layer === 'bone' || m.userData.layer === 'cartilage'));
+    const planes = renderer.clippingPlanes;
+    for (const l of holeLabels) {
+      const c = l.mesh.getWorldPosition(new THREE.Vector3());
+      const d = c.clone().sub(camera.position);
+      const len = d.length();
+      holeRay.set(camera.position, d.normalize());
+      holeRay.far = Math.max(0.01, len - Math.max(2, l.mesh.scale.x * 1.6));
+      l.open = isShown(l.mesh) && planes.every((pl) => pl.distanceToPoint(c) >= 0)
+        && !holeRay.intersectObjects(walls, false).some((h) => planes.every((pl) => pl.distanceToPoint(h.point) >= 0));
+    }
+    placeHoles();
+  }
+  function placeHoles() {
+    if (!holeLabels) return;
+    const w = stage.clientWidth;
+    const h = stage.clientHeight;
+    const boxes = [];
+    for (const l of holeLabels) {
+      holeP.copy(l.mesh.getWorldPosition(new THREE.Vector3())).project(camera);
+      const x = (holeP.x * 0.5 + 0.5) * w;
+      const y = (-holeP.y * 0.5 + 0.5) * h;
+      const bw = l.el.offsetWidth || 80;
+      const box = [x + 8, y - 12, x + 8 + bw, y + 12];
+      // Üst üste binen etiket gösterilmez
+      const ok = l.open && holeP.z < 1 && x > 0 && x < w - 20 && y > 100 && y < h - 60 && !boxes.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
+      if (ok) boxes.push(box);
+      l.el.style.visibility = ok ? 'visible' : 'hidden';
+      l.el.style.transform = `translate(${box[0]}px, ${box[1]}px)`;
+    }
+  }
 
   // Çene hareketi: çalışan yapılar (id -> taraf kümesi veya null) ve çapa dönüşümü
   function setWorking(map) {
@@ -866,6 +1099,10 @@ export function createScene({ canvas, stage, labelsEl, index, byId }) {
 
   return {
     load, highlight, focusOn, setLayer, setClip, setView, home, invalidate, setBoneOpacity, frameSection,
+    setHidden, showAll, setSolo, zoomBy, zoomAt, setPanMode, setHoleLabels,
+    get hidden() { return [...state.hidden]; },
+    get solo() { return state.solo ? [...state.solo] : null; },
+    onLongPress: (cb) => { longCb = cb; },
     setColorMode, setQuizView, pointVisible, firstHitId, flyTo, setWorking,
     setAnchorPose: (fn) => { anchorPose = fn; },
     capsChanged: () => { capDirty = true; invalidate(); },

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>DUS Nöro 3D</title>
-    <meta name="description" content="DUS için 3B nörovasküler ve kafa tabanı anatomi atlası" />
+    <meta name="description" content="DUS için diş hekimliği odaklı 3B baş ve boyun anatomi atlası" />
     <meta name="theme-color" content="#10151c" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
@@ -24,6 +24,7 @@
           <button role="tab" data-view="quiz">Quiz</button>
           <button role="tab" data-view="sources">Kaynaklar</button>
         </nav>
+        <button id="btn-detail" class="icon-btn" aria-label="Açıklama panelini gizle veya göster" aria-pressed="false">◨</button>
       </header>
 
       <main id="main" data-view="atlas">
@@ -40,6 +41,21 @@
           <div id="pins"></div>
           <div id="chips" role="group" aria-label="Katman filtreleri"></div>
           <label id="bone-op"><span>Kemik saydamlığı</span><input type="range" id="bone-range" min="0" max="92" step="1" value="0" /></label>
+
+          <div id="nav" role="group" aria-label="Gezinme">
+            <button class="tool" data-nav="in" aria-label="Yakınlaştır">+</button>
+            <button class="tool" data-nav="out" aria-label="Uzaklaştır">−</button>
+            <button class="tool" data-nav="pan" aria-pressed="false" aria-label="Tek parmakla kaydırma modu">✥</button>
+            <button class="tool" data-nav="undo" aria-label="Geri al" title="Geri al" disabled>↶</button>
+          </div>
+          <div id="hidden-bar" hidden><span id="hidden-text"></span><button class="tool" id="hidden-show">Hepsini göster</button></div>
+          <div id="ctx-menu" hidden role="menu">
+            <b id="ctx-title"></b>
+            <button class="tool" data-menu="select" role="menuitem">Seç</button>
+            <button class="tool" data-menu="hide" role="menuitem">Gizle</button>
+            <button class="tool" data-menu="solo" role="menuitem">Yalnız bunu ve ilişkilileri göster</button>
+            <button class="tool" data-menu="showall" role="menuitem">Gizlenenleri göster</button>
+          </div>
 
           <div id="stage-tools">
             <button class="tool" data-view-preset="front">Ön</button>

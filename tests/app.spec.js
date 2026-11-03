@@ -452,6 +452,17 @@ test('seçim: ilişkili yapılar görünür ve seçili yapıdan farklı renktedi
   expect(off.colors.n_lingual).toBe(0xf5d04e);
   await page.locator('#chips [data-layer="bone"]').click();
 
+  // Kas katmanı kapalıyken n. facialis kasları sahnede göstermez ama panelde listeler; açılınca gösterir
+  const vii = await state('n_vii');
+  const relMus = await page.evaluate(() => window.__app.relatedOf('n_vii').filter((k) => window.__app.byId.get(k)?.layer === 'muscle'));
+  expect(relMus.length).toBeGreaterThan(0);
+  for (const k of relMus) expect(vii.colors[k], k).toBeUndefined();
+  await expect(page.locator(`.rel-row button[data-goto="${relMus[0]}"]`).first()).toBeAttached();
+  await expect(page.locator('#labels .label.rel.lay-muscle')).toHaveCount(0);
+  await page.locator('#chips [data-layer="muscle"]').click();
+  expect(await page.evaluate((k) => window.__app.scene.records.get(k).meshes[0].visible, relMus[0])).toBe(true);
+  await page.locator('#chips [data-layer="muscle"]').click();
+
   // Blok: hedef sinir seçili renkte, diğer yapılar ilişkili
   const blk = await state('blk_ianb');
   expect(blk.colors.n_ian).toBe(SEL);
@@ -1176,7 +1187,8 @@ test('çene hareketi: oynarken çizer, duraklayınca kare durur, sıfırlanınca
   await expect(page.locator('#motion-play')).toHaveText(/Durdur/);
   await page.waitForTimeout(700);
   const f1 = await frames();
-  expect(f1 - f0).toBeGreaterThan(3);
+  // Yazılım GL'inde boyun modelleriyle kare süresi uzadı; burada yalnız oynarken çizildiği denetlenir
+  expect(f1 - f0).toBeGreaterThan(1);
   expect(await page.evaluate(() => window.__app.motion.t)).toBeGreaterThan(0);
 
   await page.locator('#motion-play').tap();
@@ -1360,4 +1372,244 @@ test('çene hareketi: yandan ve lateral görüntüler', async ({ page, browserNa
   // Duruşlar farklı piksel üretir (WebKit'te de)
   expect(glReads[0]).not.toBe(glReads[2]);
   expect(glReads[2]).not.toBe(glReads[3]);
+});
+
+test('boyun: yeni kemik, bez, kas ve üçgenler yüklü; üçgende sınır ve içerik modları', async ({ page }, info) => {
+  await open(page);
+  const counts = await page.evaluate(() => Object.fromEntries(['b_c7', 'b_clavicle', 'k_trachea', 'gl_parotid', 'gl_thyroid', 'm_scm', 'm_procerus', 'r_carotid', 'r_occipital', 'n_phrenic', 'v_ejv'].map((id) => [id, window.__app.scene.records.get(id)?.meshes.length ?? 0])));
+  for (const [id, n] of Object.entries(counts)) expect(n, id).toBeGreaterThan(0);
+  const mode = async (k) => {
+    await page.evaluate((m) => document.querySelector(`[data-region="${m}"]`).click(), k);
+    await settle(page);
+    return page.evaluate(() => {
+      const r = window.__app.scene.records;
+      const m = (id) => r.get(id).meshes[0];
+      return { scmVis: m('m_scm').visible, scmOp: m('m_scm').material.opacity, ccaOp: m('a_cca').material.opacity, tri: m('r_carotid').material.color.getHex(), ijv: m('v_ijv').material.opacity };
+    });
+  };
+  await page.evaluate(() => window.__app.select('r_carotid', { instant: true }));
+  await expect(page.locator('[data-region]')).toHaveCount(3);
+  const bounds = await mode('bounds');
+  expect(bounds.tri).toBe(0xff2bd6);
+  expect(bounds.scmVis).toBe(true);
+  expect(bounds.scmOp).toBeLessThan(0.5);
+  expect(bounds.ccaOp).toBeLessThan(0.2);
+  const contents = await mode('contents');
+  expect(contents.scmVis).toBe(false);
+  expect(contents.ccaOp).toBe(1);
+  expect(contents.ijv).toBe(1);
+  await shot(page, info, '40-ucgen-icerik');
+  await mode('all');
+  // Ense üçgeninin içeriği n. accessorius
+  expect(await page.evaluate(() => window.__app.relatedOf('r_occipital').includes('n_xi'))).toBe(true);
+});
+
+test('gizleme: panel düğmesi, uzun basış menüsü, yalnız göster ve hepsini göster', async ({ page }) => {
+  await open(page);
+  const vis = (id) => page.evaluate((i) => window.__app.scene.records.get(i).meshes[0].visible, id);
+  await page.evaluate(() => window.__app.select('b_mandible', { instant: true }));
+  await page.evaluate(() => document.querySelector('[data-act="hide"]').click());
+  expect(await vis('b_mandible')).toBe(false);
+  await expect(page.locator('#hidden-bar')).toBeVisible();
+  await expect(page.locator('#hidden-text')).toHaveText('1 yapı gizli');
+  await page.locator('#hidden-show').click();
+  expect(await vis('b_mandible')).toBe(true);
+  await expect(page.locator('#hidden-bar')).toBeHidden();
+
+  // Uzun basış: parmak kalkmadan menü açılır; parmak kalkınca seçim yapılmaz
+  await page.evaluate(() => window.__app.scene.home());
+  await settle(page);
+  const p = await page.evaluate(() => window.__app.scene.project('b_frontal'));
+  await page.evaluate(({ x, y }) => {
+    const c = document.querySelector('#canvas');
+    const o = { clientX: x, clientY: y, pointerId: 7, isPrimary: true, pointerType: 'touch', button: 0, bubbles: true };
+    c.dispatchEvent(new PointerEvent('pointerdown', o));
+    window.__lp = () => c.dispatchEvent(new PointerEvent('pointerup', o));
+  }, p);
+  await page.waitForTimeout(800);
+  await expect(page.locator('#ctx-menu')).toBeVisible();
+  const before = await page.evaluate(() => window.__app.current);
+  await page.evaluate(() => window.__lp());
+  expect(await page.evaluate(() => window.__app.current)).toBe(before);
+  expect((await page.locator('#ctx-title').textContent()).length).toBeGreaterThan(2);
+  await page.locator('#ctx-menu [data-menu="hide"]').click();
+  await expect(page.locator('#ctx-menu')).toBeHidden();
+  await expect(page.locator('#hidden-text')).toHaveText('1 yapı gizli');
+  const hiddenId = await page.evaluate(() => window.__app.scene.hidden[0]);
+  expect(await vis(hiddenId)).toBe(false);
+  // Gizli yapı listeden seçilince yeniden görünür
+  await page.evaluate((id) => window.__app.select(id, { instant: true }), hiddenId);
+  expect(await vis(hiddenId)).toBe(true);
+
+  // Yalnız bunu ve ilişkilileri göster
+  await page.evaluate(() => window.__app.select('n_ian', { instant: true }));
+  await page.evaluate(() => document.querySelector('[data-act="solo"]').click());
+  expect(await vis('n_ian')).toBe(true);
+  expect(await vis('n_lingual')).toBe(true);
+  expect(await vis('b_frontal')).toBe(false);
+  await expect(page.locator('#hidden-bar')).toBeVisible();
+  await page.locator('#hidden-show').click();
+  expect(await vis('b_frontal')).toBe(true);
+});
+
+test('delikler: halka delikten geçen yapıya göre döner, delik adları yalnız görünenlerde', async ({ page }, info) => {
+  await open(page);
+  const rings = await page.evaluate(() => [...window.__app.scene.records.values()].filter((r) => r.layer === 'foramen').map((r) => ({ id: r.id, ring: r.meshes[0].geometry.type, axis: !!r.meshes[0].userData.axis })));
+  expect(rings.every((r) => r.ring === 'TorusGeometry')).toBe(true);
+  // Sinir veya damarı modelde olan başlıca delikler yönlenmiş olmalı
+  for (const id of ['f_ovale', 'f_rotundum', 'f_mental', 'f_infraorbital', 'f_mandibular', 'f_stylomastoid']) expect(rings.find((r) => r.id === id).axis, id).toBe(true);
+  await page.evaluate(() => { window.__app.select('f_ovale', { instant: true }); window.__app.scene.setView('bottom'); });
+  await page.locator('#btn-holes').click();
+  await settle(page);
+  await page.waitForTimeout(400);
+  const visible = () => page.evaluate(() => [...document.querySelectorAll('.hole-label')].filter((l) => l.style.visibility === 'visible').map((l) => l.dataset.goto));
+  const shown = await visible();
+  expect(shown.length).toBeGreaterThan(2);
+  expect(shown).toContain('f_ovale');
+  await shot(page, info, '41-delik-adlari');
+  // Önden bakınca kafa tabanı delikleri kemiğin arkasında kalır
+  await page.evaluate(() => window.__app.scene.setView('front'));
+  await settle(page);
+  await page.waitForTimeout(400);
+  expect(await visible()).not.toContain('f_jugular');
+  await page.locator('#btn-holes').click();
+  await expect(page.locator('.hole-label')).toHaveCount(0);
+});
+
+test('sinirler: çıkış notu, chorda tympani fasiyal gövdeden ayrı yoldan çatallanır', async ({ page }) => {
+  await open(page);
+  const missing = await page.evaluate(() => window.__app.items.filter((s) => s.layer === 'nerve' && !s.exit).map((s) => s.id));
+  expect(missing).toEqual([]);
+  await page.evaluate(() => window.__app.select('n_chorda', { instant: true }));
+  await expect(page.locator('#detail .par.exit')).toContainText('foramen stylomastoideum');
+  const g = await page.evaluate(() => {
+    const pts = (id) => {
+      const out = [];
+      for (const m of window.__app.scene.records.get(id).meshes) {
+        if (m.userData.side !== 'R') continue;
+        m.updateWorldMatrix(true, false);
+        const a = m.geometry.attributes.position;
+        const e = m.matrixWorld.elements;
+        for (let i = 0; i < a.count; i++) {
+          const x = a.getX(i); const y = a.getY(i); const z = a.getZ(i);
+          out.push([e[0] * x + e[4] * y + e[8] * z + e[12], e[1] * x + e[5] * y + e[9] * z + e[13], e[2] * x + e[6] * y + e[10] * z + e[14]]);
+        }
+      }
+      return out;
+    };
+    const ch = pts('n_chorda');
+    const vii = pts('n_vii');
+    const near = (p) => {
+      let b = Infinity;
+      for (const q of vii) b = Math.min(b, Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]));
+      return b;
+    };
+    // Çatal noktası (Z-Anatomy [-45.4, 11, 1573.8] sahne koordinatında)
+    const fork = [-45.4, -16.2, -16];
+    const d = ch.map(near);
+    const far = ch.map((p, i) => [Math.hypot(p[0] - fork[0], p[1] - fork[1], p[2] - fork[2]), d[i]]).filter(([f]) => f > 5);
+    return { touch: Math.min(...d), parallel: far.filter(([, x]) => x < 2).length / far.length };
+  });
+  // Çatal noktasında birleşir; oradan 5 mm sonra fasiyal gövdeye paralel seyretmez
+  expect(g.touch).toBeLessThan(1.5);
+  expect(g.parallel).toBeLessThan(0.02);
+});
+
+test('iPad gezinme: yakınlaştır/uzaklaştır, kaydırma modu, iki kez dokunma', async ({ page }) => {
+  await open(page);
+  await settle(page);
+  const dist = () => page.evaluate(() => window.__app.scene.camera.position.distanceTo(window.__app.scene.controls.target));
+  const d0 = await dist();
+  await page.locator('#nav [data-nav="in"]').click();
+  await settle(page);
+  expect(await dist()).toBeLessThan(d0 * 0.8);
+  await page.locator('#nav [data-nav="out"]').click();
+  await settle(page);
+  expect(Math.abs((await dist()) - d0)).toBeLessThan(d0 * 0.05);
+  await page.locator('#nav [data-nav="pan"]').click();
+  await expect(page.locator('#nav [data-nav="pan"]')).toHaveAttribute('aria-pressed', 'true');
+  expect(await page.evaluate(() => window.__app.scene.controls.touches.ONE)).toBe(1);
+  await page.locator('#nav [data-nav="pan"]').click();
+  expect(await page.evaluate(() => window.__app.scene.controls.touches.ONE)).toBe(0);
+  // İki kez dokunma kafatasındaki noktaya yaklaşır
+  const p = await page.evaluate(() => window.__app.scene.project('b_frontal'));
+  await page.evaluate(({ x, y }) => {
+    const c = document.querySelector('#canvas');
+    const o = { clientX: x, clientY: y, pointerId: 3, isPrimary: true, pointerType: 'touch', button: 0, bubbles: true };
+    for (let i = 0; i < 2; i++) {
+      c.dispatchEvent(new PointerEvent('pointerdown', o));
+      c.dispatchEvent(new PointerEvent('pointerup', o));
+    }
+  }, p);
+  await settle(page);
+  expect(await dist()).toBeLessThan(d0 * 0.7);
+  expect(await page.evaluate(() => getComputedStyle(document.querySelector('#stage')).userSelect)).toBe('none');
+});
+
+test('geri al: her dokunuş bir adım, seçim, katman, gizleme ve kamera önceki hâline döner', async ({ page }) => {
+  await open(page);
+  await settle(page);
+  const undo = page.locator('#nav [data-nav="undo"]');
+  await expect(undo).toBeDisabled();
+  const cam = () => page.evaluate(() => window.__app.scene.camera.position.toArray());
+  const cam0 = await cam();
+  await page.evaluate(() => window.__app.select('n_vii', { instant: true }));
+  await settle(page);
+  await page.locator('#chips [data-layer="muscle"]').click();
+  await page.evaluate(() => document.querySelector('[data-act="hide"]').click());
+  expect(await page.evaluate(() => window.__app.current)).toBe(null);
+  await page.locator('#stage-tools [data-view-preset="bottom"]').click();
+  await settle(page);
+  expect(await page.evaluate(() => window.__app.undoDepth)).toBe(4);
+
+  // Alt görünüm geri alınır: kamera gizlemeden önceki yere döner, gizleme sürer
+  await undo.click();
+  await settle(page);
+  expect(await page.evaluate(() => window.__app.scene.hidden)).toEqual(['n_vii']);
+  // Gizleme geri alınır: n. facialis yeniden görünür ve seçili
+  await undo.click();
+  await settle(page);
+  expect(await page.evaluate(() => window.__app.scene.hidden)).toEqual([]);
+  expect(await page.evaluate(() => window.__app.current)).toBe('n_vii');
+  expect(await page.evaluate(() => window.__app.scene.layerOn.muscle)).toBe(true);
+  // Kas katmanı geri alınır
+  await undo.click();
+  expect(await page.evaluate(() => window.__app.scene.layerOn.muscle)).toBe(false);
+  await expect(page.locator('#chips [data-layer="muscle"]')).toHaveAttribute('aria-pressed', 'false');
+  // Seçim geri alınır: hiçbir şey seçili değil, kamera başlangıçta
+  await undo.click();
+  await settle(page);
+  expect(await page.evaluate(() => window.__app.current)).toBe(null);
+  const c = await cam();
+  expect(Math.hypot(c[0] - cam0[0], c[1] - cam0[1], c[2] - cam0[2])).toBeLessThan(2);
+  await expect(undo).toBeDisabled();
+});
+
+test('paneller: yatayda liste ve açıklama gizlenir, sahne genişler, tercih hatırlanır', async ({ page }) => {
+  await open(page);
+  const w = () => page.evaluate(() => document.querySelector('#stage').clientWidth);
+  if (portrait(page)) {
+    // Dikeyde açıklama alttaki sayfa olarak kalır, ayrı gizleme düğmesi yok
+    await expect(page.locator('#btn-detail')).toBeHidden();
+    return;
+  }
+  const w0 = await w();
+  await page.locator('#btn-detail').click();
+  await expect(page.locator('#detail-panel')).toBeHidden();
+  await expect(page.locator('#btn-detail')).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('#btn-list').click();
+  await expect(page.locator('#list-panel')).toBeHidden();
+  await expect.poll(w).toBeGreaterThan(w0 + 500);
+  // Panel gizliyken seçim çalışır ve sahne çizer
+  await page.evaluate(() => window.__app.select('n_vii', { instant: true }));
+  expect(await page.evaluate(() => window.__app.current)).toBe('n_vii');
+  await page.reload();
+  await page.waitForFunction(() => window.__app?.ready, null, { timeout: 90_000 });
+  await expect(page.locator('#detail-panel')).toBeHidden();
+  await expect(page.locator('#list-panel')).toBeHidden();
+  await page.locator('#btn-detail').click();
+  await page.locator('#btn-list').click();
+  await expect(page.locator('#detail-panel')).toBeVisible();
+  await expect(page.locator('#list-panel')).toBeVisible();
+  await expect.poll(w).toBeLessThan(w0 + 5);
 });

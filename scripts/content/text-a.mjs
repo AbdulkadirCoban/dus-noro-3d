@@ -386,9 +386,9 @@ export const TEXT_A = [
     spot: ['Preganglioner lifler alt salivator çekirdekten gelir; parotis yolu CN IX üzerindendir.', 'Modeldeki yol şematiktir.'],
     clinic: ['Frey sendromu bu yolun postganglioner dönemiyle ilişkilidir.'], rel: ['n_ix', 'g_otic', 'f_ovale'], ref: REF.par },
   { id: 'n_chorda', name: 'Chorda tympani', cat: 'cn2', layer: 'nerve',
-    route: ['CN VII stilomastoid delikten hemen önce ayrılır → orta kulakta manubrium mallei ile incus arasından geçer → fissura petrotympanica → n. lingualis.'],
+    route: ['Fasiyal gövde foramen stylomastoideum’a inerken chorda öne-yukarı döner.', 'Canaliculus chordae tympani → cavitas tympani’de manubrium mallei ile incus uzun kolu arasından geçer → fissura petrotympanica → m_latpt altında n_lingual’e katılır.'],
     branches: ['Dil ön 2/3 tat', 'Submandibular ve sublingual bez parasempatiği'],
-    spot: ['Orta kulak boşluğundan geçen sinir olarak klasik sorudur.', 'Ganglion submandibularede sinaps yapar.', 'Ara bölümü şematik birleştirilmiştir.'],
+    spot: ['Orta kulak boşluğundan geçen sinir olarak klasik sorudur.', 'Ganglion submandibularede sinaps yapar.', 'Çatal noktası ve orta kulak bölümü şematik çizilmiştir; fissura petrotympanica’dan sonrası gerçek modeldir.'],
     clinic: ['Otitis media ve orta kulak cerrahisinde etkilenebilir: tat bozukluğu ve ağız kuruluğu.'], rel: ['n_lingual', 'n_vii', 'g_submandibular'], ref: REF.par },
 
   // ---------- PARASEMPATİK GANGLİONLAR ----------

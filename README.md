@@ -1,6 +1,6 @@
 # DUS Nöro 3D
 
-DUS için diş hekimliği odaklı 3B baş-boyun anatomi atlası. Gerçek kemik, diş, kas, sinir ve damar modelleri, yapı başına topografi, DUS spotları ve klinik bilgiler, dört diş bloğu sahnesi, kas yapışma bölgeleri, çene hareketi, dolu kesit yüzeyi ve şematik kesit görüntüsü, 3B pin testi ve quiz içerir. Ağırlıklı olarak iPad için tasarlandı, masaüstünde de çalışır. Kurulduktan sonra internetsiz açılır.
+DUS için diş hekimliği odaklı 3B baş-boyun anatomi atlası. Kafadan klavikulaya kadar gerçek kemik, diş, kas, bez, sinir ve damar modelleri, boyun üçgenleri (sınır, taban ve içerik), sinirlerin çıkış yerleri, yapı başına topografi, DUS spotları ve klinik bilgiler, dört diş bloğu sahnesi, kas yapışma bölgeleri, çene hareketi, dolu kesit yüzeyi ve şematik kesit görüntüsü, 3B pin testi ve quiz içerir. Ağırlıklı olarak iPad için tasarlandı, masaüstünde de çalışır. Kurulduktan sonra internetsiz açılır.
 
 > Eğitim amaçlıdır, klinik karar aracı değildir. Lisans ve doğrulama durumu uygulamadaki **Kaynaklar** sekmesindedir.
 

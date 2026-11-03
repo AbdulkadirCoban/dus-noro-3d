@@ -4,7 +4,9 @@ import { bakeMesh } from './scene.js';
 
 const BONES = ['b_maxilla', 'b_mandible', 'b_palatine', 'b_zygomatic', 'b_nasal', 'b_lacrimal', 'b_vomer', 'b_sphenoid', 'b_temporal'];
 const FORAMINA = ['f_mandibular', 'f_mental', 'f_infraorbital', 'f_incisive', 'f_gpf', 'f_lpf'];
-const SKULL = { groups: ['bone', 'tooth'], hide: ['b_atlas', 'b_axis', 'b_hyoid'] };
+// Pin testi diş hekimliği kafatasıdır: omurga, boyun kemikleri ve gırtlak kıkırdakları gizlenir (alttan bakışı kapatmasın)
+const NECK = ['b_atlas', 'b_axis', 'b_hyoid', 'b_c3', 'b_c4', 'b_c5', 'b_c6', 'b_c7', 'b_clavicle', 'b_rib1', 'b_manubrium', 'k_thyroid', 'k_cricoid', 'k_epiglottis', 'k_trachea'];
+const SKULL = { groups: ['bone', 'tooth'], hide: NECK };
 const FRAME_C = [0, -22, 25];
 const FRAME_R = 125;
 const MIN_DIST = 260;

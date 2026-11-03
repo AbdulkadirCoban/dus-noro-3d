@@ -364,6 +364,19 @@ function compact(pos, idx) {
   return { pos: new Float32Array(out), idx: new Uint32Array(ni) };
 }
 
+// Düzlemsel çokgen: ağırlık merkezinden yelpaze, iki yüzlü (bölge yüzeyleri için)
+function polygon(pts) {
+  const c = [0, 1, 2].map((k) => pts.reduce((s, p) => s + p[k], 0) / pts.length);
+  const pos = [...c, ...pts.flat()];
+  const idx = [];
+  for (let i = 0; i < pts.length; i++) {
+    const a = 1 + i;
+    const b = 1 + ((i + 1) % pts.length);
+    idx.push(0, a, b, 0, b, a);
+  }
+  return { pos: new Float32Array(pos), idx: new Uint32Array(idx) };
+}
+
 function buildSource(g) {
   const meshes = [];
   for (const s of g.src) {
@@ -371,6 +384,8 @@ function buildSource(g) {
       meshes.push(simplifyMesh(loadZa(s.name), s.ratio));
     } else if (s.kind === 'bp') {
       meshes.push(simplifyMesh(loadBp(s.id), s.ratio ?? 1));
+    } else if (s.kind === 'poly') {
+      meshes.push(polygon(s.pts));
     } else {
       const pts = s.kind === 'cv' ? curvePoints(s) : s.pts;
       if (pts.length >= 2) {
@@ -382,7 +397,7 @@ function buildSource(g) {
   return g.singleRoot ? singleRoot(merge(meshes)) : merge(meshes);
 }
 
-const files = { bones: [], arteries: [], veins: [], nerves: [], context: [], teeth: [], muscles: [], attachments: [] };
+const files = { bones: [], arteries: [], veins: [], nerves: [], context: [], teeth: [], muscles: [], attachments: [], glands: [], regions: [] };
 const index = { center: CENTER, items: {}, files: {} };
 
 for (const [id, g] of Object.entries(GEO)) {
@@ -398,7 +413,7 @@ for (const [id, g] of Object.entries(GEO)) {
     continue;
   }
   const m = buildSource(g);
-  const entry = { file: g.file, sides: [], schematic: !!g.schematic, needle: !!g.needle, movesWithMandible: !!g.movesWithMandible };
+  const entry = { file: g.file, sides: [], schematic: !!g.schematic, schematicPart: !!g.schematicPart, needle: !!g.needle, movesWithMandible: !!g.movesWithMandible };
   const add = (tag, mesh) => {
     const sm = toSceneMesh(mesh, tag === 'L');
     const name = `${id}#${tag}`;

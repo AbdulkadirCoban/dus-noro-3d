@@ -37,6 +37,8 @@ const CHIPS = [
   ['tooth', 'Diş', 'lay-tooth'],
   ['muscle', 'Kas/TME', 'lay-muscle'],
   ['attachment', 'Yapışma', 'lay-attach_o'],
+  ['gland', 'Bez', 'lay-gland'],
+  ['region', 'Boyun üçgenleri', 'lay-region'],
   ['context', 'Dura/Beyin sapı', 'lay-context'],
 ];
 $('#chips').innerHTML = CHIPS.map(([k, n, c]) => `<button class="chip ${c} ${scene.layerOn[k] ? 'on' : ''}" data-layer="${k}" aria-pressed="${scene.layerOn[k]}"><i class="dot"></i>${n}</button>`).join('');
@@ -48,7 +50,60 @@ function setLayerChip(layer, on) {
 }
 $('#chips').addEventListener('click', (e) => {
   const b = e.target.closest('[data-layer]');
-  if (b) setLayerChip(b.dataset.layer, !scene.layerOn[b.dataset.layer]);
+  if (!b) return;
+  remember();
+  setLayerChip(b.dataset.layer, !scene.layerOn[b.dataset.layer]);
+});
+
+// ---------- Geri al: her basıştan önceki durum (seçim, katmanlar, gizlenenler, kamera) saklanır ----------
+const undoStack = [];
+let undoLock = false;
+let restoring = false;
+const undoBtn = document.querySelector('#nav [data-nav="undo"]');
+function snapshot() {
+  return {
+    current,
+    regionMode,
+    layers: { ...scene.layerOn },
+    hidden: scene.hidden,
+    solo: scene.solo,
+    cam: scene.camera.position.toArray(),
+    tar: scene.controls.target.toArray(),
+  };
+}
+// Bir dokunuşun tetiklediği zincir (ör. gizle + seçimi kaldır) tek adım sayılır
+function remember() {
+  if (restoring || undoLock || main.dataset.view !== 'atlas') return;
+  undoLock = true;
+  queueMicrotask(() => { undoLock = false; });
+  undoStack.push(snapshot());
+  if (undoStack.length > 60) undoStack.shift();
+  undoBtn.disabled = false;
+}
+function undo() {
+  const s = undoStack.pop();
+  undoBtn.disabled = !undoStack.length;
+  if (!s) return;
+  restoring = true;
+  try {
+    for (const [k, on] of Object.entries(s.layers)) if (scene.layerOn[k] !== on && $(`#chips [data-layer="${k}"]`)) setLayerChip(k, on);
+    scene.showAll();
+    for (const id of s.hidden) scene.setHidden(id, true);
+    if (s.solo) scene.setSolo(s.solo);
+    regionMode = s.regionMode;
+    if (s.current) select(s.current, { keepMode: true });
+    else clearSelection();
+    syncHiddenBar();
+    scene.flyTo(s.cam, s.tar, { ms: 450 });
+  } finally {
+    restoring = false;
+  }
+}
+document.addEventListener('keydown', (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !e.target.closest('input, textarea')) {
+    e.preventDefault();
+    undo();
+  }
 });
 
 // Kemik varsayılan olarak opaktır; kaydırıcı içeriyi görmek için saydamlaştırır
@@ -81,6 +136,25 @@ colorBtn.addEventListener('click', () => {
 });
 $('#chips').append(colorBtn);
 
+// Delik adları: kameradan görünen deliklerin üzerinde küçük etiket
+const holeBtn = document.createElement('button');
+holeBtn.id = 'btn-holes';
+holeBtn.className = 'chip lay-foramen';
+holeBtn.innerHTML = '<i class="dot"></i>Delik adları';
+holeBtn.setAttribute('aria-pressed', 'false');
+holeBtn.addEventListener('click', () => {
+  const on = holeBtn.getAttribute('aria-pressed') !== 'true';
+  holeBtn.setAttribute('aria-pressed', String(on));
+  holeBtn.classList.toggle('on', on);
+  if (on && !scene.layerOn.foramen) setLayerChip('foramen', true);
+  scene.setHoleLabels(on);
+});
+$('#chips').insertBefore(holeBtn, $('#chips [data-layer="nerve"]'));
+$('#labels').addEventListener('click', (e) => {
+  const b = e.target.closest('.hole-label');
+  if (b && main.dataset.view === 'atlas') select(b.dataset.goto);
+});
+
 // ---------- Yapı listesi ----------
 const listEl = $('#list');
 function renderList(filter = '') {
@@ -104,14 +178,35 @@ listEl.addEventListener('click', (e) => {
   select(b.dataset.id);
   app.classList.remove('list-open');
 });
-$('#btn-list').addEventListener('click', () => app.classList.toggle('list-open'));
+// Dikeyde liste çekmece olarak açılır; yatayda listeyi ve açıklama panelini gizleme tercihi saklanır
+const portraitMq = matchMedia('(orientation: portrait), (max-width: 900px)');
+const PANEL_KEY = 'dus-noro-panels';
+function setPanelHidden(cls, on) {
+  app.classList.toggle(cls, on);
+  if (cls === 'detail-hidden') $('#btn-detail').setAttribute('aria-pressed', String(on));
+  else $('#btn-list').setAttribute('aria-pressed', String(on && !portraitMq.matches));
+  try {
+    localStorage.setItem(PANEL_KEY, JSON.stringify({ list: app.classList.contains('list-hidden'), detail: app.classList.contains('detail-hidden') }));
+  } catch {}
+}
+try {
+  const p = JSON.parse(localStorage.getItem(PANEL_KEY) ?? '{}');
+  if (p.list) setPanelHidden('list-hidden', true);
+  if (p.detail) setPanelHidden('detail-hidden', true);
+} catch {}
+portraitMq.addEventListener('change', () => $('#btn-list').setAttribute('aria-pressed', String(app.classList.contains('list-hidden') && !portraitMq.matches)));
+$('#btn-list').addEventListener('click', () => {
+  if (portraitMq.matches) app.classList.toggle('list-open');
+  else setPanelHidden('list-hidden', !app.classList.contains('list-hidden'));
+});
+$('#btn-detail').addEventListener('click', () => setPanelHidden('detail-hidden', !app.classList.contains('detail-hidden')));
 // Liste açıkken sahneye dokunmak listeyi kapatsın
 $('#stage').addEventListener('pointerdown', () => app.classList.remove('list-open'));
 
 // ---------- İlişkili yapılar ----------
 // Yapının metninde adı geçenler ile onu dal veya içinden geçen olarak sayanlar; yalnız modeli olanlar sahnede gösterilir
 const ID_RE = /\b[a-z]{1,3}_[a-z0-9_]+\b/g;
-const REL_FIELDS = ['rel', 'branches', 'through', 'route', 'spot', 'clinic', 'pre', 'post', 'path', 'nerve', 'action'];
+const REL_FIELDS = ['rel', 'branches', 'through', 'route', 'spot', 'clinic', 'pre', 'post', 'path', 'nerve', 'action', 'exit', 'origin', 'insertion', 'bounds', 'roof', 'floor', 'contents'];
 const idsIn = (v) => (JSON.stringify(v ?? '').match(ID_RE) ?? []).filter((m) => byId.has(m));
 const citedBy = new Map();
 for (const s of items) {
@@ -133,6 +228,12 @@ function relatedOf(id) {
 // ---------- Seçim ve ayrıntı paneli ----------
 let current = null;
 let detailTab = 'route';
+// Boyun üçgeninde sahnede neyin gösterileceği: hepsi, yalnız sınırlar (taban ve tavan dahil) veya yalnız içerik
+let regionMode = 'all';
+const regionIds = (s) => ({
+  bounds: [...new Set(idsIn([s.bounds, s.roof, s.floor]))].filter((r) => index.items[r]),
+  contents: [...new Set(idsIn(s.contents))].filter((r) => index.items[r]),
+});
 const TABS = [
   ['route', 'Topografik Rota'],
   ['through', 'İçinden Geçenler / Dallar'],
@@ -162,8 +263,14 @@ function renderDetail() {
       ? [['Sinir', s.nerve], ['Hareket', s.action]]
       : [];
   const par = parRows.length ? `<div class="par">${parRows.map(([k, v]) => `<div><b>${k}</b>${linkify(v)}</div>`).join('')}</div>` : '';
+  const exit = s.exit ? `<div class="par exit"><div><b>Çıkış yeri</b>${linkify(s.exit)}</div></div>` : '';
+  const regionTabs = s.layer === 'region'
+    ? `<div class="region-modes" role="group" aria-label="Sahnede göster">${[['all', 'Hepsi'], ['bounds', 'Sınırlar'], ['contents', 'İçerik']].map(([k, n]) => `<button class="tool" data-region="${k}" aria-pressed="${k === regionMode}">${n}</button>`).join('')}</div>`
+    : '';
+  const hidden = scene.hidden.includes(s.id);
+  const actions = `<div class="d-actions"><button class="tool" data-act="hide">${hidden ? 'Göster' : 'Gizle'}</button><button class="tool" data-act="solo" aria-pressed="${!!scene.solo}">${scene.solo ? 'Tümünü göster' : 'Yalnız bunu ve ilişkilileri göster'}</button></div>`;
   const body = {
-    route: listHtml(s.route) + par,
+    route: exit + listHtml(s.route) + par,
     through: listHtml([...(s.through ?? []), ...(s.branches ?? [])]),
     spot: listHtml(s.spot),
     clinic: listHtml(s.clinic),
@@ -171,6 +278,8 @@ function renderDetail() {
   detailEl.innerHTML = `
     <h2>${esc(s.name)}</h2>
     <div class="badges">${badges.join('')}</div>
+    ${actions}
+    ${regionTabs}
     <div class="dtabs" role="tablist">${TABS.map(([k, n]) => `<button role="tab" data-tab="${k}" class="${k === detailTab ? 'on' : ''}">${n}</button>`).join('')}</div>
     <div id="dbody">${body}</div>
     <div class="rel-title">İlişkili yapılar</div>
@@ -180,6 +289,29 @@ function renderDetail() {
   detailEl.scrollTop = 0;
 }
 detailEl.addEventListener('click', (e) => {
+  const act = e.target.closest('[data-act]');
+  if (act && current) {
+    remember();
+    if (act.dataset.act === 'hide') {
+      const on = !scene.hidden.includes(current);
+      scene.setHidden(current, on);
+      if (on) clearSelection();
+    } else if (scene.solo) {
+      scene.setSolo(null);
+    } else {
+      scene.setSolo([current, ...relatedOf(current), ...(byId.get(current).focus ?? [])]);
+    }
+    syncHiddenBar();
+    renderDetail();
+    return;
+  }
+  const rm = e.target.closest('[data-region]');
+  if (rm) {
+    remember();
+    regionMode = rm.dataset.region;
+    select(current);
+    return;
+  }
   const t = e.target.closest('[data-tab]');
   if (t) {
     detailTab = t.dataset.tab;
@@ -190,15 +322,28 @@ detailEl.addEventListener('click', (e) => {
   if (g) select(g.dataset.goto);
 });
 
-function select(id, { instant = false } = {}) {
+function select(id, { instant = false, keepMode = false } = {}) {
   const s = byId.get(id);
   if (!s) return;
+  remember();
+  if (id !== current && !keepMode) regionMode = 'all';
   current = id;
+  // Gizlenmiş bir yapı seçilirse yeniden görünür olur
+  if (scene.hidden.includes(id)) {
+    scene.setHidden(id, false);
+    syncHiddenBar();
+  }
   if (s.layer === 'block') {
-    scene.highlight({ sel: s.focus.slice(0, 1), rel: s.focus.slice(1), needle: s.needle, primary: s.focus[0], relLabels: s.focus.slice(1, 4), labelTap: select });
+    scene.highlight({ sel: s.focus.slice(0, 1), rel: s.focus.slice(1), needle: s.needle, primary: s.focus[0], relLabels: s.focus.slice(1, 4), labelTap: select, forceRel: true });
     scene.focusOn(s.focus.filter((f) => byId.get(f).layer !== 'bone'), { instant });
+  } else if (s.layer === 'region') {
+    const g = regionIds(s);
+    const rel = regionMode === 'all' ? relatedOf(id) : g[regionMode];
+    scene.highlight({ sel: [id], rel, primary: id, relLabels: rel.slice(0, 3), labelTap: select, ghostRel: true, forceRel: true });
+    scene.focusOn([id], { instant });
   } else {
-    scene.highlight({ sel: [id], rel: relatedOf(id), primary: id, relLabels: relatedOf(id).slice(0, 3), labelTap: select });
+    // Bez seçiliyken komşu kaslar saydamlaşır (ör. masseter parotisin önüne geçmesin)
+    scene.highlight({ sel: [id], rel: relatedOf(id), primary: id, relLabels: relatedOf(id).slice(0, 3), labelTap: select, ghostRel: s.layer === 'gland' });
     scene.focusOn([id], { instant });
   }
   listEl.querySelectorAll('.item.on').forEach((b) => b.classList.remove('on'));
@@ -214,6 +359,7 @@ function select(id, { instant = false } = {}) {
 }
 
 function clearSelection() {
+  remember();
   current = null;
   scene.highlight({});
   listEl.querySelectorAll('.item.on').forEach((b) => b.classList.remove('on'));
@@ -231,12 +377,92 @@ $('#btn-sheet').addEventListener('click', () => {
   $('#btn-sheet').setAttribute('aria-expanded', String(!closed));
 });
 
+// ---------- Gizlenenler, uzun basış menüsü ve gezinme düğmeleri ----------
+const hiddenBar = $('#hidden-bar');
+function syncHiddenBar() {
+  const n = scene.hidden.length;
+  const solo = !!scene.solo;
+  hiddenBar.hidden = !n && !solo;
+  $('#hidden-text').textContent = solo ? 'Yalnız seçili yapı ve ilişkilileri görünüyor' : `${n} yapı gizli`;
+}
+$('#hidden-show').addEventListener('click', () => {
+  remember();
+  scene.showAll();
+  syncHiddenBar();
+  if (current) renderDetail();
+});
+
+const menu = $('#ctx-menu');
+let menuId = null;
+function closeMenu() {
+  menu.hidden = true;
+  menuId = null;
+}
+scene.onLongPress(({ id, x, y }) => {
+  if (main.dataset.view !== 'atlas') return;
+  const s = byId.get(id);
+  menuId = id;
+  $('#ctx-title').textContent = s ? s.name : 'Boş alan';
+  menu.querySelectorAll('[data-menu]').forEach((b) => {
+    const k = b.dataset.menu;
+    b.hidden = (!s && k !== 'showall') || (k === 'showall' && !scene.hidden.length && !scene.solo);
+  });
+  menu.hidden = false;
+  const r = $('#stage').getBoundingClientRect();
+  const mx = Math.min(x - r.left, r.width - menu.offsetWidth - 8);
+  const my = Math.min(y - r.top, r.height - menu.offsetHeight - 8);
+  menu.style.transform = `translate(${Math.max(8, mx)}px, ${Math.max(8, my)}px)`;
+});
+menu.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-menu]');
+  if (!b) return;
+  const id = menuId;
+  closeMenu();
+  remember();
+  if (b.dataset.menu === 'select') select(id);
+  else if (b.dataset.menu === 'hide') {
+    scene.setHidden(id, true);
+    if (current === id) clearSelection();
+  } else if (b.dataset.menu === 'solo') {
+    select(id);
+    scene.setSolo([id, ...relatedOf(id), ...(byId.get(id).focus ?? [])]);
+    renderDetail();
+  } else if (b.dataset.menu === 'showall') {
+    scene.showAll();
+    if (current) renderDetail();
+  }
+  syncHiddenBar();
+});
+$('#stage').addEventListener('pointerdown', (e) => {
+  if (!menu.hidden && !menu.contains(e.target)) closeMenu();
+});
+
+$('#nav').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-nav]');
+  if (!b) return;
+  if (b.dataset.nav === 'undo') undo();
+  else if (b.dataset.nav === 'in') scene.zoomBy(0.7);
+  else if (b.dataset.nav === 'out') scene.zoomBy(1.4);
+  else {
+    const on = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', String(on));
+    scene.setPanMode(on);
+  }
+});
+// iOS Safari: sayfanın kendisi kıstırmayla büyümesin, sahne hareketi bölünmesin
+for (const ev of ['gesturestart', 'gesturechange']) document.addEventListener(ev, (e) => e.preventDefault(), { passive: false });
+
 // ---------- Görünüm düğmeleri ve kesit ----------
 $('#stage-tools').addEventListener('click', (e) => {
   const b = e.target.closest('[data-view-preset]');
-  if (b) scene.setView(b.dataset.viewPreset);
+  if (!b) return;
+  remember();
+  scene.setView(b.dataset.viewPreset);
 });
-$('#btn-home').addEventListener('click', () => scene.home());
+$('#btn-home').addEventListener('click', () => {
+  remember();
+  scene.home();
+});
 const clipBtn = $('#btn-clip');
 const section = createSection({
   scene,
@@ -282,7 +508,7 @@ sectionBtn.addEventListener('click', () => showSection(!section.open));
 $('#section-close').addEventListener('click', () => showSection(false));
 
 // Kaydırıcı en sağda iken kesit yoktur; sola çekildikçe düzlem ilerler
-const CLIP = { x: [-80, 80], y: [-210, 120], z: [-115, 105] };
+const CLIP = { x: [-160, 160], y: [-250, 125], z: [-125, 115] };
 const AXES = ['x', 'y', 'z'];
 // Eksen düğmesi ilk açılışta kafatasının ortasına yakın bir düzlem kullanır
 const lastClip = { x: 0, y: -20, z: 20 };
@@ -445,6 +671,7 @@ function setView(view) {
   $('#sources').hidden = !isSources;
   app.classList.remove('list-open');
   $('#btn-list').style.visibility = view === 'atlas' ? 'visible' : 'hidden';
+  $('#btn-detail').style.visibility = view === 'atlas' ? 'visible' : 'hidden';
   if (isSources) return;
   main.dataset.view = view;
   $('#quiz-panel').hidden = view !== 'quiz';
@@ -469,7 +696,7 @@ renderSources($('#sources'), { items, index });
 
 const loaderEl = $('#loader');
 window.__quizBank = bank;
-const hooks = (window.__app = { ready: false, select, scene, section, motion, byId, items, setView, PRESETS, quiz, pins, get current() { return current; } });
+const hooks = (window.__app = { ready: false, select, undo, get undoDepth() { return undoStack.length; }, scene, section, motion, byId, items, setView, PRESETS, quiz, pins, relatedOf, get current() { return current; } });
 scene
   .load(({ ratio, label, finished, file }) => {
     $('#loader-bar').style.width = `${Math.round(ratio * 100)}%`;
