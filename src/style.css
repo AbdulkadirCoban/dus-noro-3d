@@ -131,6 +131,11 @@ button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px 
 #chips { position: absolute; top: 8px; left: 8px; right: 8px; display: flex; flex-wrap: nowrap; gap: 6px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 #chips::-webkit-scrollbar { display: none; }
 #chips > * { flex: none; }
+/* Taşan tarafta kenar solar: devamı olduğunu gösterir */
+#chips.more-r { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); }
+#chips.more-l { -webkit-mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to left, #000 calc(100% - 36px), transparent); }
+#chips.more-l.more-r { -webkit-mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent); }
+#chips.dragging { cursor: grabbing; }
 .chip { display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; border-radius: 22px; background: rgba(24, 32, 42, .88); border: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--muted); }
 .chip.on { color: var(--text); border-color: var(--c); }
 .chip:not(.on) .dot { opacity: .3; }

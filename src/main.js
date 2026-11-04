@@ -150,6 +150,45 @@ holeBtn.addEventListener('click', () => {
   scene.setHoleLabels(on);
 });
 $('#chips').insertBefore(holeBtn, $('#chips [data-layer="nerve"]'));
+
+// Katman düğmeleri yatay kaydırılır: dokunarak, fare tekerleğiyle veya fareyle sürükleyerek
+{
+  const row = $('#chips');
+  const edges = () => {
+    const max = row.scrollWidth - row.clientWidth;
+    row.classList.toggle('more-l', row.scrollLeft > 2);
+    row.classList.toggle('more-r', row.scrollLeft < max - 2);
+  };
+  row.addEventListener('scroll', edges, { passive: true });
+  new ResizeObserver(edges).observe(row);
+  row.addEventListener('wheel', (e) => {
+    if (row.scrollWidth <= row.clientWidth || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+    row.scrollLeft += e.deltaY;
+    e.preventDefault();
+  }, { passive: false });
+  let drag = null;
+  row.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0 || e.target.closest('input')) return;
+    drag = { x: e.clientX, left: row.scrollLeft, moved: false };
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x;
+    if (!drag.moved && Math.abs(dx) < 5) return;
+    drag.moved = true;
+    row.classList.add('dragging');
+    row.scrollLeft = drag.left - dx;
+  });
+  window.addEventListener('pointerup', () => {
+    if (drag?.moved) {
+      // Sürükleme bitince bırakılan düğmeye tıklama sayılmasın
+      const swallow = (ev) => { ev.stopPropagation(); ev.preventDefault(); };
+      row.addEventListener('click', swallow, { capture: true, once: true });
+      setTimeout(() => { row.removeEventListener('click', swallow, { capture: true }); row.classList.remove('dragging'); }, 0);
+    }
+    drag = null;
+  });
+}
 $('#labels').addEventListener('click', (e) => {
   const b = e.target.closest('.hole-label');
   if (b && main.dataset.view === 'atlas') select(b.dataset.goto);
