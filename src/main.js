@@ -285,7 +285,7 @@ function renderDetail() {
     <div class="rel-title">İlişkili yapılar</div>
     <div class="rel-key"><span><i class="dot key-sel"></i>Seçili</span><span><i class="dot key-rel"></i>İlişkili kemik/diş</span><span>Diğer ilişkililer kendi renginde</span></div>
     <div class="rel-row">${relRow(s).map((id) => `<button class="lay-${byId.get(id).layer}" data-goto="${id}"><i class="dot"></i>${esc(byId.get(id).name)}</button>`).join('')}</div>
-    <p class="ref">Kaynak notu: ${esc(s.ref)}</p>`;
+    <p class="ref">Karşılaştırmak için: ${esc(s.ref)}</p>`;
   detailEl.scrollTop = 0;
 }
 detailEl.addEventListener('click', (e) => {
